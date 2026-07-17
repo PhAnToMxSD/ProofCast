@@ -147,42 +147,47 @@ All under API base `https://txline-dev.txodds.com/api/`. All require the two aut
 
 #### Completed-match score (`GET /api/scores/snapshot/{fixtureId}` → `Scores[]`)
 
-Returns an **array of per-action score records**. Each record is the atomic, individually-provable
-unit (its `seq` is the key to fetch a Merkle proof). Shape (soccer-relevant fields):
+Returns an **array of per-action score records**. ⚠️ **The live devnet payload is PascalCase**, not
+the camelCase shown in the OpenAPI `Scores` schema — verified against real data. Each record is an
+atomic, individually-provable unit (its `Seq` is the key to fetch a Merkle proof). Real shape:
 
 ```jsonc
 {
-  "fixtureId": 17952170,
-  "seq": 941,                  // int32 ≥1 — REQUIRED for stat-validation; never 0
-  "ts": 0,                     // int64 unix — the on-chain-anchored timestamp
-  "action": "goal",           // string — the event kind
-  "id": 0, "connectionId": 0,
-  "gameState": "…",
-  "participant1IsHome": true, "participant1Id": 0, "participant2Id": 0,
-  "statusSoccerId": { /* SoccerFixtureStatus: END/FET/H2/HT/… → END = full time */ },
-  "scoreSoccer": {             // SoccerFixtureScore — the running/final score
-    "Participant1": { "Total": { "Goals": 2, "YellowCards": 1, "RedCards": 0, "Corners": 5 },
-                      "H1": {…}, "HT": {…}, "H2": {…}, "ET1": {…}, "ET2": {…}, "PE": {…}, "ETTotal": {…} },
-    "Participant2": { "Total": { "Goals": 0, … } }
+  "FixtureId": 17588234,
+  "Seq": 1088,                 // int ≥1 — REQUIRED for stat-validation; never 0
+  "Ts": 1782507564962,         // int64 ms — the on-chain-anchored timestamp
+  "Action": "status",         // "goal" | "yellow_card" | "red_card" | "substitution" |
+                               //   "var" | "penalty" | "game_finalised" | "status" | …
+  "StatusId": 5,               // on the `status` record: 5 = finished
+  "Participant1IsHome": true, "Participant1Id": 2661, "Participant2Id": 1999, "CompetitionId": 72,
+  "Data": {                    // SoccerData — event detail for THIS action (PascalCase)
+    "Minutes": 63,             //   ⚠️ often ABSENT in devnet specimen data
+    "Participant": 1,          //   which team (1 = Participant1) — also often absent
+    "PlayerId": 10094001,      //   scorer / carded player (numeric id; no name feed on devnet)
+    "GoalType": "Head", "Goal": true, "Penalty": false,
+    "YellowCard": false, "RedCard": false, "VAR": false
   },
-  "dataSoccer": {              // SoccerData — the event detail for THIS action
-    "Action": "goal",
-    "Minutes": 63,             // int32 — match minute
-    "Participant": 1,          // which team (1 = Participant1)
-    "PlayerId": 0,             // scorer / carded player
-    "PlayerInId": 0, "PlayerOutId": 0,   // substitutions
-    "Goal": true, "Penalty": false, "GoalType": {…},
-    "YellowCard": false, "RedCard": false, "VAR": false, "Corner": false,
-    "Outcome": "…", "FreeKickType": "…", "Type": "…"
-  },
-  "stats": { /* Map_ScoreStatKey — keyed by numeric statKey (see below) */ }
+  "Stats": {                   // ⭐ the workhorse — running totals keyed by numeric statKey
+    "1": 1, "2": 4,            //   P1/P2 goals  →  final score lives here
+    "3": 1, "4": 1,            //   yellows;  "5"/"6" reds;  "7"/"8" corners
+    "1001": 1, "3002": 1, …    //   period-prefixed keys (see below)
+  }
 }
 ```
 
-**Final score** = the last record's `scoreSoccer.Participant1.Total.Goals` vs
-`.Participant2.Total.Goals`. **Event timeline** = the ordered records where `dataSoccer.Goal` /
-`RedCard` / `YellowCard` / `VAR` / substitution (`PlayerOutId`) is set, each with `dataSoccer.Minutes`,
-`dataSoccer.PlayerId`, and its own `seq`.
+**How ProofCast reads a completed match** (see [src/fetch.ts](src/fetch.ts)):
+- **Completed?** the snapshot array contains a `game_finalised` action (and a `status` record with `StatusId 5`).
+- **Final score** = the `status` record's `Stats["1"]` vs `Stats["2"]`, mapped to home/away via `Participant1IsHome`.
+- **`GET /scores/snapshot/{id}` returns only the LATEST record per Action type** — good for the final
+  score, but NOT the full list of goals. The full timeline is reconstructed by scanning
+  `GET /scores/updates/{epochDay}/{hourOfDay}/{interval}?fixtureId=…` across the match window.
+  (`GET /scores/updates/{fixtureId}` is a live SSE stream — useless for finished games.)
+- **Events** are extracted by walking `Stats` counter increments (a goal = `Stats[goalKey]` going up at
+  some `Seq`). This is **decrement-aware**: a VAR-disallowed goal (counter N→N+1→N) is popped, so the
+  event list always reconciles to the final score — no fabricated goals.
+- **Proof coordinate** for any event = `{ fixtureId, Seq, statKey }`. Verified live:
+  `GET /scores/stat-validation?fixtureId=…&seq=…&statKey=…` returns `statToProve` +
+  `mainTreeProof`/`subTreeProof`/`statProof`.
 
 #### Soccer stat keys (Merkle-provable statistics)
 
