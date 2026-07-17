@@ -1,0 +1,16 @@
+node_modules/
+.env
+.env.local
+
+# Wallet secret keys — NEVER commit
+.keys/
+*.keypair.json
+
+# Earned credentials + raw feed dumps (committed briefs/recaps/audio come later, per phase)
+cache/auth.json
+cache/raw/*
+!cache/raw/.gitkeep
+
+# OS / editor
+.DS_Store
+*.log
