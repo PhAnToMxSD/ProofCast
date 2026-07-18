@@ -156,10 +156,11 @@ type MatchBrief = {
   finalScore: { home: number; away: number };
   events: Array<{
     id: string;              // stable ID the LLM will cite
-    minute: number;
+    minute?: number;         // real match minute from the record Clock (floor(sec/60)+1); on-chain-anchored
     type: "goal" | "own_goal" | "penalty" | "yellow" | "red" | "sub" | "var";
     team: string;
-    player?: string;
+    scorer?: string;         // web2-attributed name (see Phase 4.5); NOT from the chain
+    nameSource?: string;     // provenance of `scorer`, e.g. "FIFA / ESPN"
     detail?: string;
     // Proof coordinates — there is NO per-event txSig in the feed. These fetch a
     // Merkle proof (stat-validation) and drive validateStatV2; the resulting on-chain
@@ -177,6 +178,43 @@ type MatchBrief = {
 Keep the brief under ~1,500 tokens. Write to `cache/briefs/<matchId>.json` (committed to git — this is our demo fallback).
 
 **Checkpoint:** Briefs exist for all cached matches and read cleanly to a human.
+
+---
+
+## 6.5. Phase 4.5 — Player names & minutes (web2 enrichment, TxLINE-verified)
+
+*Added after the first end-to-end pass revealed the recaps read flat — "France scored, France
+scored" — with no scorers and no minutes. The devnet World Cup fixtures turned out to be **real**
+2026 World Cup matches (verified: Norway 1–4 France, Portugal 5–0 Uzbekistan), so real match reports
+exist to draw names from. Implemented for Norway–France first.*
+
+**Two facts, two trust tiers — never blurred:**
+- **Minute, team, and that-a-goal-happened** are on-chain-verified. The minute is derived from the
+  score record's running match `Clock`: `minute = floor(Clock.Seconds/60)+1`. It rides on the same
+  record whose `Seq`/`Stats` we already prove, and reproduces the officially announced minute exactly.
+  (This restores the `minute` the original plan wanted — the feed does carry it, just in `Clock`, not
+  `Data.Minutes`.) Extracted in `src/fetch.ts`.
+- **The scorer's name** is *not* in the feed. It comes from a public match report (FIFA/ESPN),
+  authored once into a committed `cache/scorers/<matchId>.json`, and is tagged with its `nameSource`.
+
+**Composition (`src/scorers.ts`, run inside `03-build-brief`, offline — no API):** align each named
+goal to a verified goal event by **(team, goal order)** — the *k*-th verified goal for a team is
+credited to the *k*-th scorer listed for that team. The minute is a **±2 cross-check only**, never the
+alignment key, so a report that's a minute off can't misattribute a goal. `composeScorers` **throws**
+if the report's per-team goal count disagrees with the chain (a real integrity signal). Own goals /
+penalties carry a flag; card-taker names stay unavailable (refer to the team).
+
+**Grounding stays honest:** the brief's `dataNotes` now say, per match, that the LLM may state a
+minute / name a scorer **only** for an event that carries one — never invent. The website receipts
+label each goal *"🔒 goal, team & minute verified on-chain · scorer name via <source>."* A name is
+either sourced or absent; nothing is fabricated.
+
+**To enrich a match:** author `cache/scorers/<id>.json` → `npm run fetch -- --match <id> --force`
+→ `npm run brief -- --match <id>` → `npm run text -- --match <id> --all-styles --force` →
+(optional) `npm run audio -- --match <id> --style <s> --force --confirm` → `cd web && npm run sync`.
+
+**Checkpoint:** Norway–France recaps name Dembélé's 7'/20'/32' hat-trick, Aasgaard's 21', and Doué's
+90+4', each goal still resolving to its on-chain Merkle proof.
 
 ---
 
@@ -279,6 +317,7 @@ Work strictly top to bottom. Do not start a phase until the previous checkpoint 
 5. Implement `src/txline.ts` client with 401-refresh handling.
 6. Implement `02-fetch-match.ts`; cache 3–5 completed matches raw, **with proof references**.
 7. Implement `03-build-brief.ts` + zod schema + `oddsHighlights` derivation; commit briefs.
+7b. **(Phase 4.5)** Extract minutes from the record `Clock`; author `cache/scorers/<id>.json` from a web2 report and compose scorer names onto verified goals via `src/scorers.ts`; re-fetch + rebuild brief. Norway–France done; roll out to the other real WC matches.
 8. Audition 2–3 pinned OpenRouter free models on one brief; pick and hardcode primary + fallback.
 9. Implement `src/styles.ts` (3 personas) and `04-generate-text.ts` with citation parsing + fact validation.
 10. Generate 3 matches × 3 styles; human reviews; commit the good ones.

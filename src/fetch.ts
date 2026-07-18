@@ -78,6 +78,18 @@ export type RawMatch = {
 
 const isNum = (v: any): v is number => typeof v === "number" && Number.isFinite(v);
 
+/**
+ * Real match minute from the record's running match clock. Football minutes are
+ * 1-indexed (0:00–0:59 = the 1st minute), so it's floor(seconds/60)+1. This
+ * reproduces the officially announced minute exactly on the matches we've checked
+ * (e.g. a 5591s goal → 94', i.e. 90+4). The clock is on-chain-anchored via the
+ * same record whose Seq/Stats we prove, so the minute rides on the same receipt.
+ */
+function minuteFromClock(r: ScoreRecord): number | undefined {
+  const secs = r?.Clock?.Seconds;
+  return isNum(secs) ? Math.floor(secs / 60) + 1 : undefined;
+}
+
 function teamNames(rec: ScoreRecord, p1: string, p2: string) {
   return rec.Participant1IsHome ? { home: p1, away: p2 } : { home: p2, away: p1 };
 }
@@ -219,7 +231,9 @@ function extractKeyEvents(records: ScoreRecord[], p1IsHome: boolean): KeyEvent[]
             homeScore: 0, // filled in after reconciliation
             awayScore: 0,
             playerId: isNum(r.Data?.PlayerId) ? r.Data!.PlayerId : undefined,
-            minute: isNum(r.Data?.Minutes) ? r.Data!.Minutes : undefined,
+            // Prefer an explicit Data.Minutes if the feed ever carries one; else
+            // derive from the running match clock (the usual devnet case).
+            minute: isNum(r.Data?.Minutes) ? r.Data!.Minutes : minuteFromClock(r),
             detail: typeof r.Data?.GoalType === "string" ? r.Data!.GoalType : undefined,
           });
         }

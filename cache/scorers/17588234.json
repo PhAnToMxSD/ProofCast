@@ -1,0 +1,16 @@
+{
+  "matchId": "17588234",
+  "source": {
+    "name": "FIFA / ESPN",
+    "url": "https://www.espn.com/soccer/match/_/gameId/760475/france-norway",
+    "fetchedAt": "2026-07-18"
+  },
+  "note": "Norway 1-4 France, World Cup 2026 group stage (26 Jun 2026). Goals listed chronologically; team = side the goal counts for. Names via public match reports, aligned to TxLINE's verified goal events by team + order. TxLINE's on-chain clock even resolved a web2 disagreement on the Norway goal minute (some outlets said ~34', the chain pins it at 21', right after France's second).",
+  "goals": [
+    { "team": "away", "scorer": "Ousmane Dembélé", "officialMinute": "7'" },
+    { "team": "away", "scorer": "Ousmane Dembélé", "officialMinute": "20'" },
+    { "team": "home", "scorer": "Thelo Aasgaard", "officialMinute": "21'" },
+    { "team": "away", "scorer": "Ousmane Dembélé", "officialMinute": "32'" },
+    { "team": "away", "scorer": "Désiré Doué", "officialMinute": "90+4'" }
+  ]
+}

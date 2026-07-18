@@ -8,6 +8,7 @@ import { PublicKey } from "@solana/web3.js";
 import * as cfg from "./config.js";
 import type { RawMatch, KeyEvent } from "./fetch.js";
 import { STAT_KEY } from "./fetch.js";
+import { loadScorers, composeScorers } from "./scorers.js";
 import { MatchBriefSchema, type MatchBrief, type BriefEvent, type Proof } from "./types.js";
 
 const EXPLORER = "https://explorer.solana.com";
@@ -118,12 +119,29 @@ function toBriefEvent(e: KeyEvent, idx: number, raw: RawMatch): BriefEvent {
 }
 
 /** Human-readable, honest notes about what the source data does and doesn't contain. */
-function buildDataNotes(raw: RawMatch, events: KeyEvent[]): string[] {
+function buildDataNotes(raw: RawMatch, events: BriefEvent[], nameSource?: string): string[] {
   const notes: string[] = [];
   const anyMinutes = events.some((e) => typeof e.minute === "number");
-  const anyPlayers = events.some((e) => typeof e.playerId === "number");
-  if (!anyMinutes) notes.push("Event minutes are not available in this match's data — do not state or invent minutes.");
-  if (!anyPlayers) notes.push("Scorer/player names are not available — refer to teams, not named players.");
+  const goals = events.filter((e) => e.type === "goal");
+  const namedGoals = goals.filter((e) => e.scorer);
+
+  if (anyMinutes) {
+    notes.push(
+      "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\")."
+    );
+  } else {
+    notes.push("Event minutes are not available in this match's data — do not state or invent minutes.");
+  }
+
+  if (namedGoals.length > 0) {
+    notes.push(
+      `Scorer names on goal events are sourced from ${nameSource ?? "a public match report"} and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a "scorer" field (never invent one for an event that lacks it).`
+    );
+    notes.push("Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.");
+  } else {
+    notes.push("Scorer/player names are not available — refer to teams, not named players.");
+  }
+
   if (raw.odds.length === 0) notes.push("No odds data is available for this match — do not reference betting odds or market swings.");
   notes.push("Every listed event is cryptographically verified on-chain; there are no other events.");
   return notes;
@@ -133,7 +151,19 @@ export function buildBrief(raw: RawMatch): MatchBrief {
   const p1IsHome = raw.participant1IsHome;
   const stats = raw.final.stats ?? {};
 
-  const events = raw.keyEvents.map((e, i) => toBriefEvent(e, i, raw));
+  let events = raw.keyEvents.map((e, i) => toBriefEvent(e, i, raw));
+
+  // Web2 scorer enrichment: if a committed scorers file exists for this match,
+  // align its named goals to our verified goal events (offline — no API call).
+  // The event stays on-chain-verified; only the scorer NAME comes from web2.
+  const scorers = loadScorers(String(raw.fixtureId));
+  let nameSource: string | undefined;
+  if (scorers) {
+    const composed = composeScorers(events, scorers);
+    events = composed.events;
+    nameSource = scorers.source.name;
+    for (const w of composed.warnings) console.warn(`  ⚠ ${w}`);
+  }
 
   // Final-score proof: the home-goals statKey at the final `status` sequence.
   const homeGoalKey = p1IsHome ? STAT_KEY.homeGoals : STAT_KEY.awayGoals;
@@ -169,7 +199,7 @@ export function buildBrief(raw: RawMatch): MatchBrief {
     },
     oddsTimeline,
     oddsHighlights,
-    dataNotes: buildDataNotes(raw, raw.keyEvents),
+    dataNotes: buildDataNotes(raw, events, nameSource),
   };
 
   // The gate: validate before returning. Throws on any inconsistency.

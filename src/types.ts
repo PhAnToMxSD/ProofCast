@@ -41,8 +41,14 @@ export const BriefEventSchema = z.object({
   teamName: z.string(),
   homeScore: z.number().int(), // running score AFTER this event
   awayScore: z.number().int(),
-  minute: z.number().int().optional(), // omitted when the feed doesn't carry it (devnet)
+  minute: z.number().int().optional(), // TxLINE match clock → floor(sec/60)+1; on-chain-anchored
   playerId: z.number().int().optional(), // numeric id only; no name feed on devnet
+  // Scorer/actor name. NOT from the chain — resolved from a web2 match report and
+  // aligned to this verified event by (team, goal order). `nameSource` records the
+  // provenance so the UI can show "name via <source>" distinctly from the on-chain
+  // proof of the event itself. Present only when a scorers file supplied it.
+  scorer: z.string().optional(),
+  nameSource: z.string().optional(),
   detail: z.string().optional(), // e.g. GoalType "Head"
   proof: ProofSchema,
 });

@@ -3,7 +3,7 @@
   "style": "analyst",
   "styleLabel": "Deadpan Stats Nerd",
   "model": "google/gemma-4-26b-a4b-it:free",
-  "text": "On 2026-06-26, during the World Cup, Norway faced France. It was a match defined by a certain lack of defensive cohesion, particularly from the Norwegian side. France established control at the opening moment, finding the net with a shot to make it 0-1. Moments later, Norway saw a player cautioned with a yellow card, a statistical precursor to the defensive struggles that followed.\n\nThe momentum did not shift in Norway's favor for long. Soon after, France doubled their lead with another shot, moving the score to 0-2. Norway attempted to respond, and moments later, they managed to find a goal via a shot to make it 1-2. It was a brief respite, however, as the clinical nature of the French attack resurfaced. Soon after, France struck again with a shot, restoring a two-goal cushion at 1-3.\n\nThe game continued with a predictable pattern of efficiency for the visitors. Much later, France received a yellow card. A while later, France added a fourth goal, this time via a header, to extend their lead to 1-4.\n\nWhen looking at the underlying numbers, the discrepancy in efficiency was evident. France recorded 5 corners [stats.corners.away] while Norway managed 4 [stats.corners.home]. The discipline was relatively standard, with each side picking up exactly 1 yellow card. The final scoreline stood at 1-4. It was a match of high-frequency scoring and low-frequency resistance.",
+  "text": "In the World Cup on 26 June 2026, Norway met France. The match was characterized by a significant disparity in efficiency, particularly regarding France's ability to find the net early on.\n\nThe scoring opened in the 7th minute when Ousmane Dembélé put France ahead 0-1. Norway responded with a yellow card for the opposition in the 10th minute, but they were unable to arrest the momentum. In the 20th minute, Ousmane Dembélé scored again with a shot, extending the lead to 0-2. Norway managed to pull one back moments later, with Thelo Aasgaard finding the net via a shot to make it 1-2 in the 21st minute. \n\nHowever, the advantage was short-lived. In the 32nd minute, Ousmane Dembélé completed his hat-trick with another shot, making the score 1-3. This established a significant deficit for Norway heading into the break, with the halftime score sitting at 1-3.\n\nThe second half saw a lack of clinical finishing from both sides, though France continued to control the tempo. A yellow card was issued to France in the 74th minute. France eventually added a final goal in stoppage time, with Désiré Doué scoring a header to make it 1-4. \n\nThe statistical profile of the match reflects the dominance of the away side. France finished the match with 5 corners compared to Norway's 4 corners. There were a total of 2 yellow cards issued during the match, one for each side. The final score was 1-4.",
   "citations": [
     {
       "marker": "ev_1",
@@ -125,6 +125,6 @@
       }
     }
   ],
-  "wordCount": 226,
-  "generatedAt": "2026-07-18T11:20:34.412Z"
+  "wordCount": 241,
+  "generatedAt": "2026-07-18T13:09:57.274Z"
 }

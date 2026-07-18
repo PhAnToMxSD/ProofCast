@@ -47,6 +47,7 @@ function slimBrief(brief: MatchBrief) {
       scoreAfter: `${e.homeScore}-${e.awayScore}`,
       whenRelative: whenRelative(gap),
       ...(e.minute != null ? { minute: e.minute } : {}),
+      ...(e.scorer ? { scorer: e.scorer } : {}),
       ...(e.detail ? { detail: e.detail } : {}),
     };
   });
@@ -75,7 +76,9 @@ export function buildMessages(brief: MatchBrief, style: Style, favouriteTeam?: s
     `  1. OPEN by naming the competition (${brief.competition}), the date (${spokenDate(brief.date)}), and the`,
     `     fixture ${brief.homeTeam} vs ${brief.awayTeam}. Do not invent a venue, city, stage, round, or kickoff time.`,
     `  2. Walk through the goals in order (use "scoreAfter" for the running scoreline and "detail"`,
-    `     for the method when present). Use "whenRelative" only for pacing words, never as a minute.`,
+    `     for the method when present). When an event has a "minute", state it as the real match`,
+    `     minute; when it has a "scorer", credit them by name. For any event WITHOUT a minute, use`,
+    `     "whenRelative" for pacing words only — never as a minute — and never guess a scorer.`,
     ...(brief.halfTimeScore
       ? [`     Note the half-time score (${brief.halfTimeScore.home}-${brief.halfTimeScore.away}, home-away) as a natural turning point in the story.`]
       : []),

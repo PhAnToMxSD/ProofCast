@@ -161,12 +161,15 @@ atomic, individually-provable unit (its `Seq` is the key to fetch a Merkle proof
   "StatusId": 5,               // on the `status` record: 5 = finished
   "Participant1IsHome": true, "Participant1Id": 2661, "Participant2Id": 1999, "CompetitionId": 72,
   "Data": {                    // SoccerData — event detail for THIS action (PascalCase)
-    "Minutes": 63,             //   ⚠️ often ABSENT in devnet specimen data
+    "Minutes": 63,             //   ⚠️ usually ABSENT — we derive the minute from the record's
+                               //     running match Clock instead (see "Minutes & scorer names" below)
     "Participant": 1,          //   which team (1 = Participant1) — also often absent
-    "PlayerId": 10094001,      //   scorer / carded player (numeric id; no name feed on devnet)
+    "PlayerId": 10094001,      //   carded/goal player (numeric id; NO name feed on devnet →
+                               //     scorer names come from a web2 report, see below)
     "GoalType": "Head", "Goal": true, "Penalty": false,
     "YellowCard": false, "RedCard": false, "VAR": false
   },
+  "Clock": { "Running": true, "Seconds": 3742 },   // ⭐ match-clock seconds → the real minute
   "Stats": {                   // ⭐ the workhorse — running totals keyed by numeric statKey
     "1": 1, "2": 4,            //   P1/P2 goals  →  final score lives here
     "3": 1, "4": 1,            //   yellows;  "5"/"6" reds;  "7"/"8" corners
@@ -252,6 +255,43 @@ scheme. The chain of trust:
 
 ---
 
+### Minutes & scorer names — verified skeleton + web2 attribution ⭐
+
+The devnet feed proves **that** a goal happened, for **which** team, at **what** minute — but it
+does **not** carry the scorer's name (`Data.PlayerId` is a bare number with no name feed). ProofCast
+fills that last gap without weakening the "every fact has a receipt" promise, by keeping two clearly
+separated trust tiers:
+
+| Fact | Source | Trust |
+|---|---|---|
+| goal happened · which team · **minute** | **TxLINE** `{fixtureId, seq, statKey}` + record `Clock` | 🔒 on-chain Merkle proof |
+| **who** scored it (name) | web2 match report (FIFA/ESPN) | 📎 cited, cross-checked |
+
+- **Minutes** are derived from each record's running match clock: `minute = floor(Clock.Seconds/60)+1`
+  (football minutes are 1-indexed). This rides on the *same* record whose `Seq`/`Stats` we prove, so
+  it's on-chain-anchored — and it reproduces the officially announced minute exactly (verified on
+  Norway 1–4 France: 7', 20', 21', 32', 90+4'). See `minuteFromClock` in [src/fetch.ts](src/fetch.ts).
+- **Scorer names** are authored once from a public match report into a committed
+  `cache/scorers/<matchId>.json`, then aligned to the verified goal events in
+  [src/scorers.ts](src/scorers.ts). The alignment key is **(team, goal order)** — the *k*-th verified
+  goal for a team is credited to the *k*-th scorer listed for that team. The minute is only a **±2
+  cross-check**, never the alignment key, so a source that's a minute off can't misattribute a goal;
+  `composeScorers` **throws** if the report's goal count for a team disagrees with the chain.
+- **Provenance is preserved end-to-end.** Enriched events carry `scorer` + `nameSource`; the brief's
+  `dataNotes` tell the LLM it may name a scorer *only* for an event that has one (never invent one);
+  the website receipts label each goal *"🔒 goal, team & minute verified on-chain · scorer name via
+  FIFA / ESPN."* Nothing is fabricated — a name is either sourced or absent.
+
+Neat side effect: because the on-chain clock is the source of truth for *when*, it can **catch a web2
+error**. On Norway–France, some outlets timed Norway's goal at ~34'; the chain pins it at 21' (right
+after France's second), and that's what the recap says.
+
+**Enrich a new match:** author `cache/scorers/<id>.json` → `npm run fetch -- --match <id> --force`
+(captures minutes) → `npm run brief -- --match <id>` (composes names) → `npm run text -- --match <id>
+--all-styles --force` → (optional) `npm run audio -- …` → `cd web && npm run sync`.
+
+---
+
 ## Phase 6 — Audio narration (ElevenLabs) ⚠️ quota-critical
 
 Free tier is **10,000 characters/month for the whole account**. Recaps run ~1,300–1,800 chars,
@@ -272,6 +312,42 @@ npm run audio -- --match 17588234 --style hype --confirm   # actually synthesize
 
 Voice per persona (stock voices, no cloning on free tier): `hype` → Antoni, `analyst` → Adam,
 `bedtime`/`custom` → Rachel. Override with `--voice <id>`. Output: `cache/audio/<id>-<style>.mp3`.
+
+## Phase 7 — Website (`/web`)
+
+A single-page Next.js app that wraps the already-working pipeline: pick a match → pick a
+commentator persona → the recap plays on a night-stadium scoreboard with both nations' flags,
+an audio-reactive visualizer, the transcript, and an **on-chain receipt for every cited fact**
+(Solana Explorer + TxLINE Merkle-proof links).
+
+```bash
+cd web
+cp ../.env .env.local     # server-side keys for the live-generation path (never shipped to the browser)
+npm install
+npm run dev               # http://localhost:3000  (predev syncs cache/ + src/ into the app)
+```
+
+**How it wraps the pipeline** (`web/scripts/sync.mjs`, runs automatically before dev/build):
+
+- `cache/briefs` + `cache/recaps` → embedded into the server bundle (`web/lib/generated/data.json`)
+- `cache/audio/*.mp3` → `web/public/audio/` (static)
+- `src/{types,styles,llm,recap}.ts` → `web/lib/pipeline/` (verbatim copies; edit the originals)
+
+Re-run any pipeline phase, then `npm run sync` (or just dev/build) to pick up new assets.
+
+**Backend:** one serverless route, `POST /api/recap { matchId, style, favouriteTeam?, customPersona? }`.
+
+- Preset style with no personalization → served instantly from the committed cache, with the
+  ElevenLabs mp3 URL when one exists.
+- Custom persona or favourite team → runs the real Phase 5 pipeline **live, server-side**
+  (OpenRouter key stays in `.env.local`), including the full grounding validation.
+- The website **never spends ElevenLabs quota**: combinations without a pre-generated mp3 are
+  narrated by the browser's SpeechSynthesis voice, clearly labeled as such.
+
+**Deploy (Vercel):** set the project Root Directory to `web/` with "include files outside root"
+enabled (the build's sync step reads `../cache` and `../src`), and set `OPENROUTER_API_KEY` in
+the project env for live generation. Committed briefs/recaps/audio make the demo path work even
+with no keys configured.
 
 ## Attribution
 
