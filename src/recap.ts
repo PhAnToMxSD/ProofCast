@@ -9,6 +9,11 @@ import type { MatchBrief, Proof } from "./types.js";
 import { resolveStyle, systemPrompt, type Style, type StyleKey } from "./styles.js";
 import { generate, CANDIDATE_MODELS, QuotaError, type ChatMessage } from "./llm.js";
 
+// Hard length window enforced on every recap. The prompt targets the upper end;
+// these are the reject bounds — anything outside is rotated/expanded, never kept.
+export const MIN_WORDS = 300;
+export const MAX_WORDS = 400;
+
 // ISO date → a form TTS reads naturally ("2026-06-26" → "26 June 2026").
 function spokenDate(iso: string): string {
   const d = new Date(`${iso}T00:00:00Z`);
@@ -73,7 +78,10 @@ export function buildMessages(brief: MatchBrief, style: Style, favouriteTeam?: s
     JSON.stringify(brief_, null, 2),
     "```",
     "",
-    `Write the match recap in your persona voice, 300-400 words. Structure it as:`,
+    `Write the match recap in your persona voice, a rich ${MIN_WORDS}-${MAX_WORDS} words — aim for the`,
+    `upper end (around 360-390). Give it texture and colour: atmosphere, momentum, tension, the weight`,
+    `of each moment — but colour only, never invented facts. Do NOT submit anything under ${MIN_WORDS} words.`,
+    `Structure it as:`,
     `  1. OPEN by naming the competition (${brief.competition}), the date (${spokenDate(brief.date)}), and the`,
     `     fixture ${brief.homeTeam} vs ${brief.awayTeam}. Do not invent a venue, city, stage, round, or kickoff time.`,
     `  2. Walk through the goals in order (use "scoreAfter" for the running scoreline and "detail"`,
@@ -195,8 +203,8 @@ function assertLooksLikeProse(rawText: string): void {
   const hit = LEAK_MARKERS.find((m) => hay.includes(m));
   if (hit) throw new Error(`output looks like leaked reasoning (matched "${hit}") — not a recap`);
   const words = stripTags(rawText).split(/\s+/).filter(Boolean).length;
-  if (words > 480) throw new Error(`output is ${words} words (target 300-400) — likely rambling/reasoning`);
-  if (words < 120) throw new Error(`output is only ${words} words — too short to be a real recap`);
+  if (words > MAX_WORDS) throw new Error(`output is ${words} words (max ${MAX_WORDS}) — likely rambling/reasoning`);
+  if (words < MIN_WORDS) throw new Error(`output is only ${words} words (min ${MIN_WORDS}) — too short to be a real recap`);
 }
 
 /**
@@ -250,9 +258,31 @@ export async function generateRecap(
         model,
         temperature: opts.temperature,
       });
-      return finalizeRecap(rawText, brief, style, model, {
-        favouriteTeam: opts.favouriteTeam,
-      });
+      try {
+        return finalizeRecap(rawText, brief, style, model, {
+          favouriteTeam: opts.favouriteTeam,
+        });
+      } catch (e) {
+        // One same-model expansion pass when the ONLY failure is under-length —
+        // cheaper and more faithful than rotating to a different writer.
+        if (!new RegExp(`min ${MIN_WORDS}`).test((e as Error).message)) throw e;
+        console.warn(`  · ${model}: ${(e as Error).message} — asking it to expand…`);
+        const expandMessages: ChatMessage[] = [
+          ...messages,
+          { role: "assistant", content: rawText },
+          {
+            role: "user",
+            content:
+              `That draft is too short. Rewrite it longer — ${MIN_WORDS}-${MAX_WORDS} words, ` +
+              `aiming for ~370 — adding descriptive colour and texture only. Invent no new facts, ` +
+              `keep every [ev_N] and [final] citation, and keep the exact final score.`,
+          },
+        ];
+        const retry = await generate(expandMessages, { model, temperature: opts.temperature });
+        return finalizeRecap(retry.text, brief, style, model, {
+          favouriteTeam: opts.favouriteTeam,
+        });
+      }
     } catch (err) {
       lastErr = err as Error;
       if (chain.length > 1) console.warn(`  · ${model}: ${lastErr.message} — rotating…`);
