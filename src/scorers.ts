@@ -31,6 +31,17 @@ const ScoredGoalSchema = z.object({
 });
 export type ScoredGoal = z.infer<typeof ScoredGoalSchema>;
 
+// One booking as reported by the web2 source, in chronological order. `team` is
+// the side the booked player belongs to; `card` distinguishes yellow from red so
+// a name can never be aligned to the wrong card type.
+const BookingSchema = z.object({
+  team: z.enum(["home", "away"]),
+  player: z.string().min(1),
+  card: z.enum(["yellow", "red"]),
+  officialMinute: z.string().optional(), // as printed — cross-check only
+});
+export type Booking = z.infer<typeof BookingSchema>;
+
 export const ScorersFileSchema = z.object({
   matchId: z.string(),
   source: z.object({
@@ -39,6 +50,7 @@ export const ScorersFileSchema = z.object({
     fetchedAt: z.string().optional(),
   }),
   goals: z.array(ScoredGoalSchema), // chronological
+  cards: z.array(BookingSchema).optional(), // chronological; omit when unknown
   note: z.string().optional(),
 });
 export type ScorersFile = z.infer<typeof ScorersFileSchema>;
@@ -107,6 +119,68 @@ export function composeScorers(events: BriefEvent[], scorers: ScorersFile): Comp
       nameSource: scorers.source.name,
       ...(details ? { detail: details } : {}),
     };
+  });
+
+  return { events: out, warnings };
+}
+
+/**
+ * Attach booked-player names to card events, mirroring composeScorers but keyed
+ * by (team, card type): the k-th verified yellow for a team maps to the k-th
+ * listed yellow for that team, and likewise for reds — so a yellow name can never
+ * land on a red event. Returns events unchanged if the file carries no `cards`.
+ * Throws if the source's per-(team, card) count disagrees with the verified count.
+ */
+export function composeCards(events: BriefEvent[], scorers: ScorersFile): ComposeResult {
+  const warnings: string[] = [];
+  const MINUTE_TOLERANCE = 2;
+  const bookings = scorers.cards;
+  if (!bookings || bookings.length === 0) return { events, warnings };
+
+  // FIFO queues keyed by "<team>:<card>", in the order the source listed them.
+  const queues: Record<string, Booking[]> = {};
+  const key = (team: "home" | "away", card: "yellow" | "red") => `${team}:${card}`;
+  for (const b of bookings) (queues[key(b.team, b.card)] ??= []).push(b);
+
+  // Verified card counts per (team, type), from the chain-backed events.
+  const verified: Record<string, number> = {};
+  for (const e of events) {
+    if (e.type === "yellow" || e.type === "red") {
+      const k = key(e.team, e.type);
+      verified[k] = (verified[k] ?? 0) + 1;
+    }
+  }
+
+  // Each (team, card type) bucket must be EITHER fully accounted for (listed ==
+  // verified) OR omitted entirely (listed == 0). We never map a partially-listed
+  // bucket — with, say, two yellows for a side and only one name, order-alignment
+  // could credit the wrong player. Omitted buckets simply stay team-only. This is
+  // what lets us name the red cards while leaving the yellows unattributed.
+  const allKeys = new Set([...Object.keys(queues), ...Object.keys(verified)]);
+  for (const k of allKeys) {
+    const listed = queues[k]?.length ?? 0;
+    const seen = verified[k] ?? 0;
+    if (listed !== 0 && listed !== seen) {
+      const [team, card] = k.split(":");
+      throw new Error(
+        `scorers file for ${scorers.matchId}: source lists ${listed} ${team} ${card} card(s) ` +
+          `but TxLINE verifies ${seen} — a bucket must be fully listed or omitted, not partial.`
+      );
+    }
+  }
+
+  const out = events.map((e) => {
+    if (e.type !== "yellow" && e.type !== "red") return e;
+    const b = queues[key(e.team, e.type)]?.shift();
+    if (!b) return e; // count-checked above, so unreachable — belt and braces
+    const official = parseOfficialMinute(b.officialMinute);
+    if (official != null && e.minute != null && Math.abs(official - e.minute) > MINUTE_TOLERANCE) {
+      warnings.push(
+        `${e.id}: source minute ${b.officialMinute} vs TxLINE ${e.minute}' ` +
+          `(>${MINUTE_TOLERANCE} apart) — kept the verified minute, flagging the name as lower-confidence.`
+      );
+    }
+    return { ...e, player: b.player, nameSource: scorers.source.name };
   });
 
   return { events: out, warnings };

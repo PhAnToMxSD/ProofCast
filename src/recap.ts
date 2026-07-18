@@ -48,6 +48,7 @@ function slimBrief(brief: MatchBrief) {
       whenRelative: whenRelative(gap),
       ...(e.minute != null ? { minute: e.minute } : {}),
       ...(e.scorer ? { scorer: e.scorer } : {}),
+      ...(e.player ? { player: e.player } : {}),
       ...(e.detail ? { detail: e.detail } : {}),
     };
   });

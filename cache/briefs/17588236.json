@@ -18,6 +18,10 @@
     "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
     "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588236&seq=999&statKey=1"
   },
+  "halfTimeScore": {
+    "home": 0,
+    "away": 2
+  },
   "events": [
     {
       "id": "ev_1",
@@ -27,7 +31,9 @@
       "teamName": "Netherlands",
       "homeScore": 0,
       "awayScore": 1,
-      "detail": "Own",
+      "scorer": "Ellyes Skhiri",
+      "nameSource": "FIFA / ESPN",
+      "detail": "Own · Own goal",
       "proof": {
         "fixtureId": 17588236,
         "seq": 48,
@@ -47,6 +53,8 @@
       "teamName": "Netherlands",
       "homeScore": 0,
       "awayScore": 2,
+      "scorer": "Brian Brobbey",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588236,
@@ -67,6 +75,8 @@
       "teamName": "Tunisia",
       "homeScore": 1,
       "awayScore": 2,
+      "scorer": "Hazem Mastouri",
+      "nameSource": "FIFA / ESPN",
       "proof": {
         "fixtureId": 17588236,
         "seq": 632,
@@ -86,6 +96,8 @@
       "teamName": "Netherlands",
       "homeScore": 1,
       "awayScore": 3,
+      "scorer": "Jan Paul van Hecke",
+      "nameSource": "FIFA / ESPN",
       "detail": "Head",
       "proof": {
         "fixtureId": 17588236,
@@ -115,13 +127,23 @@
     "corners": {
       "home": 4,
       "away": 6
+    },
+    "cornersByHalf": {
+      "first": {
+        "home": 1,
+        "away": 3
+      },
+      "second": {
+        "home": 3,
+        "away": 3
+      }
     }
   },
   "oddsTimeline": [],
   "oddsHighlights": [],
   "dataNotes": [
     "Event minutes are not available in this match's data — do not state or invent minutes.",
-    "Scorer/player names are not available — refer to teams, not named players.",
+    "Scorer names on goal events are sourced from FIFA / ESPN and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
     "No odds data is available for this match — do not reference betting odds or market swings.",
     "Every listed event is cryptographically verified on-chain; there are no other events."
   ]

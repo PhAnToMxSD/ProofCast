@@ -1,0 +1,21 @@
+{
+  "matchId": "17588238",
+  "source": {
+    "name": "FIFA / ESPN",
+    "url": "https://www.espn.com/soccer/report/_/gameId/760440",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Canada 6-0 Qatar, World Cup 2026 group stage (18 Jun 2026, Vancouver) — Canada's first-ever men's World Cup win. All six goals count for Canada (home), including Manai's own goal. Both red cards were shown to Qatar (Al Amin, VAR-upgraded ~33'; Madibo, 53'). The two yellow cards' recipients were not reliably reported, so they are left team-only (omitted from the cards array). Names via public match reports, aligned to TxLINE's verified events by team + order.",
+  "goals": [
+    { "team": "home", "scorer": "Cyle Larin", "officialMinute": "16'" },
+    { "team": "home", "scorer": "Jonathan David", "officialMinute": "29'" },
+    { "team": "home", "scorer": "Jonathan David", "officialMinute": "45+3'" },
+    { "team": "home", "scorer": "Nathan Saliba", "officialMinute": "64'" },
+    { "team": "home", "scorer": "Mohamed Manai", "officialMinute": "75'", "ownGoal": true },
+    { "team": "home", "scorer": "Jonathan David", "officialMinute": "90+2'" }
+  ],
+  "cards": [
+    { "team": "away", "player": "Homam Al Amin", "card": "red", "officialMinute": "33'" },
+    { "team": "away", "player": "Assim Madibo", "card": "red", "officialMinute": "53'" }
+  ]
+}

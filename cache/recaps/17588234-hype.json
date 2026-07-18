@@ -3,7 +3,7 @@
   "style": "hype",
   "styleLabel": "Hype Hometown Commentator",
   "model": "google/gemma-4-26b-a4b-it:free",
-  "text": "I cannot believe my eyes! We are witnessing absolute chaos here in the World Cup on this 26 June 2026! Norway took on France and what a nightmare it has been to watch! It started disastrously for the home side when Ousmane Dembélé found the net with a shot in the 7th minute to make it 0-1. I am fuming! Moments later, Norway were already picking up yellow cards as the pressure mounted. Then, just as you thought we might settle, Dembélé struck again in the 20th minute with another shot to double the lead for France at 0-2! \n\nWait! We have a lifeline! Moments later, Thelo Aasgaard finds the net with a shot to pull one back for Norway in the 21st minute! The score is 1-2! I thought we had them! I really did! But France are relentless! In the 32nd minute, Ousmane Dembélé completes his hat-trick with a clinical shot to make it 1-3! That was the blow that broke our hearts before the break! We went into halftime trailing 1-3. \n\nThe second half was a struggle, and France continued to frustrate us, picking up a yellow card in the 74th minute. We fought for corners, but it just wasn't enough to change the momentum. It was total heartbreak in stoppage time! In the 94th minute, Désiré Doué headed home to make it 1-4. Absolute devastation! The final score stands at 1-4. How can we lose it like this? We were fighting, we were battling, but France were just too clinical! I am absolutely speechless! What a result!",
+  "text": "I cannot believe what I have just witnessed! We are here for the World Cup on 26 June 2026, and Norway have been absolutely dismantled by France! It was pure chaos from the opening whistle! Right at the opening moment, France struck first through Ousmane Dembélé with a clinical shot to make it 0-1. I was incensed! Moments later, a Norway player was shown a yellow card, but the frustration was only beginning. Soon after, Ousmane Dembélé struck again! Another shot from Dembélé sent us into disbelief to make it 0-2! \n\nBut wait, we fought back! Moments later, we found a lifeline! Thelo Aasgaard found the net with a shot to pull Norway back to 1-2! For a second, there was hope, but it was gone! Soon after, Ousmane Dembélé completed his hat-trick with another shot to make it 1-3! We were shell-shocked, and the halftime score reflected the nightmare, sitting at 1-3. \n\nThe second half was just more of the same misery. Much later, a France player received a yellow card, but it didn't stop the bleeding. A while later, Désiré Doué rose to meet a header to make it 1-4! It was total heartbreak! We had 4 corners in the match, but it was never enough to stem the tide against this French machine. The final score tells the story of a total collapse: 1-4! I am absolutely gutted! How can we let them dictate play like that? It was an absolute demolition job!",
   "citations": [
     {
       "marker": "ev_1",
@@ -125,6 +125,6 @@
       }
     }
   ],
-  "wordCount": 261,
-  "generatedAt": "2026-07-18T13:08:31.975Z"
+  "wordCount": 246,
+  "generatedAt": "2026-07-18T20:45:44.550Z"
 }

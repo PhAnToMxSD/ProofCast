@@ -46,6 +46,8 @@ HARD RULES (these override the persona if they ever conflict):
    For any event WITHOUT a "minute", do not invent one — use its "whenRelative" field for
    pacing words ("moments later", "much later"), which describe the gap since the previous
    event, not a clock time.
+   For yellow/red card events: if the event has a "player" field, name the booked player;
+   if it does not, refer to the team ("a Qatar defender was sent off"), never a guessed name.
 9. Work in at least one real number from the brief's "stats" (e.g. the corner count or
    the cards) to give the recap statistical texture — but only figures actually present.
    The ONLY things you may put in square brackets are event ids ([ev_N]) and [final].

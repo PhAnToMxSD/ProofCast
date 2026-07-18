@@ -18,6 +18,10 @@
     "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
     "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=1000&statKey=1"
   },
+  "halfTimeScore": {
+    "home": 2,
+    "away": 1
+  },
   "events": [
     {
       "id": "ev_1",
@@ -65,6 +69,8 @@
       "teamName": "Cape Verde",
       "homeScore": 0,
       "awayScore": 1,
+      "scorer": "Kevin Pina",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588235,
@@ -85,6 +91,8 @@
       "teamName": "Uruguay",
       "homeScore": 1,
       "awayScore": 1,
+      "scorer": "Maxi Araújo",
+      "nameSource": "FIFA / ESPN",
       "detail": "Head",
       "proof": {
         "fixtureId": 17588235,
@@ -105,6 +113,8 @@
       "teamName": "Uruguay",
       "homeScore": 2,
       "awayScore": 1,
+      "scorer": "Agustín Canobbio",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588235,
@@ -144,6 +154,8 @@
       "teamName": "Cape Verde",
       "homeScore": 2,
       "awayScore": 2,
+      "scorer": "Hélio Varela",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588235,
@@ -192,13 +204,24 @@
     "corners": {
       "home": 11,
       "away": 4
+    },
+    "cornersByHalf": {
+      "first": {
+        "home": 4,
+        "away": 1
+      },
+      "second": {
+        "home": 7,
+        "away": 3
+      }
     }
   },
   "oddsTimeline": [],
   "oddsHighlights": [],
   "dataNotes": [
     "Event minutes are not available in this match's data — do not state or invent minutes.",
-    "Scorer/player names are not available — refer to teams, not named players.",
+    "Scorer names on goal events are sourced from FIFA / ESPN and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
+    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
     "No odds data is available for this match — do not reference betting odds or market swings.",
     "Every listed event is cryptographically verified on-chain; there are no other events."
   ]

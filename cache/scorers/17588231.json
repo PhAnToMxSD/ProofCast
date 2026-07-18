@@ -1,0 +1,16 @@
+{
+  "matchId": "17588231",
+  "source": {
+    "name": "FIFA / ESPN",
+    "url": "https://www.espn.com/soccer/report/_/gameId/760461",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Portugal 5-0 Uzbekistan, World Cup 2026 group stage (23 Jun 2026, Houston). All five goals count for Portugal (home), including Nematov's own goal. Names via public match reports, aligned to TxLINE's verified goal events by team + order. Yellow-card recipients were not reliably reported, so cards are left team-only (no cards array).",
+  "goals": [
+    { "team": "home", "scorer": "Cristiano Ronaldo", "officialMinute": "6'" },
+    { "team": "home", "scorer": "Nuno Mendes", "officialMinute": "17'" },
+    { "team": "home", "scorer": "Cristiano Ronaldo", "officialMinute": "39'" },
+    { "team": "home", "scorer": "Abduvohid Nematov", "officialMinute": "60'", "ownGoal": true },
+    { "team": "home", "scorer": "Rafael Leão", "officialMinute": "87'" }
+  ]
+}

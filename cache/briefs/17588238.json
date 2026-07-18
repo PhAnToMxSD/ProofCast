@@ -18,6 +18,10 @@
     "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
     "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=1161&statKey=1"
   },
+  "halfTimeScore": {
+    "home": 3,
+    "away": 0
+  },
   "events": [
     {
       "id": "ev_1",
@@ -46,6 +50,8 @@
       "teamName": "Canada",
       "homeScore": 1,
       "awayScore": 0,
+      "scorer": "Cyle Larin",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588238,
@@ -66,6 +72,8 @@
       "teamName": "Canada",
       "homeScore": 2,
       "awayScore": 0,
+      "scorer": "Jonathan David",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588238,
@@ -86,6 +94,8 @@
       "teamName": "Qatar",
       "homeScore": 2,
       "awayScore": 0,
+      "player": "Homam Al Amin",
+      "nameSource": "FIFA / ESPN",
       "proof": {
         "fixtureId": 17588238,
         "seq": 337,
@@ -105,6 +115,8 @@
       "teamName": "Canada",
       "homeScore": 3,
       "awayScore": 0,
+      "scorer": "Jonathan David",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588238,
@@ -125,6 +137,8 @@
       "teamName": "Qatar",
       "homeScore": 3,
       "awayScore": 0,
+      "player": "Assim Madibo",
+      "nameSource": "FIFA / ESPN",
       "proof": {
         "fixtureId": 17588238,
         "seq": 686,
@@ -163,6 +177,8 @@
       "teamName": "Canada",
       "homeScore": 4,
       "awayScore": 0,
+      "scorer": "Nathan Saliba",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588238,
@@ -183,7 +199,9 @@
       "teamName": "Canada",
       "homeScore": 5,
       "awayScore": 0,
-      "detail": "Shot",
+      "scorer": "Mohamed Manai",
+      "nameSource": "FIFA / ESPN",
+      "detail": "Shot · Own goal",
       "proof": {
         "fixtureId": 17588238,
         "seq": 844,
@@ -203,6 +221,8 @@
       "teamName": "Canada",
       "homeScore": 6,
       "awayScore": 0,
+      "scorer": "Jonathan David",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588238,
@@ -232,13 +252,24 @@
     "corners": {
       "home": 19,
       "away": 1
+    },
+    "cornersByHalf": {
+      "first": {
+        "home": 5,
+        "away": 1
+      },
+      "second": {
+        "home": 14,
+        "away": 0
+      }
     }
   },
   "oddsTimeline": [],
   "oddsHighlights": [],
   "dataNotes": [
     "Event minutes are not available in this match's data — do not state or invent minutes.",
-    "Scorer/player names are not available — refer to teams, not named players.",
+    "Scorer names on goal events are sourced from FIFA / ESPN and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
+    "Booked-player names on card events are sourced from FIFA / ESPN and aligned to the on-chain-verified cards — you may name the player for any yellow/red event that has a \"player\" field (never invent one for an event that lacks it).",
     "No odds data is available for this match — do not reference betting odds or market swings.",
     "Every listed event is cryptographically verified on-chain; there are no other events."
   ]

@@ -1,5 +1,22 @@
 import type { Metadata, Viewport } from "next";
+import { Saira_Condensed, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
+import { SiteFooter } from "@/components/SiteFooter";
+
+// Broadcast score-bug display, clean body, ledger/receipt mono.
+const display = Saira_Condensed({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+  variable: "--font-display",
+  display: "swap",
+});
+const body = Inter({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const mono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-mono",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "ProofCast — every sentence has a receipt",
@@ -15,7 +32,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         {/* Stadium backdrop: pitch stripes, halfway line + centre circle, floodlights */}
         <div className="stadium" aria-hidden="true">
@@ -31,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="floodlight floodlight-right" />
         </div>
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

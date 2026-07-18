@@ -48,6 +48,10 @@ export const BriefEventSchema = z.object({
   // provenance so the UI can show "name via <source>" distinctly from the on-chain
   // proof of the event itself. Present only when a scorers file supplied it.
   scorer: z.string().optional(),
+  // Booked player on a yellow/red event — same web2 provenance as `scorer`,
+  // aligned to this verified card by (team, card type, order). `nameSource` is
+  // shared with `scorer`. Present only when a scorers file's `cards` supplied it.
+  player: z.string().optional(),
   nameSource: z.string().optional(),
   detail: z.string().optional(), // e.g. GoalType "Head"
   proof: ProofSchema,

@@ -18,6 +18,10 @@
     "explorerUrl": "https://explorer.solana.com/address/7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy?cluster=devnet",
     "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588231&seq=1161&statKey=1"
   },
+  "halfTimeScore": {
+    "home": 3,
+    "away": 0
+  },
   "events": [
     {
       "id": "ev_1",
@@ -27,6 +31,8 @@
       "teamName": "Portugal",
       "homeScore": 1,
       "awayScore": 0,
+      "scorer": "Cristiano Ronaldo",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588231,
@@ -66,6 +72,8 @@
       "teamName": "Portugal",
       "homeScore": 2,
       "awayScore": 0,
+      "scorer": "Nuno Mendes",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588231,
@@ -86,6 +94,8 @@
       "teamName": "Portugal",
       "homeScore": 3,
       "awayScore": 0,
+      "scorer": "Cristiano Ronaldo",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 17588231,
@@ -106,7 +116,9 @@
       "teamName": "Portugal",
       "homeScore": 4,
       "awayScore": 0,
-      "detail": "Own",
+      "scorer": "Abduvohid Nematov",
+      "nameSource": "FIFA / ESPN",
+      "detail": "Own · Own goal",
       "proof": {
         "fixtureId": 17588231,
         "seq": 730,
@@ -145,6 +157,8 @@
       "teamName": "Portugal",
       "homeScore": 5,
       "awayScore": 0,
+      "scorer": "Rafael Leão",
+      "nameSource": "FIFA / ESPN",
       "proof": {
         "fixtureId": 17588231,
         "seq": 1059,
@@ -173,13 +187,24 @@
     "corners": {
       "home": 3,
       "away": 2
+    },
+    "cornersByHalf": {
+      "first": {
+        "home": 1,
+        "away": 0
+      },
+      "second": {
+        "home": 2,
+        "away": 2
+      }
     }
   },
   "oddsTimeline": [],
   "oddsHighlights": [],
   "dataNotes": [
     "Event minutes are not available in this match's data — do not state or invent minutes.",
-    "Scorer/player names are not available — refer to teams, not named players.",
+    "Scorer names on goal events are sourced from FIFA / ESPN and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
+    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
     "No odds data is available for this match — do not reference betting odds or market swings.",
     "Every listed event is cryptographically verified on-chain; there are no other events."
   ]

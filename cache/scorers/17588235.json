@@ -1,0 +1,15 @@
+{
+  "matchId": "17588235",
+  "source": {
+    "name": "FIFA / ESPN",
+    "url": "https://www.espn.com/soccer/match/_/gameId/760450/cape-verde-uruguay",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Uruguay 2-2 Cape Verde, World Cup 2026 group stage (21 Jun 2026, Miami). Goals listed chronologically; team = side the goal counts for. Names via public match reports, aligned to TxLINE's verified goal events by team + order. Yellow-card recipients were not reliably reported, so cards are left team-only (no cards array).",
+  "goals": [
+    { "team": "away", "scorer": "Kevin Pina", "officialMinute": "21'" },
+    { "team": "home", "scorer": "Maxi Araújo", "officialMinute": "44'" },
+    { "team": "home", "scorer": "Agustín Canobbio", "officialMinute": "45+6'" },
+    { "team": "away", "scorer": "Hélio Varela", "officialMinute": "61'" }
+  ]
+}

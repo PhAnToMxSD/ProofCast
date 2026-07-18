@@ -1,0 +1,15 @@
+{
+  "matchId": "17588236",
+  "source": {
+    "name": "FIFA / ESPN",
+    "url": "https://www.espn.com/soccer/report/_/gameId/760472",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Tunisia 1-3 Netherlands, World Cup 2026 group stage (25 Jun 2026, Kansas City). Three goals count for the Netherlands (away), one for Tunisia (home). Skhiri's opener was an own goal counting for the Netherlands. Names via public match reports, aligned to TxLINE's verified goal events by team + order. No cards were shown in this match.",
+  "goals": [
+    { "team": "away", "scorer": "Ellyes Skhiri", "officialMinute": "3'", "ownGoal": true },
+    { "team": "away", "scorer": "Brian Brobbey", "officialMinute": "7'" },
+    { "team": "home", "scorer": "Hazem Mastouri", "officialMinute": "54'" },
+    { "team": "away", "scorer": "Jan Paul van Hecke", "officialMinute": "62'" }
+  ]
+}

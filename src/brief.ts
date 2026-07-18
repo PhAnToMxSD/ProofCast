@@ -8,7 +8,7 @@ import { PublicKey } from "@solana/web3.js";
 import * as cfg from "./config.js";
 import type { RawMatch, KeyEvent } from "./fetch.js";
 import { STAT_KEY } from "./fetch.js";
-import { loadScorers, composeScorers } from "./scorers.js";
+import { loadScorers, composeScorers, composeCards } from "./scorers.js";
 import { MatchBriefSchema, type MatchBrief, type BriefEvent, type Proof } from "./types.js";
 
 const EXPLORER = "https://explorer.solana.com";
@@ -124,6 +124,8 @@ function buildDataNotes(raw: RawMatch, events: BriefEvent[], nameSource?: string
   const anyMinutes = events.some((e) => typeof e.minute === "number");
   const goals = events.filter((e) => e.type === "goal");
   const namedGoals = goals.filter((e) => e.scorer);
+  const cards = events.filter((e) => e.type === "yellow" || e.type === "red");
+  const namedCards = cards.filter((e) => e.player);
 
   if (anyMinutes) {
     notes.push(
@@ -137,9 +139,16 @@ function buildDataNotes(raw: RawMatch, events: BriefEvent[], nameSource?: string
     notes.push(
       `Scorer names on goal events are sourced from ${nameSource ?? "a public match report"} and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a "scorer" field (never invent one for an event that lacks it).`
     );
-    notes.push("Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.");
   } else {
-    notes.push("Scorer/player names are not available — refer to teams, not named players.");
+    notes.push("Scorer names are not available — refer to teams, not named players, for goals.");
+  }
+
+  if (namedCards.length > 0) {
+    notes.push(
+      `Booked-player names on card events are sourced from ${nameSource ?? "a public match report"} and aligned to the on-chain-verified cards — you may name the player for any yellow/red event that has a "player" field (never invent one for an event that lacks it).`
+    );
+  } else if (cards.length > 0) {
+    notes.push("Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.");
   }
 
   if (raw.odds.length === 0) notes.push("No odds data is available for this match — do not reference betting odds or market swings.");
@@ -159,10 +168,11 @@ export function buildBrief(raw: RawMatch): MatchBrief {
   const scorers = loadScorers(String(raw.fixtureId));
   let nameSource: string | undefined;
   if (scorers) {
-    const composed = composeScorers(events, scorers);
-    events = composed.events;
+    const goalsComposed = composeScorers(events, scorers);
+    const cardsComposed = composeCards(goalsComposed.events, scorers);
+    events = cardsComposed.events;
     nameSource = scorers.source.name;
-    for (const w of composed.warnings) console.warn(`  ⚠ ${w}`);
+    for (const w of [...goalsComposed.warnings, ...cardsComposed.warnings]) console.warn(`  ⚠ ${w}`);
   }
 
   // Final-score proof: the home-goals statKey at the final `status` sequence.

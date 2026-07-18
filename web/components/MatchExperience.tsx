@@ -1,11 +1,13 @@
 "use client";
 
-// The whole Phase 7 experience: pick a match → pick a persona → generate →
-// scoreboard + narration + transcript + on-chain receipts. Cached combinations
-// answer instantly from committed pipeline output; anything personalized runs
-// the live pipeline through /api/recap.
+// Per-match experience (one fixed fixture): pick a narrator → pick who you're
+// supporting → the recap is "brewed" → scoreboard + narration + transcript +
+// on-chain receipts. Cached preset combinations answer instantly from committed
+// pipeline output; a favourite-team personalization runs the live pipeline
+// through /api/recap.
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import type { CatalogMatch } from "@/lib/catalog";
 import type { Recap } from "@/lib/pipeline/recap";
 import { AudioPlayer } from "@/components/AudioPlayer";
@@ -17,28 +19,13 @@ type Favourite = "none" | "home" | "away";
 type RecapResult = { recap: Recap; audioUrl: string | null; source: "cache" | "live" };
 
 const PERSONAS: Array<{ key: StyleKey; icon: string; label: string; blurb: string }> = [
-  {
-    key: "hype",
-    icon: "📣",
-    label: "Hype Commentator",
-    blurb: "Explosive and partisan — lives and dies with every goal.",
-  },
-  {
-    key: "analyst",
-    icon: "📊",
-    label: "Deadpan Stats Nerd",
-    blurb: "Dry, precise, quietly obsessed with corners and cards.",
-  },
-  {
-    key: "bedtime",
-    icon: "🌙",
-    label: "Bedtime Story",
-    blurb: "The match retold as a gentle fairy tale, at a lullaby pace.",
-  },
+  { key: "hype", icon: "📣", label: "Hype Commentator", blurb: "Explosive and partisan — lives and dies with every goal." },
+  { key: "analyst", icon: "📊", label: "Deadpan Stats Nerd", blurb: "Dry, precise, quietly obsessed with corners and cards." },
+  { key: "bedtime", icon: "🌙", label: "Bedtime Story", blurb: "The match retold as a gentle fairy tale, at a lullaby pace." },
 ];
 
-const LOADING_MSGS = [
-  "Rolling the ball out of the tunnel…",
+const BREWING_MSGS = [
+  "Brewing your recap…",
   "Warming up the commentary box…",
   "Checking every receipt on-chain…",
   "Consulting the fourth official…",
@@ -47,12 +34,7 @@ const LOADING_MSGS = [
 
 function fmtDate(iso: string): string {
   const d = new Date(`${iso}T00:00:00Z`);
-  return d.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  });
+  return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
 }
 
 // Final score that counts up when the board is revealed.
@@ -80,26 +62,23 @@ function CountUpScore({ home, away }: { home: number; away: number }) {
   );
 }
 
-function Loader() {
+function Brewing() {
   const [msg, setMsg] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setMsg((m) => (m + 1) % LOADING_MSGS.length), 2600);
+    const id = setInterval(() => setMsg((m) => (m + 1) % BREWING_MSGS.length), 2600);
     return () => clearInterval(id);
   }, []);
   return (
-    <div className="loader" role="status">
+    <div className="loader" role="status" aria-live="polite">
       <div className="pitch-strip">
-        <span className="rolling-ball" aria-hidden="true">
-          ⚽
-        </span>
+        <span className="rolling-ball" aria-hidden="true">⚽</span>
       </div>
-      <span className="msg">{LOADING_MSGS[msg]}</span>
+      <span className="msg">{BREWING_MSGS[msg]}</span>
     </div>
   );
 }
 
-export function Experience({ matches }: { matches: CatalogMatch[] }) {
-  const [matchId, setMatchId] = useState<string | null>(null);
+export function MatchExperience({ match }: { match: CatalogMatch }) {
   const [style, setStyle] = useState<StyleKey | null>(null);
   const [favourite, setFavourite] = useState<Favourite>("none");
   const [phase, setPhase] = useState<"idle" | "loading" | "done" | "error">("idle");
@@ -109,9 +88,8 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
   const stageRef = useRef<HTMLDivElement>(null);
   const boardRef = useRef<HTMLDivElement>(null);
 
-  const match = matches.find((m) => m.matchId === matchId) ?? null;
   const isLivePath = favourite !== "none";
-  const ready = Boolean(match && style);
+  const ready = Boolean(style);
 
   // Audio-reactive hook-up: the player streams energy here; we hand it to the
   // scoreboard as a CSS custom property (no React re-render per frame).
@@ -120,7 +98,7 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
   }, []);
 
   const generate = async () => {
-    if (!match || !style) return;
+    if (!style) return;
     setPhase("loading");
     setResult(null);
     setError("");
@@ -151,76 +129,41 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
 
   return (
     <div className="shell">
-      {/* ── Hero ── */}
-      <header className="hero">
-        <h1>
-          <span className="ball" aria-hidden="true">
-            ⚽
+      <div className="crumbs">
+        <Link href="/matches" className="back-link">← All matches</Link>
+      </div>
+
+      {/* ── Fixture header ── */}
+      <header className="match-hero">
+        <div className="fixture-line">
+          <span className="side">
+            <Flag team={match.homeTeam} size={56} />
+            <span className="name">{match.homeTeam}</span>
           </span>
-          ProofCast
-        </h1>
-        <p className="tagline">
-          AI matchday recaps where <strong>every sentence has a receipt</strong> — built
-          from cryptographically verified TxLINE match data and provable on Solana.
-        </p>
-        <div className="badges">
-          <span className="pill grass">✓ TxLINE primary data</span>
-          <span className="pill">Solana devnet</span>
-          <span className="pill">ElevenLabs narration</span>
+          <span className="vs">vs</span>
+          <span className="side">
+            <Flag team={match.awayTeam} size={56} />
+            <span className="name">{match.awayTeam}</span>
+          </span>
         </div>
+        <p className="match-meta">
+          {match.competition} · {fmtDate(match.date)} · full-time
+          <a className="verified-badge sm" href={match.finalExplorerUrl} target="_blank" rel="noreferrer">
+            <span aria-hidden="true">🛡</span> Verified on-chain
+          </a>
+        </p>
       </header>
 
-      {/* ── Step 1: match ── */}
+      {/* ── Step 1: narrator ── */}
       <section className="step">
         <div className="step-head">
           <span className="step-num">1</span>
-          <h2>Pick a match</h2>
-          <span className="hint">World Cup 2026 · verified fixtures</span>
-        </div>
-        <div className="match-grid">
-          {matches.map((m) => (
-            <button
-              key={m.matchId}
-              className={`match-card ${matchId === m.matchId ? "selected" : ""}`}
-              onClick={() => setMatchId(m.matchId)}
-              aria-pressed={matchId === m.matchId}
-            >
-              <span className="fixture">
-                <span className="side">
-                  <Flag team={m.homeTeam} size={44} />
-                  <span className="name">{m.homeTeam}</span>
-                </span>
-                <span className="score">
-                  {m.finalScore.home}–{m.finalScore.away}
-                </span>
-                <span className="side">
-                  <Flag team={m.awayTeam} size={44} />
-                  <span className="name">{m.awayTeam}</span>
-                </span>
-              </span>
-              <span className="meta">
-                <span>{fmtDate(m.date)}</span>
-                {m.audioStyles.length > 0 ? (
-                  <span className="has-audio">♪ studio audio</span>
-                ) : (
-                  <span>{m.competition}</span>
-                )}
-              </span>
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Step 2: persona ── */}
-      <section className="step">
-        <div className="step-head">
-          <span className="step-num">2</span>
           <h2>Pick your commentator</h2>
           <span className="hint">same facts, different voice</span>
         </div>
         <div className="persona-grid">
           {PERSONAS.map((p) => {
-            const cached = match ? match.cachedStyles.includes(p.key) : false;
+            const cached = match.cachedStyles.includes(p.key);
             return (
               <button
                 key={p.key}
@@ -228,17 +171,14 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
                 onClick={() => setStyle(p.key)}
                 aria-pressed={style === p.key}
               >
-                <span className="icon" aria-hidden="true">
-                  {p.icon}
-                </span>
+                <span className="icon" aria-hidden="true">{p.icon}</span>
                 <h3>{p.label}</h3>
                 <p>{p.blurb}</p>
-                {match &&
-                  (cached ? (
-                    <span className="tag">⚡ instant — pre-verified</span>
-                  ) : (
-                    <span className="tag live">● generated live</span>
-                  ))}
+                {cached ? (
+                  <span className="tag">⚡ instant — pre-verified</span>
+                ) : (
+                  <span className="tag live">● generated live</span>
+                )}
               </button>
             );
           })}
@@ -247,45 +187,33 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
         <div className="options">
           <span className="label">Supporting:</span>
           <div className="segmented" role="group" aria-label="Favourite team">
-            <button
-              className={favourite === "none" ? "active" : ""}
-              onClick={() => setFavourite("none")}
-            >
+            <button className={favourite === "none" ? "active" : ""} onClick={() => setFavourite("none")}>
               Neutral
             </button>
-            <button
-              className={favourite === "home" ? "active" : ""}
-              onClick={() => setFavourite("home")}
-              disabled={!match}
-            >
-              {match && <Flag team={match.homeTeam} size={18} />}
-              {match?.homeTeam ?? "Home"}
+            <button className={favourite === "home" ? "active" : ""} onClick={() => setFavourite("home")}>
+              <Flag team={match.homeTeam} size={18} />
+              {match.homeTeam}
             </button>
-            <button
-              className={favourite === "away" ? "active" : ""}
-              onClick={() => setFavourite("away")}
-              disabled={!match}
-            >
-              {match && <Flag team={match.awayTeam} size={18} />}
-              {match?.awayTeam ?? "Away"}
+            <button className={favourite === "away" ? "active" : ""} onClick={() => setFavourite("away")}>
+              <Flag team={match.awayTeam} size={18} />
+              {match.awayTeam}
             </button>
           </div>
         </div>
-
       </section>
 
-      {/* ── Step 3: kickoff ── */}
+      {/* ── Step 2: brew ── */}
       <div className="kickoff-row">
         {phase === "loading" ? (
-          <Loader />
+          <Brewing />
         ) : (
           <>
             <button className="kickoff" disabled={!ready} onClick={generate}>
-              <span aria-hidden="true">⚽</span> Kick off the recap
+              <span aria-hidden="true">⚽</span> {phase === "done" ? "Brew another take" : "Brew the recap"}
             </button>
             <span className="kickoff-note">
               {isLivePath
-                ? "Personalized — generated live by the grounded pipeline (needs the server's OpenRouter key)."
+                ? "Personalized — brewed live by the grounded pipeline (needs the server's OpenRouter key)."
                 : "Pre-verified combinations play instantly from the committed pipeline output."}
             </span>
           </>
@@ -300,39 +228,26 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
       )}
 
       {/* ── Result stage ── */}
-      {phase === "done" && result && match && (
+      {phase === "done" && result && (
         <div className="stage" ref={stageRef}>
           <div className="scoreboard" ref={boardRef}>
             <div className="board">
               <div className="team">
-                <span className="flag-wrap">
-                  <Flag team={match.homeTeam} size={92} />
-                </span>
+                <span className="flag-wrap"><Flag team={match.homeTeam} size={92} /></span>
                 <span className="name">{match.homeTeam}</span>
               </div>
               <div className="mid">
                 <CountUpScore home={match.finalScore.home} away={match.finalScore.away} />
-                <span className="stage-ball" aria-hidden="true">
-                  ⚽
-                </span>
+                <span className="stage-ball" aria-hidden="true">⚽</span>
               </div>
               <div className="team">
-                <span className="flag-wrap">
-                  <Flag team={match.awayTeam} size={92} />
-                </span>
+                <span className="flag-wrap"><Flag team={match.awayTeam} size={92} /></span>
                 <span className="name">{match.awayTeam}</span>
               </div>
             </div>
             <div className="sub">
-              <span>
-                {match.competition} · {fmtDate(match.date)} · full-time
-              </span>
-              <a
-                className="verified-badge"
-                href={match.finalExplorerUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <span>{match.competition} · {fmtDate(match.date)} · full-time</span>
+              <a className="verified-badge" href={match.finalExplorerUrl} target="_blank" rel="noreferrer">
                 <span aria-hidden="true">🛡</span> Verified on-chain
               </a>
             </div>
@@ -349,33 +264,16 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
           <section className="transcript">
             <h3>
               <span aria-hidden="true">🎙</span> {result.recap.styleLabel} —{" "}
-              {result.source === "cache" ? "pre-verified recap" : "generated live"}
+              {result.source === "cache" ? "pre-verified recap" : "brewed live"}
             </h3>
             {paragraphs.map((p, i) => (
-              <p key={i} style={{ animationDelay: `${0.12 * i}s` }}>
-                {p}
-              </p>
+              <p key={i} style={{ animationDelay: `${0.12 * i}s` }}>{p}</p>
             ))}
           </section>
 
           <Receipts recap={result.recap} match={match} />
         </div>
       )}
-
-      {/* ── Footer ── */}
-      <footer className="footer">
-        <p>
-          ProofCast — TxODDS World Cup Hackathon build. Match data:{" "}
-          <a href="https://txline-docs.txodds.com" target="_blank" rel="noreferrer">
-            TxLINE
-          </a>{" "}
-          (primary input, Solana devnet proofs) · Narration audio generated with{" "}
-          <a href="https://elevenlabs.io" target="_blank" rel="noreferrer">
-            ElevenLabs
-          </a>{" "}
-          · Recaps cite only verified data — every fact links to its Merkle proof.
-        </p>
-      </footer>
     </div>
   );
 }
