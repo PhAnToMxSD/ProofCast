@@ -3,7 +3,7 @@
   "style": "bedtime",
   "styleLabel": "Bedtime Story",
   "model": "google/gemma-4-26b-a4b-it:free",
-  "text": "Once upon a time, on the 26th of June 2026, during the World Cup, two brave travelers met for a grand adventure: Norway and France. The air was calm as they began their journey, but the magic of the game soon began to unfold. In the 7th minute, Ousmane Dembélé found his way through the mist with a gentle shot, bringing the score to 0-1. Moments later, a yellow card was shown to Norway, as the tension grew soft and steady.\n\nThe tale continued to unfold soon after, in the 20th minute, when Ousmane Dembélé struck again with another shot, making the score 0-2. But Norway would not be discouraged; moments later, in the 21st minute, Thelo Aasgaard found a way to respond with a shot of his own, bringing the score to 1-2. The two teams danced around one another, and by the time the sun had set on the first half, the score stood at 1-3.\n\nAs the second half began, the stars continued their play. In the 74th minute, a yellow card was shown to France, and both sides worked hard, with Norway earning four corners throughout their journey. Much later, in stoppage time, the final magic arrived. In the 94th minute, Désiré Doué rose through the air to meet a header, making the score 1-4. When the stars finally settled and the dream concluded, the final score was 1-4. It was a night of wonder and a journey that would be remembered for a long time to come.",
+  "text": "Once upon a time, on the 26th of June 2026, a grand tale unfolded during the World Cup as Norway met France in a dance of skill and spirit. The air was thick with anticipation as the two travelers began their long journey across the pitch. Very early in the story, at the opening moment, Ousmane Dembélé found the magic he needed, striking a shot that carried the ball into the net to give France a 0-1 lead. The rhythm of the match shifted quickly, and moments later, a player from Norway received a yellow card as the intensity began to rise.\n\nNot long after that first spark, Ousmane Dembélé appeared once more, finding his way through the defense with another shot to make the score 0-2. Norway, however, refused to let their light fade so easily. Moments later, Thelo Aasgaard rose to the challenge, finding the back of the net with a shot of his own to bring Norway back into the fold with a score of 1-2. The balance of the tale seemed to tilt, but soon after, Ousmane Dembélé completed a quiet hat-trick of sorts, sending a third shot home to make it 1-3 for France.\n\nAs the first chapter of this adventure drew to a close, the score stood at 1-3. Much later, a player from France was shown a yellow card, adding a touch of caution to the unfolding dream. Throughout the journey, the teams sought new openings, earning a total of nine corners between them. A while later, the final flourish arrived when Désiré Doué rose high to meet the ball, scoring with a gentle header to extend the lead to 1-4. When the stars finally aligned and the journey reached its end, the story concluded with a final score of 1-4. It was a night of great movement and many memories, written under the vast, watchful sky.",
   "citations": [
     {
       "marker": "ev_1",
@@ -125,6 +125,6 @@
       }
     }
   ],
-  "wordCount": 252,
-  "generatedAt": "2026-07-18T13:11:17.119Z"
+  "wordCount": 314,
+  "generatedAt": "2026-07-18T20:56:12.031Z"
 }

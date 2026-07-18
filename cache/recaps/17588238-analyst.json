@@ -3,22 +3,8 @@
   "style": "analyst",
   "styleLabel": "Deadpan Stats Nerd",
   "model": "google/gemma-4-26b-a4b-it:free",
-  "text": "The statistics from this World Cup fixture on June 18, 2026, suggest a rather predictable outcome for those who enjoy a significant disparity in efficiency. Canada secured a 6-0 victory over Qatar, a result that is reflected clearly in the final scoreline. The match was less a contest and more a statistical exercise in offensive dominance for the home side.\n\nThe early stages were marked by a lack of discipline for Canada, who picked up a yellow card while the score remained deadlocked at 0-0. However, the deadlock was broken by Canada, who opened the scoring through a shot. The momentum shifted decisively toward the home team as Canada doubled their lead with another shot. At this point, the match took a turn for the worse for the visitors. Qatar saw a player dismissed with a red card, reducing their numbers on the pitch.\n\nAs the match progressed, the deficit grew. Canada added a third goal via a shot, which coincided with a second red card for Qatar. The numerical disadvantage for the away side was compounded by a yellow card for Qatar, leaving them struggling to contain the inevitable. Canada continued their clinical execution, finding the net through a series of shots to reach four goals, then five, and finally six.\n\nThe final statistics highlight the sheer scale of the mismatch. Canada recorded 19 corners [stats.corners.home], while Qatar managed only 1 [stats.corners.away]. The disciplinary record was similarly lopsided, with Qatar finishing the match with two red cards [stats.redCards.away] and one yellow card [stats.yellowCards.away], compared to a single yellow card for Canada [stats.yellowCards.home]. It was a match defined by high-volume output from Canada and a complete breakdown of defensive structure for Qatar. The final score of 6-0 is an accurate summary of the evening's events.",
+  "text": "The World Cup on 18 June 2026 featured a fixture between Canada and Qatar that, from a purely analytical standpoint, appeared to be a study in total systemic collapse. The match began with an opening moment involving a yellow card for Canada, a minor disruption in an otherwise efficient start. Soon after, Cyle Larin found the back of the net with a clinical shot to make it 1-0. Canada maintained their momentum, and soon after, Jonathan David added another via a shot to extend the lead to 2-0. The tactical situation for Qatar deteriorated rapidly when Homam Al Amin was shown a red card, leaving them down to ten men and fundamentally altering the match's geometry.\n\nThe advantage allowed Canada to dictate the tempo with clinical precision. A while later, Jonathan David struck again with a shot, moving the scoreline to 3-0. Qatar's numerical deficit deepened when Assim Madibo was shown a red card, leaving them with nine men. Shortly after, a player from Qatar received a yellow card, adding to a match that was increasingly one-sided. Moments later, Nathan Saliba converted a shot to make it 4-0. Soon after, Mohamed Manai scored an own goal via a shot to push the advantage to 5-0. A while later, Jonathan David completed his hat-trick with another shot, bringing the score to 6-0.\n\nThe statistical distribution of the match reflects this total dominance, particularly in the relentless pressure applied through set-piece opportunities. Canada recorded 19 corners compared to just 1 for Qatar, illustrating the absolute control the home side maintained over the ball. The match reached half-time with the score at 3-0. By the end of the proceedings, the final score stood at 6-0. It was a performance defined by clinical efficiency and a total collapse in discipline from the opposition, leaving little room for any tactical debate regarding the outcome. The numbers tell a story of a match that was effectively decided long before the final whistle was blown.",
   "citations": [
-    {
-      "marker": "final",
-      "kind": "final",
-      "proof": {
-        "fixtureId": 17588238,
-        "seq": 1161,
-        "statKey": 1,
-        "timestamp": 1781826847743,
-        "epochDay": 20622,
-        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
-        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
-        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=1161&statKey=1"
-      }
-    },
     {
       "marker": "ev_1",
       "kind": "event",
@@ -168,8 +154,22 @@
         "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
         "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=1049&statKey=1"
       }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 1161,
+        "statKey": 1,
+        "timestamp": 1781826847743,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=1161&statKey=1"
+      }
     }
   ],
-  "wordCount": 295,
-  "generatedAt": "2026-07-18T08:03:26.141Z"
+  "wordCount": 328,
+  "generatedAt": "2026-07-18T21:03:38.647Z"
 }

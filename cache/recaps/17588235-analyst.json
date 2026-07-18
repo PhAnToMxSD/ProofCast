@@ -3,22 +3,8 @@
   "style": "analyst",
   "styleLabel": "Deadpan Stats Nerd",
   "model": "google/gemma-4-26b-a4b-it:free",
-  "text": "The World Cup fixture between Uruguay and Cape Verde was a statistical stalemate, ultimately ending in a 2-2 draw. It was a match defined by a predictable distribution of discipline and a high volume of set-piece opportunities for the home side. Uruguay controlled the territory, securing 11 corners, while Cape Verde managed only 4.\n\nThe match began with a predictable lack of discipline. Cape Verde received an early yellow card, followed shortly by a yellow card for Uruguay. The deadlock was broken when Cape Verde found the net with a shot, moving the score to 0-1. The deficit did not last long. Uruguay responded with a goal from a header to level the score at 1-1. \n\nThe momentum shifted slightly in favor of the home side as Uruguay took the lead with a shot, making it 2-1. This period of dominance was accompanied by a second yellow card for Uruguay, though they managed to avoid a red card. Cape Verde showed resilience. They found an equalizer via a shot to bring the score to 2-2. The match concluded with a final yellow card for Cape Verde, leaving the scoreline at 2-2.\n\nIn total, the disciplinary record was perfectly symmetrical. Both Uruguay and Cape Verde finished the match with two yellow cards each and zero red cards. The efficiency of the conversion was notable; despite the 11 corners conceded by Cape Verde, the scoreline remained balanced. It was a mathematically tidy outcome for both sides, provided they were satisfied with sharing the points in this World Cup encounter. There were no other incidents to report, as the data confirms only these eight events occurred during the match. The final score remains 2-2.",
+  "text": "The World Cup took place on 21 June 2026, featuring a fixture between Uruguay and Cape Verde. It was a match defined by shifts in momentum and a lack of defensive stability, as both sides traded blows throughout the contest. The opening moments were marked by a certain lack of discipline, with a yellow card issued to Cape Verde followed soon after by a yellow card for Uruguay. This tension did not last long before the deadlock was broken; moments later, Cape Verde took a 0-1 lead through a shot from Kevin Pina.\n\nUruguay responded to the deficit a while later, finding an equalizer to make it 1-1 through a header from Maxi Araújo. The momentum appeared to shift toward the South Americans soon after, as Agustín Canobbio converted a shot to put Uruguay ahead 2-1. This resulted in a 2-1 scoreline for the home side at half-time. While the first half was productive for both sides, the second period saw a continued struggle to maintain control. A while later, Uruguay received another yellow card, perhaps reflecting the physical toll of the contest.\n\nThe tension increased as the game progressed, with Cape Verde finding a way back into the match soon after Agustín Canobbio's goal, as Hélio Varela scored via a shot to level the score at 2-2. This equalizer meant the sides were locked at 2-2. A while later, Cape Verde received another yellow card to bring the total card count to four for the match. Throughout the proceedings, Uruguay maintained significant pressure through set pieces, earning 11 corners compared to 4 for Cape Verde, though the clinical edge required to break the deadlock a second time proved elusive. The match ended in a 2-2 stalemate, a result that reflected the ebb and flow of a game where neither side could quite assert total dominance despite the statistical pressure.",
   "citations": [
-    {
-      "marker": "final",
-      "kind": "final",
-      "proof": {
-        "fixtureId": 17588235,
-        "seq": 1000,
-        "statKey": 1,
-        "timestamp": 1782086339604,
-        "epochDay": 20625,
-        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
-        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
-        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=1000&statKey=1"
-      }
-    },
     {
       "marker": "ev_1",
       "kind": "event",
@@ -125,6 +111,20 @@
       }
     },
     {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 1000,
+        "statKey": 1,
+        "timestamp": 1782086339604,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=1000&statKey=1"
+      }
+    },
+    {
       "marker": "ev_8",
       "kind": "event",
       "eventId": "ev_8",
@@ -140,6 +140,6 @@
       }
     }
   ],
-  "wordCount": 281,
-  "generatedAt": "2026-07-18T08:11:13.204Z"
+  "wordCount": 310,
+  "generatedAt": "2026-07-18T20:59:11.160Z"
 }
