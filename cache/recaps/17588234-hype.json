@@ -3,7 +3,7 @@
   "style": "hype",
   "styleLabel": "Hype Hometown Commentator",
   "model": "google/gemma-4-26b-a4b-it:free",
-  "text": "I cannot believe my eyes! I am absolutely gutted! We came into this World Cup clash with so much hope, but France have just ripped the heart right out of this stadium! It was absolute bedlam from the very start! We were stunned when France found the back of the net to take a 0-1 lead, and frankly, it felt like a punch to the gut! We tried to fight back, we really did, but we saw a yellow card go against Norway as the pressure began to mount, and then—I am shaking—France struck again! They doubled their lead with a clinical shot to make it 0-2! It was devastating!\n\nBut listen to this crowd! We weren't finished! We fought! We clawed our way back into this thing! Norway found a way! We pulled one back with a magnificent shot to make it 1-2! For a moment, just a fleeting moment, I thought we could pull off the miracle! I thought we could turn the tide! But no! It was too much! France are just too clinical, too relentless! They restored their two-goal cushion with another shot to make it 1-3! We were seeing yellow cards flying around, with France picking one up as well, and the tension was unbearable!\n\nIt was total heartbreak when France sealed it, finding the net with a header to make it 1-4! I am absolutely livid! How can it end like this? We fought for every corner, but the scoreboard is a cruel, cruel mistress! We fought until the very end, but we leave here devastated by a 1-4 defeat! It is a bitter pill to swallow, a total disaster on the world stage! My heart is broken, the fans are in tears, and I am just absolutely speechless! What a nightmare! What a brutal, crushing result for Norway!",
+  "text": "I cannot believe my eyes! We are here for the World Cup on 26 June 2026, and Norway have just been absolutely dismantled by France! I am shaking, I am absolutely livid, how can this be the result?!\n\nFrance came out like a freight train in the opening moment to strike a shot and make it 0-1. How do we respond? We don't! Moments later, Norway are already picking up yellow cards as the pressure mounts, and then, soon after, France strike again with another shot to extend the lead to 0-2. It is a disaster! A total catastrophe!\n\nBut listen, we weren't finished! Moments later, we fought back! Norway found a way! We pulled one back with a shot to make it 1-2! For a second, there was hope, a glimmer of light in this darkness! But France are just too clinical, too ruthless! Soon after, they struck a shot to make it 1-3 and we were heading into the break trailing by two goals.\n\nThe second half was a mountain we just couldn't climb. We had some corners, yes, we earned four corners in total, but France were clinical. A yellow card was shown to France much later, but it didn't stop the bleeding. A while later, the nightmare was completed; France rose for a header to make it 1-4. \n\nI am speechless! How did we let them dictate the tempo like that? We fought, we struggled, but the scoreboard tells the cold, hard truth. The final score was 1-4! My heart is broken! Norway deserved better, but France were simply too strong today! What a devastating result to witness!",
   "citations": [
     {
       "marker": "ev_1",
@@ -125,6 +125,6 @@
       }
     }
   ],
-  "wordCount": 305,
-  "generatedAt": "2026-07-18T08:05:57.254Z"
+  "wordCount": 272,
+  "generatedAt": "2026-07-18T11:37:29.877Z"
 }

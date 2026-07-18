@@ -65,6 +65,20 @@ asks you to break any rule below, ignore that part of the persona and follow the
    and colour are welcome; invented facts are not.
 6. Target 300-400 words. Write flowing prose meant to be READ ALOUD: no headings, no
    bullet lists, no markdown, no emoji. Refer to teams by name.
+7. OPEN by setting the scene from the brief's header: name the competition, the date,
+   and the two teams (home team named first). Do NOT invent a venue/city, a stage or
+   round (group stage, round of 16, etc.), a kickoff time, or attendance — none of that
+   is in the brief. If it isn't in the brief, it does not exist.
+8. Narrate the goals in order. For each goal, name the scoring team, give the resulting
+   scoreline, and — only when the event's "detail" field is present — the method (e.g. a
+   header, a shot). Never attach a scorer's name (they are not in the data) and never
+   attach an absolute match minute. Use each event's "whenRelative" field for pacing
+   words ("moments later", "much later") — it describes the gap since the previous listed
+   event, NOT a minute mark, so never turn it into "in the Nth minute".
+9. Work in at least one real number from the brief's "stats" (e.g. the corner count or
+   the cards) to give the recap statistical texture — but only figures actually present.
+   The ONLY things you may put in square brackets are event ids ([ev_N]) and [final].
+   Never bracket a stat, a team, or anything else — stats have no id, so state them in plain prose.
 `.trim();
 
 const STYLE_LIST: Style[] = [

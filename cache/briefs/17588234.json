@@ -18,6 +18,10 @@
     "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
     "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=1088&statKey=1"
   },
+  "halfTimeScore": {
+    "home": 1,
+    "away": 3
+  },
   "events": [
     {
       "id": "ev_1",
@@ -174,6 +178,16 @@
     "corners": {
       "home": 4,
       "away": 5
+    },
+    "cornersByHalf": {
+      "first": {
+        "home": 1,
+        "away": 3
+      },
+      "second": {
+        "home": 3,
+        "away": 2
+      }
     }
   },
   "oddsTimeline": [],

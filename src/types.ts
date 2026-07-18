@@ -58,12 +58,19 @@ export const MatchBriefSchema = z.object({
   awayTeam: z.string(),
   finalScore: SideTotalsSchema.extend({ home: z.number().int(), away: z.number().int() }),
   finalScoreProof: ProofSchema, // proves the home-goals stat at the final status seq
+  // Half-time score — only present when the feed's per-period stat keys reconcile
+  // to the full-time score (otherwise omitted; never inferred).
+  halfTimeScore: SideTotalsSchema.extend({ home: z.number().int(), away: z.number().int() }).optional(),
   events: z.array(BriefEventSchema),
   stats: z.object({
     goals: SideTotalsSchema,
     yellowCards: SideTotalsSchema,
     redCards: SideTotalsSchema,
     corners: SideTotalsSchema,
+    // Per-half corner split, present only when period keys reconcile.
+    cornersByHalf: z
+      .object({ first: SideTotalsSchema, second: SideTotalsSchema })
+      .optional(),
   }),
   oddsTimeline: z.array(
     z.object({ minute: z.number(), homeWin: z.number(), draw: z.number(), awayWin: z.number() })

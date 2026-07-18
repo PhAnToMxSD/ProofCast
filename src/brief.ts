@@ -50,6 +50,54 @@ function sideTotals(
   return p1IsHome ? { home: p1, away: p2 } : { home: p2, away: p1 };
 }
 
+// Per-period stat keys are the whole-game base key offset by the period:
+// first half = 1000 + base, second half = 3000 + base (confirmed empirically —
+// first + second reconciles exactly to the whole-game total).
+const FIRST_HALF_OFFSET = 1000;
+const SECOND_HALF_OFFSET = 3000;
+
+/**
+ * Derive the half-time score from the per-period stat keys, but ONLY if the two
+ * halves reconcile to the full-time score. If they don't (or the keys are
+ * absent), return undefined — we never guess a half-time score.
+ */
+function deriveHalfTime(
+  stats: Record<string, number>,
+  p1IsHome: boolean,
+  fullTime: { home: number; away: number }
+): { home: number; away: number } | undefined {
+  const g1 = STAT_KEY.homeGoals; // participant-1 goals base key
+  const g2 = STAT_KEY.awayGoals; // participant-2 goals base key
+  const has = (k: number) => String(k) in stats;
+  if (![FIRST_HALF_OFFSET, SECOND_HALF_OFFSET].every((o) => has(o + g1) && has(o + g2))) {
+    return undefined;
+  }
+  const first = sideTotals(stats, FIRST_HALF_OFFSET + g1, FIRST_HALF_OFFSET + g2, p1IsHome);
+  const second = sideTotals(stats, SECOND_HALF_OFFSET + g1, SECOND_HALF_OFFSET + g2, p1IsHome);
+  const reconciles =
+    first.home + second.home === fullTime.home && first.away + second.away === fullTime.away;
+  return reconciles ? first : undefined;
+}
+
+/** Per-half corner split — same reconciliation guard as the half-time score. */
+function deriveCornersByHalf(
+  stats: Record<string, number>,
+  p1IsHome: boolean,
+  fullTime: { home: number; away: number }
+) {
+  const c1 = STAT_KEY.homeCorner;
+  const c2 = STAT_KEY.awayCorner;
+  const has = (k: number) => String(k) in stats;
+  if (![FIRST_HALF_OFFSET, SECOND_HALF_OFFSET].every((o) => has(o + c1) && has(o + c2))) {
+    return undefined;
+  }
+  const first = sideTotals(stats, FIRST_HALF_OFFSET + c1, FIRST_HALF_OFFSET + c2, p1IsHome);
+  const second = sideTotals(stats, SECOND_HALF_OFFSET + c1, SECOND_HALF_OFFSET + c2, p1IsHome);
+  const reconciles =
+    first.home + second.home === fullTime.home && first.away + second.away === fullTime.away;
+  return reconciles ? { first, second } : undefined;
+}
+
 function toBriefEvent(e: KeyEvent, idx: number, raw: RawMatch): BriefEvent {
   const teamName = e.team === "home" ? raw.homeTeam : raw.awayTeam;
   const type: BriefEvent["type"] =
@@ -97,20 +145,27 @@ export function buildBrief(raw: RawMatch): MatchBrief {
   const oddsTimeline: MatchBrief["oddsTimeline"] = [];
   const oddsHighlights: MatchBrief["oddsHighlights"] = [];
 
+  const finalScore = { home: raw.final.homeGoals, away: raw.final.awayGoals };
+  const corners = sideTotals(stats, STAT_KEY.homeCorner, STAT_KEY.awayCorner, p1IsHome);
+  const halfTimeScore = deriveHalfTime(stats, p1IsHome, finalScore);
+  const cornersByHalf = deriveCornersByHalf(stats, p1IsHome, corners);
+
   const brief: MatchBrief = {
     matchId: String(raw.fixtureId),
     competition: raw.competition,
     date: new Date(raw.startTime).toISOString().slice(0, 10),
     homeTeam: raw.homeTeam,
     awayTeam: raw.awayTeam,
-    finalScore: { home: raw.final.homeGoals, away: raw.final.awayGoals },
+    finalScore,
     finalScoreProof,
+    ...(halfTimeScore ? { halfTimeScore } : {}),
     events,
     stats: {
       goals: sideTotals(stats, STAT_KEY.homeGoals, STAT_KEY.awayGoals, p1IsHome),
       yellowCards: sideTotals(stats, STAT_KEY.homeYellow, STAT_KEY.awayYellow, p1IsHome),
       redCards: sideTotals(stats, STAT_KEY.homeRed, STAT_KEY.awayRed, p1IsHome),
-      corners: sideTotals(stats, STAT_KEY.homeCorner, STAT_KEY.awayCorner, p1IsHome),
+      corners,
+      ...(cornersByHalf ? { cornersByHalf } : {}),
     },
     oddsTimeline,
     oddsHighlights,

@@ -252,6 +252,27 @@ scheme. The chain of trust:
 
 ---
 
+## Phase 6 — Audio narration (ElevenLabs) ⚠️ quota-critical
+
+Free tier is **10,000 characters/month for the whole account**. Recaps run ~1,300–1,800 chars,
+so only ~4–5 pre-generated narrations exist for the month (after reserving ~2,500 for the live
+demo). The `05-generate-audio.ts` script is built to never waste quota:
+
+- Reads the **live** remaining quota from ElevenLabs before every call and prints the exact cost.
+- **Refuses to spend anything without `--confirm`** — the default is a dry run.
+- **Skips** any recap already narrated in `cache/audio/` (use `--force` to override).
+- Blocks a synthesis that would dip below the demo reserve (`--reserve`, default 2500).
+- Logs every spend to `cache/tts-usage.json`.
+
+```bash
+npm run audio -- --quota                               # just show remaining quota
+npm run audio -- --match 17588234 --style hype         # dry run: prints cost, spends nothing
+npm run audio -- --match 17588234 --style hype --confirm   # actually synthesize the mp3
+```
+
+Voice per persona (stock voices, no cloning on free tier): `hype` → Antoni, `analyst` → Adam,
+`bedtime`/`custom` → Rachel. Override with `--voice <id>`. Output: `cache/audio/<id>-<style>.mp3`.
+
 ## Attribution
 
 Audio narration generated with **ElevenLabs** (free tier — attribution required, no commercial

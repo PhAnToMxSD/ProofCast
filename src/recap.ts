@@ -9,22 +9,55 @@ import type { MatchBrief, Proof } from "./types.js";
 import { resolveStyle, systemPrompt, type Style, type StyleKey } from "./styles.js";
 import { generate, CANDIDATE_MODELS, QuotaError, type ChatMessage } from "./llm.js";
 
-// What the model actually sees — facts only, no proof URLs/PDAs.
+// ISO date → a form TTS reads naturally ("2026-06-26" → "26 June 2026").
+function spokenDate(iso: string): string {
+  const d = new Date(`${iso}T00:00:00Z`);
+  if (isNaN(d.getTime())) return iso;
+  const months = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+  return `${d.getUTCDate()} ${months[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
+}
+
+// Turn the real gap (ms) since the previous listed event into a QUALITATIVE
+// pacing word. We hand the model tempo, never a minute mark — the underlying
+// timestamps are on-chain-anchored, but without a reliable kickoff we must not
+// let a gap be misread as an absolute match minute.
+function whenRelative(gapMs: number | null): string {
+  if (gapMs == null) return "opening moment";
+  const min = gapMs / 60000;
+  if (min < 3) return "moments later";
+  if (min < 15) return "soon after";
+  if (min < 40) return "a while later";
+  return "much later";
+}
+
+// What the model actually sees — facts only, no proof URLs/PDAs. Events carry a
+// qualitative "whenRelative" derived from their real timestamps so the persona
+// can pace the goals honestly without inventing minutes.
 function slimBrief(brief: MatchBrief) {
-  return {
-    competition: brief.competition,
-    date: brief.date,
-    homeTeam: brief.homeTeam,
-    awayTeam: brief.awayTeam,
-    finalScore: brief.finalScore,
-    events: brief.events.map((e) => ({
+  let prevTs: number | null = null;
+  const events = brief.events.map((e) => {
+    const ts = e.proof.timestamp ?? null;
+    const gap = ts != null && prevTs != null ? ts - prevTs : null;
+    if (ts != null) prevTs = ts;
+    return {
       id: e.id,
       type: e.type,
       team: e.team === "home" ? brief.homeTeam : brief.awayTeam,
       scoreAfter: `${e.homeScore}-${e.awayScore}`,
+      whenRelative: whenRelative(gap),
       ...(e.minute != null ? { minute: e.minute } : {}),
       ...(e.detail ? { detail: e.detail } : {}),
-    })),
+    };
+  });
+  return {
+    competition: brief.competition,
+    date: spokenDate(brief.date),
+    homeTeam: brief.homeTeam,
+    awayTeam: brief.awayTeam,
+    finalScore: brief.finalScore,
+    ...(brief.halfTimeScore ? { halfTimeScore: brief.halfTimeScore } : {}),
+    events,
     stats: brief.stats,
     dataNotes: brief.dataNotes,
   };
@@ -38,8 +71,17 @@ export function buildMessages(brief: MatchBrief, style: Style, favouriteTeam?: s
     JSON.stringify(brief_, null, 2),
     "```",
     "",
-    `Write the match recap in your persona voice. Cite every factual claim with its event id`,
-    `(e.g. [ev_2]) and cite the final score with [final]. 300-400 words.`,
+    `Write the match recap in your persona voice, 300-400 words. Structure it as:`,
+    `  1. OPEN by naming the competition (${brief.competition}), the date (${spokenDate(brief.date)}), and the`,
+    `     fixture ${brief.homeTeam} vs ${brief.awayTeam}. Do not invent a venue, city, stage, round, or kickoff time.`,
+    `  2. Walk through the goals in order (use "scoreAfter" for the running scoreline and "detail"`,
+    `     for the method when present). Use "whenRelative" only for pacing words, never as a minute.`,
+    ...(brief.halfTimeScore
+      ? [`     Note the half-time score (${brief.halfTimeScore.home}-${brief.halfTimeScore.away}, home-away) as a natural turning point in the story.`]
+      : []),
+    `  3. Fold in at least one real figure from "stats" (corners or cards).`,
+    ``,
+    `Cite every factual claim with its event id (e.g. [ev_2]) and cite the final score with [final].`,
     `You MUST state the final score using the digits "${brief.finalScore.home}-${brief.finalScore.away}" somewhere in the recap`,
     `(you may also describe it in words, but the digits must appear), immediately followed by [final].`,
   ].join("\n");
@@ -116,7 +158,15 @@ function assertScoreStated(text: string, brief: MatchBrief): void {
 }
 
 function stripTags(text: string): string {
-  return text.replace(CITATION_RE, "").replace(/[ \t]{2,}/g, " ").replace(/ +([.,!?;:])/g, "$1").trim();
+  return text
+    .replace(CITATION_RE, "")
+    // Defensive: remove any residual bracket token the model emitted that is NOT
+    // a valid citation (e.g. a stray "[stats]" or "[corners]"). Those carry no
+    // proof and would otherwise be read aloud verbatim.
+    .replace(/\[[^\]]*\]/g, "")
+    .replace(/[ \t]{2,}/g, " ")
+    .replace(/ +([.,!?;:])/g, "$1")
+    .trim();
 }
 
 // Reject chain-of-thought leakage and non-prose. Reasoning models echo the

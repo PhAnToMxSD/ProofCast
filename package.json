@@ -6,7 +6,10 @@
   "type": "module",
   "scripts": {
     "auth": "tsx scripts/01-auth.ts",
-    "fetch": "tsx scripts/02-fetch-match.ts"
+    "fetch": "tsx scripts/02-fetch-match.ts",
+    "brief": "tsx scripts/03-build-brief.ts",
+    "text": "tsx scripts/04-generate-text.ts",
+    "audio": "tsx scripts/05-generate-audio.ts"
   },
   "dependencies": {
     "@coral-xyz/anchor": "0.32.1",

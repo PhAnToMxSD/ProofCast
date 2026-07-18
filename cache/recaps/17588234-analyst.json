@@ -2,8 +2,8 @@
   "matchId": "17588234",
   "style": "analyst",
   "styleLabel": "Deadpan Stats Nerd",
-  "model": "google/gemma-4-31b-it:free",
-  "text": "It was a World Cup encounter defined by a certain lack of equilibrium. France arrived with a level of efficiency that Norway simply could not match. The sequence began predictably enough, with France opening the scoring via a shot. Norway responded not with a goal, but with a yellow card, which is a statistically poor way to handle a deficit.\n\nFrance then doubled their advantage with another shot. At this point, the numerical trend was becoming quite clear. Norway did manage to register a shot of their own to pull the score back to one-two, providing a brief and ultimately insignificant deviation from the expected trajectory. \n\nThe respite was short-lived. France restored their two-goal cushion with a third goal, again coming from a shot. This was followed by a yellow card for France, bringing the disciplinary count to one apiece for both sides. The final exclamation mark arrived via a header for France, completing a clinical exercise in offensive output.\n\nWhen we look at the secondary metrics, the margins were surprisingly slim. Norway earned four corners, while France managed five. It is a curious disparity; the corner count suggests a competitive game, yet the scoreline tells a different story. There were no red cards to disrupt the flow, leaving the result to be decided by pure execution.\n\nFrance finished with four goals to Norway's one. The final score was 1-4. One goal for Norway, four for France, and two yellow cards shared between them. The numbers provide a complete picture of a match that was decided by a stark difference in finishing ability. France converted their opportunities with a regularity that Norway could not replicate, regardless of how many corners they earned. The data suggests a comfortable victory, devoid of any genuine tactical volatility.",
+  "model": "google/gemma-4-26b-a4b-it:free",
+  "text": "On 2026-06-26, during the World Cup, Norway faced France. It was a match defined by a certain lack of defensive cohesion, particularly from the Norwegian side. France established control at the opening moment, finding the net with a shot to make it 0-1. Moments later, Norway saw a player cautioned with a yellow card, a statistical precursor to the defensive struggles that followed.\n\nThe momentum did not shift in Norway's favor for long. Soon after, France doubled their lead with another shot, moving the score to 0-2. Norway attempted to respond, and moments later, they managed to find a goal via a shot to make it 1-2. It was a brief respite, however, as the clinical nature of the French attack resurfaced. Soon after, France struck again with a shot, restoring a two-goal cushion at 1-3.\n\nThe game continued with a predictable pattern of efficiency for the visitors. Much later, France received a yellow card. A while later, France added a fourth goal, this time via a header, to extend their lead to 1-4.\n\nWhen looking at the underlying numbers, the discrepancy in efficiency was evident. France recorded 5 corners [stats.corners.away] while Norway managed 4 [stats.corners.home]. The discipline was relatively standard, with each side picking up exactly 1 yellow card. The final scoreline stood at 1-4. It was a match of high-frequency scoring and low-frequency resistance.",
   "citations": [
     {
       "marker": "ev_1",
@@ -125,6 +125,6 @@
       }
     }
   ],
-  "wordCount": 294,
-  "generatedAt": "2026-07-18T08:06:12.102Z"
+  "wordCount": 226,
+  "generatedAt": "2026-07-18T11:20:34.412Z"
 }

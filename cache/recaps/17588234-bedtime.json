@@ -3,7 +3,7 @@
   "style": "bedtime",
   "styleLabel": "Bedtime Story",
   "model": "google/gemma-4-26b-a4b-it:free",
-  "text": "Once upon a time, under the soft glow of a great World Cup sky, two brave travelers met for a grand adventure on a summer night. Norway and France stepped onto the emerald field, ready to write their story together. As the moon watched over them, France began their journey with a gentle strike that found its way home, leading the way with a single goal. Norway tried to keep pace, but a moment of tension led to a yellow card.\n\nNot long after, France continued their dance with grace, finding a second goal through a lovely shot. The stars seemed to twinkle as Norway found their own strength, rising up to strike a goal of their own, bringing a glimmer of hope to their side of the forest. But the magic of France was strong, and they soon found a third goal with another shot. In the midst of the swirling energy, a player from France received a yellow card.\n\nAs the tale unfolded, France found one more moment of wonder, sending a ball toward the goal with a header that settled the matter. The gentle wind carried the sounds of the game as the journey reached its quiet conclusion. When the dust finally settled and the travelers rested, the story was written in the stars, with France standing tall by a score of 1-4. It was a long journey of many shots and many dreams, but for now, all was calm and the match was done.",
+  "text": "Once upon a time, on the twenty-sixth of June in the year 2026, two brave travelers met under the wide sky of the World Cup. Norway and France arrived to share a grand adventure, seeking to find their way through the magical journey of the game.\n\nThe story began very early in the opening moment, when France found their way toward a goal with a gentle shot, leading the way with a score of 0-1. Moments later, the air grew a little heavy as Norway received a yellow card. Not long after, France danced through the fray once more, finding a second goal with another shot to make the score 0-2.\n\nNorway did not lose their spirit, for moments later, they found their own magic. With a determined shot, they brought the score to 1-2, bringing a glimmer of hope to their journey. However, France was quite steadfast. Soon after, they found their rhythm again with a third shot, making the score 1-3. \n\nAs the tale unfolded much later, a yellow card was shown to France. Both teams had fought with great heart, earning a total of five corners for France and four for Norway as they moved across the field. A while later, the final chapter arrived. France rose for one last time, finding a goal with a soft header to settle the score at 1-4.\n\nWhen the stars finally settled and the journey reached its end, the final score was 1-4. It was a long and winding tale of two teams, each playing their part in the great tapestry of the World Cup, until the lights grew dim and the adventure was complete.",
   "citations": [
     {
       "marker": "ev_1",
@@ -125,6 +125,6 @@
       }
     }
   ],
-  "wordCount": 248,
-  "generatedAt": "2026-07-18T08:07:38.938Z"
+  "wordCount": 275,
+  "generatedAt": "2026-07-18T11:22:20.731Z"
 }
