@@ -1,0 +1,186 @@
+{
+  "matchId": "17588231",
+  "competition": "World Cup",
+  "date": "2026-06-23",
+  "homeTeam": "Portugal",
+  "awayTeam": "Uzbekistan",
+  "finalScore": {
+    "home": 5,
+    "away": 0
+  },
+  "finalScoreProof": {
+    "fixtureId": 17588231,
+    "seq": 1161,
+    "statKey": 1,
+    "timestamp": 1782240753201,
+    "epochDay": 20627,
+    "rootPda": "7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy",
+    "explorerUrl": "https://explorer.solana.com/address/7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588231&seq=1161&statKey=1"
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Portugal",
+      "homeScore": 1,
+      "awayScore": 0,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588231,
+        "seq": 94,
+        "statKey": 1,
+        "timestamp": 1782234456224,
+        "epochDay": 20627,
+        "rootPda": "7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy",
+        "explorerUrl": "https://explorer.solana.com/address/7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588231&seq=94&statKey=1"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Uzbekistan",
+      "homeScore": 1,
+      "awayScore": 0,
+      "proof": {
+        "fixtureId": 17588231,
+        "seq": 170,
+        "statKey": 4,
+        "timestamp": 1782234835697,
+        "epochDay": 20627,
+        "rootPda": "7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy",
+        "explorerUrl": "https://explorer.solana.com/address/7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588231&seq=170&statKey=4"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Portugal",
+      "homeScore": 2,
+      "awayScore": 0,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588231,
+        "seq": 177,
+        "statKey": 1,
+        "timestamp": 1782235065106,
+        "epochDay": 20627,
+        "rootPda": "7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy",
+        "explorerUrl": "https://explorer.solana.com/address/7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588231&seq=177&statKey=1"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Portugal",
+      "homeScore": 3,
+      "awayScore": 0,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588231,
+        "seq": 409,
+        "statKey": 1,
+        "timestamp": 1782236390221,
+        "epochDay": 20627,
+        "rootPda": "7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy",
+        "explorerUrl": "https://explorer.solana.com/address/7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588231&seq=409&statKey=1"
+      }
+    },
+    {
+      "id": "ev_5",
+      "order": 5,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Portugal",
+      "homeScore": 4,
+      "awayScore": 0,
+      "detail": "Own",
+      "proof": {
+        "fixtureId": 17588231,
+        "seq": 730,
+        "statKey": 1,
+        "timestamp": 1782239072716,
+        "epochDay": 20627,
+        "rootPda": "7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy",
+        "explorerUrl": "https://explorer.solana.com/address/7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588231&seq=730&statKey=1"
+      }
+    },
+    {
+      "id": "ev_6",
+      "order": 6,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Portugal",
+      "homeScore": 4,
+      "awayScore": 0,
+      "proof": {
+        "fixtureId": 17588231,
+        "seq": 821,
+        "statKey": 3,
+        "timestamp": 1782239507341,
+        "epochDay": 20627,
+        "rootPda": "7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy",
+        "explorerUrl": "https://explorer.solana.com/address/7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588231&seq=821&statKey=3"
+      }
+    },
+    {
+      "id": "ev_7",
+      "order": 7,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Portugal",
+      "homeScore": 5,
+      "awayScore": 0,
+      "proof": {
+        "fixtureId": 17588231,
+        "seq": 1059,
+        "statKey": 1,
+        "timestamp": 1782240753201,
+        "epochDay": 20627,
+        "rootPda": "7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy",
+        "explorerUrl": "https://explorer.solana.com/address/7SCTwQKPx9nF1qgaHT3pMaG7gTS949VM3EY9DGSrzXHy?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588231&seq=1059&statKey=1"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 5,
+      "away": 0
+    },
+    "yellowCards": {
+      "home": 1,
+      "away": 1
+    },
+    "redCards": {
+      "home": 0,
+      "away": 0
+    },
+    "corners": {
+      "home": 3,
+      "away": 2
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Event minutes are not available in this match's data — do not state or invent minutes.",
+    "Scorer/player names are not available — refer to teams, not named players.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

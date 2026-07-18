@@ -1,0 +1,245 @@
+{
+  "matchId": "17588238",
+  "competition": "World Cup",
+  "date": "2026-06-18",
+  "homeTeam": "Canada",
+  "awayTeam": "Qatar",
+  "finalScore": {
+    "home": 6,
+    "away": 0
+  },
+  "finalScoreProof": {
+    "fixtureId": 17588238,
+    "seq": 1161,
+    "statKey": 1,
+    "timestamp": 1781826847743,
+    "epochDay": 20622,
+    "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+    "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=1161&statKey=1"
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Canada",
+      "homeScore": 0,
+      "awayScore": 0,
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 123,
+        "statKey": 3,
+        "timestamp": 1781820552005,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=123&statKey=3"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Canada",
+      "homeScore": 1,
+      "awayScore": 0,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 203,
+        "statKey": 1,
+        "timestamp": 1781821074422,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=203&statKey=1"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Canada",
+      "homeScore": 2,
+      "awayScore": 0,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 303,
+        "statKey": 1,
+        "timestamp": 1781821831465,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=303&statKey=1"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "red",
+      "team": "away",
+      "teamName": "Qatar",
+      "homeScore": 2,
+      "awayScore": 0,
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 337,
+        "statKey": 6,
+        "timestamp": 1781822037357,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=337&statKey=6"
+      }
+    },
+    {
+      "id": "ev_5",
+      "order": 5,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Canada",
+      "homeScore": 3,
+      "awayScore": 0,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 529,
+        "statKey": 1,
+        "timestamp": 1781822965833,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=529&statKey=1"
+      }
+    },
+    {
+      "id": "ev_6",
+      "order": 6,
+      "type": "red",
+      "team": "away",
+      "teamName": "Qatar",
+      "homeScore": 3,
+      "awayScore": 0,
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 686,
+        "statKey": 6,
+        "timestamp": 1781824499661,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=686&statKey=6"
+      }
+    },
+    {
+      "id": "ev_7",
+      "order": 7,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Qatar",
+      "homeScore": 3,
+      "awayScore": 0,
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 750,
+        "statKey": 4,
+        "timestamp": 1781825014743,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=750&statKey=4"
+      }
+    },
+    {
+      "id": "ev_8",
+      "order": 8,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Canada",
+      "homeScore": 4,
+      "awayScore": 0,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 755,
+        "statKey": 1,
+        "timestamp": 1781825161676,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=755&statKey=1"
+      }
+    },
+    {
+      "id": "ev_9",
+      "order": 9,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Canada",
+      "homeScore": 5,
+      "awayScore": 0,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 844,
+        "statKey": 1,
+        "timestamp": 1781825863919,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=844&statKey=1"
+      }
+    },
+    {
+      "id": "ev_10",
+      "order": 10,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Canada",
+      "homeScore": 6,
+      "awayScore": 0,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 1049,
+        "statKey": 1,
+        "timestamp": 1781826847743,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=1049&statKey=1"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 6,
+      "away": 0
+    },
+    "yellowCards": {
+      "home": 1,
+      "away": 1
+    },
+    "redCards": {
+      "home": 0,
+      "away": 2
+    },
+    "corners": {
+      "home": 19,
+      "away": 1
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Event minutes are not available in this match's data — do not state or invent minutes.",
+    "Scorer/player names are not available — refer to teams, not named players.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

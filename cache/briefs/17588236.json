@@ -1,0 +1,128 @@
+{
+  "matchId": "17588236",
+  "competition": "World Cup",
+  "date": "2026-06-25",
+  "homeTeam": "Tunisia",
+  "awayTeam": "Netherlands",
+  "finalScore": {
+    "home": 1,
+    "away": 3
+  },
+  "finalScoreProof": {
+    "fixtureId": 17588236,
+    "seq": 999,
+    "statKey": 1,
+    "timestamp": 1782433314300,
+    "epochDay": 20630,
+    "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+    "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588236&seq=999&statKey=1"
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "goal",
+      "team": "away",
+      "teamName": "Netherlands",
+      "homeScore": 0,
+      "awayScore": 1,
+      "detail": "Own",
+      "proof": {
+        "fixtureId": 17588236,
+        "seq": 48,
+        "statKey": 2,
+        "timestamp": 1782428600952,
+        "epochDay": 20629,
+        "rootPda": "CdUmkUdc4XBKeeq7Kq6JxQvnVMNuDA21mp98x4Rs3jHQ",
+        "explorerUrl": "https://explorer.solana.com/address/CdUmkUdc4XBKeeq7Kq6JxQvnVMNuDA21mp98x4Rs3jHQ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588236&seq=48&statKey=2"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "goal",
+      "team": "away",
+      "teamName": "Netherlands",
+      "homeScore": 0,
+      "awayScore": 2,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588236,
+        "seq": 88,
+        "statKey": 2,
+        "timestamp": 1782428845829,
+        "epochDay": 20629,
+        "rootPda": "CdUmkUdc4XBKeeq7Kq6JxQvnVMNuDA21mp98x4Rs3jHQ",
+        "explorerUrl": "https://explorer.solana.com/address/CdUmkUdc4XBKeeq7Kq6JxQvnVMNuDA21mp98x4Rs3jHQ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588236&seq=88&statKey=2"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Tunisia",
+      "homeScore": 1,
+      "awayScore": 2,
+      "proof": {
+        "fixtureId": 17588236,
+        "seq": 632,
+        "statKey": 1,
+        "timestamp": 1782432860068,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588236&seq=632&statKey=1"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "goal",
+      "team": "away",
+      "teamName": "Netherlands",
+      "homeScore": 1,
+      "awayScore": 3,
+      "detail": "Head",
+      "proof": {
+        "fixtureId": 17588236,
+        "seq": 696,
+        "statKey": 2,
+        "timestamp": 1782433314300,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588236&seq=696&statKey=2"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 1,
+      "away": 3
+    },
+    "yellowCards": {
+      "home": 0,
+      "away": 0
+    },
+    "redCards": {
+      "home": 0,
+      "away": 0
+    },
+    "corners": {
+      "home": 4,
+      "away": 6
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Event minutes are not available in this match's data — do not state or invent minutes.",
+    "Scorer/player names are not available — refer to teams, not named players.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

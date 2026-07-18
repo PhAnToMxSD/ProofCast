@@ -1,0 +1,175 @@
+{
+  "matchId": "17588238",
+  "style": "analyst",
+  "styleLabel": "Deadpan Stats Nerd",
+  "model": "google/gemma-4-26b-a4b-it:free",
+  "text": "The statistics from this World Cup fixture on June 18, 2026, suggest a rather predictable outcome for those who enjoy a significant disparity in efficiency. Canada secured a 6-0 victory over Qatar, a result that is reflected clearly in the final scoreline. The match was less a contest and more a statistical exercise in offensive dominance for the home side.\n\nThe early stages were marked by a lack of discipline for Canada, who picked up a yellow card while the score remained deadlocked at 0-0. However, the deadlock was broken by Canada, who opened the scoring through a shot. The momentum shifted decisively toward the home team as Canada doubled their lead with another shot. At this point, the match took a turn for the worse for the visitors. Qatar saw a player dismissed with a red card, reducing their numbers on the pitch.\n\nAs the match progressed, the deficit grew. Canada added a third goal via a shot, which coincided with a second red card for Qatar. The numerical disadvantage for the away side was compounded by a yellow card for Qatar, leaving them struggling to contain the inevitable. Canada continued their clinical execution, finding the net through a series of shots to reach four goals, then five, and finally six.\n\nThe final statistics highlight the sheer scale of the mismatch. Canada recorded 19 corners [stats.corners.home], while Qatar managed only 1 [stats.corners.away]. The disciplinary record was similarly lopsided, with Qatar finishing the match with two red cards [stats.redCards.away] and one yellow card [stats.yellowCards.away], compared to a single yellow card for Canada [stats.yellowCards.home]. It was a match defined by high-volume output from Canada and a complete breakdown of defensive structure for Qatar. The final score of 6-0 is an accurate summary of the evening's events.",
+  "citations": [
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 1161,
+        "statKey": 1,
+        "timestamp": 1781826847743,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=1161&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 123,
+        "statKey": 3,
+        "timestamp": 1781820552005,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=123&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 203,
+        "statKey": 1,
+        "timestamp": 1781821074422,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=203&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 303,
+        "statKey": 1,
+        "timestamp": 1781821831465,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=303&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 337,
+        "statKey": 6,
+        "timestamp": 1781822037357,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=337&statKey=6"
+      }
+    },
+    {
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 529,
+        "statKey": 1,
+        "timestamp": 1781822965833,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=529&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 686,
+        "statKey": 6,
+        "timestamp": 1781824499661,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=686&statKey=6"
+      }
+    },
+    {
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 750,
+        "statKey": 4,
+        "timestamp": 1781825014743,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=750&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_8",
+      "kind": "event",
+      "eventId": "ev_8",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 755,
+        "statKey": 1,
+        "timestamp": 1781825161676,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=755&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_9",
+      "kind": "event",
+      "eventId": "ev_9",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 844,
+        "statKey": 1,
+        "timestamp": 1781825863919,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=844&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_10",
+      "kind": "event",
+      "eventId": "ev_10",
+      "proof": {
+        "fixtureId": 17588238,
+        "seq": 1049,
+        "statKey": 1,
+        "timestamp": 1781826847743,
+        "epochDay": 20622,
+        "rootPda": "BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8",
+        "explorerUrl": "https://explorer.solana.com/address/BvHXpNdDsdKZgWwL74mkzYMruNGU8n9ChzfWdyMq8LL8?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588238&seq=1049&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 295,
+  "generatedAt": "2026-07-18T08:03:26.141Z"
+}

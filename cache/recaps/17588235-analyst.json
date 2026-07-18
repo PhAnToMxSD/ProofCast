@@ -1,0 +1,145 @@
+{
+  "matchId": "17588235",
+  "style": "analyst",
+  "styleLabel": "Deadpan Stats Nerd",
+  "model": "google/gemma-4-26b-a4b-it:free",
+  "text": "The World Cup fixture between Uruguay and Cape Verde was a statistical stalemate, ultimately ending in a 2-2 draw. It was a match defined by a predictable distribution of discipline and a high volume of set-piece opportunities for the home side. Uruguay controlled the territory, securing 11 corners, while Cape Verde managed only 4.\n\nThe match began with a predictable lack of discipline. Cape Verde received an early yellow card, followed shortly by a yellow card for Uruguay. The deadlock was broken when Cape Verde found the net with a shot, moving the score to 0-1. The deficit did not last long. Uruguay responded with a goal from a header to level the score at 1-1. \n\nThe momentum shifted slightly in favor of the home side as Uruguay took the lead with a shot, making it 2-1. This period of dominance was accompanied by a second yellow card for Uruguay, though they managed to avoid a red card. Cape Verde showed resilience. They found an equalizer via a shot to bring the score to 2-2. The match concluded with a final yellow card for Cape Verde, leaving the scoreline at 2-2.\n\nIn total, the disciplinary record was perfectly symmetrical. Both Uruguay and Cape Verde finished the match with two yellow cards each and zero red cards. The efficiency of the conversion was notable; despite the 11 corners conceded by Cape Verde, the scoreline remained balanced. It was a mathematically tidy outcome for both sides, provided they were satisfied with sharing the points in this World Cup encounter. There were no other incidents to report, as the data confirms only these eight events occurred during the match. The final score remains 2-2.",
+  "citations": [
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 1000,
+        "statKey": 1,
+        "timestamp": 1782086339604,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=1000&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 73,
+        "statKey": 4,
+        "timestamp": 1782079523441,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=73&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 229,
+        "statKey": 3,
+        "timestamp": 1782080402664,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=229&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 234,
+        "statKey": 2,
+        "timestamp": 1782080552610,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=234&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 429,
+        "statKey": 1,
+        "timestamp": 1782081916921,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=429&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 474,
+        "statKey": 1,
+        "timestamp": 1782082314642,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=474&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 630,
+        "statKey": 3,
+        "timestamp": 1782084181941,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=630&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 656,
+        "statKey": 2,
+        "timestamp": 1782084429696,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=656&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_8",
+      "kind": "event",
+      "eventId": "ev_8",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 941,
+        "statKey": 4,
+        "timestamp": 1782086339604,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=941&statKey=4"
+      }
+    }
+  ],
+  "wordCount": 281,
+  "generatedAt": "2026-07-18T08:11:13.204Z"
+}

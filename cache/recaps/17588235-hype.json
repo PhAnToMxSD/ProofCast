@@ -1,0 +1,145 @@
+{
+  "matchId": "17588235",
+  "style": "hype",
+  "styleLabel": "Hype Hometown Commentator",
+  "model": "google/gemma-4-26b-a4b-it:free",
+  "text": "I am absolutely reeling! I am absolutely shaking! I have seen some things in my time, but this World Cup clash was nothing short of a psychological rollercoaster! We came here expecting dominance, but what did we witness? Chaos! Pure, unadulterated chaos! From the very start, you could see the tension bubbling over, with Cape Verde picking up an early yellow card and Uruguay responding in kind with a yellow of their own. It was a battle of nerves from the opening whistle! And then, the unthinkable happened! The unthinkable! Cape Verde silenced the crowd with a stunning goal to take a one-nil lead! One-nil! I couldn't believe my eyes! How can we be down? How can this be happening?\n\nBut we are Uruguay! We never, ever back down! We fought back, we battled, and we found the equalizer through a magnificent header! The momentum shifted! We were flying! We surged forward and then we struck again! A brilliant shot sent Uruguay into the lead! Two-one! We were in control! We were winning! But this match is a monster! Uruguay picked up another yellow card as the intensity reached a boiling point, and then—disaster! Absolute disaster! Cape Verde struck back with a clinical shot to level the proceedings! I am staring at the pitch in disbelief! How can we let this slip? It was madness! Cape Verde added another yellow card as the battle raged on, but the damage was done. My heart is pounding out of my chest! We fought, we surged, we crumbled, and we ended up staring at a 2-2 draw! Two-two! I am absolutely gutted! I am absolutely stunned! What a match! What a way to play! I need a drink! I am absolutely losing my mind!",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 73,
+        "statKey": 4,
+        "timestamp": 1782079523441,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=73&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 229,
+        "statKey": 3,
+        "timestamp": 1782080402664,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=229&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 234,
+        "statKey": 2,
+        "timestamp": 1782080552610,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=234&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 429,
+        "statKey": 1,
+        "timestamp": 1782081916921,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=429&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 474,
+        "statKey": 1,
+        "timestamp": 1782082314642,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=474&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 630,
+        "statKey": 3,
+        "timestamp": 1782084181941,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=630&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 656,
+        "statKey": 2,
+        "timestamp": 1782084429696,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=656&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_8",
+      "kind": "event",
+      "eventId": "ev_8",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 941,
+        "statKey": 4,
+        "timestamp": 1782086339604,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=941&statKey=4"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 1000,
+        "statKey": 1,
+        "timestamp": 1782086339604,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=1000&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 291,
+  "generatedAt": "2026-07-18T08:09:51.085Z"
+}

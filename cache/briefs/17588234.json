@@ -1,0 +1,187 @@
+{
+  "matchId": "17588234",
+  "competition": "World Cup",
+  "date": "2026-06-26",
+  "homeTeam": "Norway",
+  "awayTeam": "France",
+  "finalScore": {
+    "home": 1,
+    "away": 4
+  },
+  "finalScoreProof": {
+    "fixtureId": 17588234,
+    "seq": 1088,
+    "statKey": 1,
+    "timestamp": 1782507511739,
+    "epochDay": 20630,
+    "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+    "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=1088&statKey=1"
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "goal",
+      "team": "away",
+      "teamName": "France",
+      "homeScore": 0,
+      "awayScore": 1,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 99,
+        "statKey": 2,
+        "timestamp": 1782500937776,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=99&statKey=2"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Norway",
+      "homeScore": 0,
+      "awayScore": 1,
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 128,
+        "statKey": 3,
+        "timestamp": 1782501054191,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=128&statKey=3"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "goal",
+      "team": "away",
+      "teamName": "France",
+      "homeScore": 0,
+      "awayScore": 2,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 252,
+        "statKey": 2,
+        "timestamp": 1782501719727,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=252&statKey=2"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Norway",
+      "homeScore": 1,
+      "awayScore": 2,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 260,
+        "statKey": 1,
+        "timestamp": 1782501780244,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=260&statKey=1"
+      }
+    },
+    {
+      "id": "ev_5",
+      "order": 5,
+      "type": "goal",
+      "team": "away",
+      "teamName": "France",
+      "homeScore": 1,
+      "awayScore": 3,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 352,
+        "statKey": 2,
+        "timestamp": 1782502472809,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=352&statKey=2"
+      }
+    },
+    {
+      "id": "ev_6",
+      "order": 6,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "France",
+      "homeScore": 1,
+      "awayScore": 3,
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 864,
+        "statKey": 4,
+        "timestamp": 1782506275385,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=864&statKey=4"
+      }
+    },
+    {
+      "id": "ev_7",
+      "order": 7,
+      "type": "goal",
+      "team": "away",
+      "teamName": "France",
+      "homeScore": 1,
+      "awayScore": 4,
+      "detail": "Head",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 1074,
+        "statKey": 2,
+        "timestamp": 1782507511739,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=1074&statKey=2"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 1,
+      "away": 4
+    },
+    "yellowCards": {
+      "home": 1,
+      "away": 1
+    },
+    "redCards": {
+      "home": 0,
+      "away": 0
+    },
+    "corners": {
+      "home": 4,
+      "away": 5
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Event minutes are not available in this match's data — do not state or invent minutes.",
+    "Scorer/player names are not available — refer to teams, not named players.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

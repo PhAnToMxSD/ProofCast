@@ -1,0 +1,130 @@
+{
+  "matchId": "17588234",
+  "style": "bedtime",
+  "styleLabel": "Bedtime Story",
+  "model": "google/gemma-4-26b-a4b-it:free",
+  "text": "Once upon a time, under the soft glow of a great World Cup sky, two brave travelers met for a grand adventure on a summer night. Norway and France stepped onto the emerald field, ready to write their story together. As the moon watched over them, France began their journey with a gentle strike that found its way home, leading the way with a single goal. Norway tried to keep pace, but a moment of tension led to a yellow card.\n\nNot long after, France continued their dance with grace, finding a second goal through a lovely shot. The stars seemed to twinkle as Norway found their own strength, rising up to strike a goal of their own, bringing a glimmer of hope to their side of the forest. But the magic of France was strong, and they soon found a third goal with another shot. In the midst of the swirling energy, a player from France received a yellow card.\n\nAs the tale unfolded, France found one more moment of wonder, sending a ball toward the goal with a header that settled the matter. The gentle wind carried the sounds of the game as the journey reached its quiet conclusion. When the dust finally settled and the travelers rested, the story was written in the stars, with France standing tall by a score of 1-4. It was a long journey of many shots and many dreams, but for now, all was calm and the match was done.",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 99,
+        "statKey": 2,
+        "timestamp": 1782500937776,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=99&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 128,
+        "statKey": 3,
+        "timestamp": 1782501054191,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=128&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 252,
+        "statKey": 2,
+        "timestamp": 1782501719727,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=252&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 260,
+        "statKey": 1,
+        "timestamp": 1782501780244,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=260&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 352,
+        "statKey": 2,
+        "timestamp": 1782502472809,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=352&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 864,
+        "statKey": 4,
+        "timestamp": 1782506275385,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=864&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 1074,
+        "statKey": 2,
+        "timestamp": 1782507511739,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=1074&statKey=2"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 17588234,
+        "seq": 1088,
+        "statKey": 1,
+        "timestamp": 1782507511739,
+        "epochDay": 20630,
+        "rootPda": "AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H",
+        "explorerUrl": "https://explorer.solana.com/address/AcSnxw9MkNCWW3YyPgKPVBNbw1eeKGWP4fcsi77hcR4H?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588234&seq=1088&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 248,
+  "generatedAt": "2026-07-18T08:07:38.938Z"
+}

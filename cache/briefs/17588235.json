@@ -1,0 +1,205 @@
+{
+  "matchId": "17588235",
+  "competition": "World Cup",
+  "date": "2026-06-21",
+  "homeTeam": "Uruguay",
+  "awayTeam": "Cape Verde",
+  "finalScore": {
+    "home": 2,
+    "away": 2
+  },
+  "finalScoreProof": {
+    "fixtureId": 17588235,
+    "seq": 1000,
+    "statKey": 1,
+    "timestamp": 1782086339604,
+    "epochDay": 20625,
+    "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+    "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=1000&statKey=1"
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Cape Verde",
+      "homeScore": 0,
+      "awayScore": 0,
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 73,
+        "statKey": 4,
+        "timestamp": 1782079523441,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=73&statKey=4"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Uruguay",
+      "homeScore": 0,
+      "awayScore": 0,
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 229,
+        "statKey": 3,
+        "timestamp": 1782080402664,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=229&statKey=3"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "goal",
+      "team": "away",
+      "teamName": "Cape Verde",
+      "homeScore": 0,
+      "awayScore": 1,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 234,
+        "statKey": 2,
+        "timestamp": 1782080552610,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=234&statKey=2"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Uruguay",
+      "homeScore": 1,
+      "awayScore": 1,
+      "detail": "Head",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 429,
+        "statKey": 1,
+        "timestamp": 1782081916921,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=429&statKey=1"
+      }
+    },
+    {
+      "id": "ev_5",
+      "order": 5,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Uruguay",
+      "homeScore": 2,
+      "awayScore": 1,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 474,
+        "statKey": 1,
+        "timestamp": 1782082314642,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=474&statKey=1"
+      }
+    },
+    {
+      "id": "ev_6",
+      "order": 6,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Uruguay",
+      "homeScore": 2,
+      "awayScore": 1,
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 630,
+        "statKey": 3,
+        "timestamp": 1782084181941,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=630&statKey=3"
+      }
+    },
+    {
+      "id": "ev_7",
+      "order": 7,
+      "type": "goal",
+      "team": "away",
+      "teamName": "Cape Verde",
+      "homeScore": 2,
+      "awayScore": 2,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 656,
+        "statKey": 2,
+        "timestamp": 1782084429696,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=656&statKey=2"
+      }
+    },
+    {
+      "id": "ev_8",
+      "order": 8,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Cape Verde",
+      "homeScore": 2,
+      "awayScore": 2,
+      "proof": {
+        "fixtureId": 17588235,
+        "seq": 941,
+        "statKey": 4,
+        "timestamp": 1782086339604,
+        "epochDay": 20625,
+        "rootPda": "HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF",
+        "explorerUrl": "https://explorer.solana.com/address/HmxgHZXtzVS9hdywMb83vCZPopbwbBgFPMh2DrJN46MF?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=17588235&seq=941&statKey=4"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 2,
+      "away": 2
+    },
+    "yellowCards": {
+      "home": 2,
+      "away": 2
+    },
+    "redCards": {
+      "home": 0,
+      "away": 0
+    },
+    "corners": {
+      "home": 11,
+      "away": 4
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Event minutes are not available in this match's data — do not state or invent minutes.",
+    "Scorer/player names are not available — refer to teams, not named players.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}
