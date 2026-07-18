@@ -393,7 +393,7 @@ body {
   color: var(--gold);
 }
 
-/* ── Options row (favourite team + custom persona) ─────────────────────── */
+/* ── Options row (favourite team) ──────────────────────────────────────── */
 
 .options {
   margin-top: 14px;
@@ -433,24 +433,6 @@ body {
 .segmented button.active {
   background: rgba(63, 240, 162, 0.14);
   color: var(--ink);
-}
-
-.custom-persona {
-  width: 100%;
-  font: inherit;
-  font-size: 0.9rem;
-  color: var(--ink);
-  background: var(--card);
-  border: 1px solid var(--edge);
-  border-radius: 12px;
-  padding: 12px 14px;
-  resize: vertical;
-  min-height: 74px;
-}
-
-.custom-persona:focus {
-  outline: none;
-  border-color: rgba(63, 240, 162, 0.5);
 }
 
 /* ── Kick-off button + loader ──────────────────────────────────────────── */

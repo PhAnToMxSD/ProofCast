@@ -107,7 +107,6 @@ export type Recap = {
   styleLabel: string;
   model: string;
   favouriteTeam?: string;
-  customPersona?: string; // present only for style "custom" — the listener's raw text
   text: string; // display text — citation tags stripped
   citations: Citation[]; // ordered as they appeared
   wordCount: number;
@@ -210,7 +209,7 @@ export function finalizeRecap(
   brief: MatchBrief,
   style: Style,
   model: string,
-  opts: { favouriteTeam?: string; customPersona?: string } = {}
+  opts: { favouriteTeam?: string } = {}
 ): Recap {
   assertLooksLikeProse(rawText); // throws on chain-of-thought leakage / bad length
   const citations = resolveCitations(rawText, brief); // throws on a fabricated id
@@ -224,7 +223,6 @@ export function finalizeRecap(
     styleLabel: style.label,
     model,
     ...(opts.favouriteTeam ? { favouriteTeam: opts.favouriteTeam } : {}),
-    ...(opts.customPersona ? { customPersona: opts.customPersona } : {}),
     text,
     citations,
     wordCount: text.split(/\s+/).filter(Boolean).length,
@@ -235,9 +233,9 @@ export function finalizeRecap(
 export async function generateRecap(
   brief: MatchBrief,
   styleKey: StyleKey,
-  opts: { favouriteTeam?: string; customPersona?: string; model?: string; temperature?: number } = {}
+  opts: { favouriteTeam?: string; model?: string; temperature?: number } = {}
 ): Promise<Recap> {
-  const style = resolveStyle(styleKey, opts.customPersona); // throws on unknown/missing
+  const style = resolveStyle(styleKey); // throws on unknown style
   const messages = buildMessages(brief, style, opts.favouriteTeam);
 
   // Rotate across candidate models on ANY failure — unavailability (429) or a
@@ -253,7 +251,6 @@ export async function generateRecap(
       });
       return finalizeRecap(rawText, brief, style, model, {
         favouriteTeam: opts.favouriteTeam,
-        customPersona: opts.customPersona,
       });
     } catch (err) {
       lastErr = err as Error;

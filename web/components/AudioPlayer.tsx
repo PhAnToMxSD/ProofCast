@@ -22,8 +22,8 @@ const TTS_VOICE_TUNING: Record<string, { rate: number; pitch: number }> = {
   hype: { rate: 1.08, pitch: 1.12 },
   analyst: { rate: 0.98, pitch: 0.85 },
   bedtime: { rate: 0.85, pitch: 1.0 },
-  custom: { rate: 1.0, pitch: 1.0 },
 };
+const DEFAULT_TTS_TUNING = { rate: 1.0, pitch: 1.0 };
 
 function fmt(sec: number): string {
   if (!isFinite(sec) || sec < 0) return "0:00";
@@ -195,7 +195,7 @@ export function AudioPlayer({ audioUrl, text, styleKey, onEnergy }: Props) {
       return;
     }
     const u = new SpeechSynthesisUtterance(text);
-    const tune = TTS_VOICE_TUNING[styleKey] ?? TTS_VOICE_TUNING.custom;
+    const tune = TTS_VOICE_TUNING[styleKey] ?? DEFAULT_TTS_TUNING;
     u.rate = tune.rate;
     u.pitch = tune.pitch;
     u.onboundary = (ev) => {

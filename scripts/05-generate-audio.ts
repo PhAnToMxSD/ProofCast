@@ -12,9 +12,8 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import crypto from "node:crypto";
 import * as cfg from "../src/config.js";
-import { isPresetKey, type StyleKey } from "../src/styles.js";
+import { isStyleKey, type StyleKey } from "../src/styles.js";
 import type { Recap } from "../src/recap.js";
 import { hasApiKey, getQuota, synthesize, charCost, voiceForStyle } from "../src/tts.js";
 
@@ -29,8 +28,7 @@ const HELP = `
 ProofCast — 05-generate-audio (Phase 6: TTS narration) ⚠️ QUOTA-CRITICAL
 
 Usage:
-  --match <id> --style <hype|analyst|bedtime>   Narrate one preset recap
-  --match <id> --custom "<persona>"             Narrate a custom-persona recap
+  --match <id> --style <hype|analyst|bedtime>   Narrate one recap
 
 Options:
   --confirm        REQUIRED to actually spend quota. Without it, this is a dry run.
@@ -52,11 +50,7 @@ function arg(name: string): string | undefined {
 const has = (name: string) => process.argv.includes(name);
 
 // Mirror scripts/04-generate-text.ts so recap and audio filenames line up.
-function recapStem(id: number, style: StyleKey, customPersona?: string): string {
-  if (style === "custom") {
-    const h = crypto.createHash("sha1").update(customPersona ?? "").digest("hex").slice(0, 8);
-    return `${id}-custom-${h}`;
-  }
+function recapStem(id: number, style: StyleKey): string {
   return `${id}-${style}`;
 }
 
@@ -109,19 +103,13 @@ async function main() {
   const id = Number(arg("--match"));
   if (!Number.isFinite(id)) throw new Error("--match <id> is required");
 
-  const customPersona = arg("--custom");
-  let style: StyleKey;
-  if (customPersona) {
-    style = "custom";
-  } else {
-    const s = arg("--style");
-    if (!s || !isPresetKey(s)) {
-      throw new Error(`--style must be one of: hype, analyst, bedtime (or use --custom "<persona>")`);
-    }
-    style = s;
+  const s = arg("--style");
+  if (!s || !isStyleKey(s)) {
+    throw new Error(`--style must be one of: hype, analyst, bedtime`);
   }
+  const style: StyleKey = s;
 
-  const stem = recapStem(id, style, customPersona);
+  const stem = recapStem(id, style);
   const recapPath = path.join(RECAPS_DIR, `${stem}.json`);
   const audioPath = path.join(AUDIO_DIR, `${stem}.mp3`);
 

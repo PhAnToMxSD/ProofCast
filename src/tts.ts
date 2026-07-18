@@ -43,8 +43,6 @@ export const VOICES: Record<StyleKey, VoiceProfile> = {
   analyst: { voiceId: "pNInz6obpgDQGcFmaJgB", name: "Adam", stability: 0.6, similarityBoost: 0.75 },
   // soft, warm, slow storyteller
   bedtime: { voiceId: "21m00Tcm4TlvDq8ikWAM", name: "Rachel", stability: 0.75, similarityBoost: 0.75 },
-  // custom personas fall back to a neutral narrator
-  custom: { voiceId: "21m00Tcm4TlvDq8ikWAM", name: "Rachel", stability: 0.55, similarityBoost: 0.75 },
 };
 
 // Highest-quality stock model. Billing is per INPUT character regardless of the
@@ -132,6 +130,6 @@ export async function synthesize(
 }
 
 export function voiceForStyle(style: StyleKey, override?: string): VoiceProfile {
-  const base = VOICES[style] ?? VOICES.custom;
-  return override ? { ...base, voiceId: override, name: `custom(${override.slice(0, 6)}…)` } : base;
+  const base = VOICES[style] ?? VOICES.analyst;
+  return override ? { ...base, voiceId: override, name: `override(${override.slice(0, 6)}…)` } : base;
 }

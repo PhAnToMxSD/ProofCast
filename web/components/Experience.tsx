@@ -12,7 +12,7 @@ import { AudioPlayer } from "@/components/AudioPlayer";
 import { Flag } from "@/components/Flag";
 import { Receipts } from "@/components/Receipts";
 
-type StyleKey = "hype" | "analyst" | "bedtime" | "custom";
+type StyleKey = "hype" | "analyst" | "bedtime";
 type Favourite = "none" | "home" | "away";
 type RecapResult = { recap: Recap; audioUrl: string | null; source: "cache" | "live" };
 
@@ -34,12 +34,6 @@ const PERSONAS: Array<{ key: StyleKey; icon: string; label: string; blurb: strin
     icon: "🌙",
     label: "Bedtime Story",
     blurb: "The match retold as a gentle fairy tale, at a lullaby pace.",
-  },
-  {
-    key: "custom",
-    icon: "🎤",
-    label: "Custom Persona",
-    blurb: "Describe any commentator you like — the facts stay locked on-chain.",
   },
 ];
 
@@ -108,7 +102,6 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
   const [matchId, setMatchId] = useState<string | null>(null);
   const [style, setStyle] = useState<StyleKey | null>(null);
   const [favourite, setFavourite] = useState<Favourite>("none");
-  const [customPersona, setCustomPersona] = useState("");
   const [phase, setPhase] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [result, setResult] = useState<RecapResult | null>(null);
   const [error, setError] = useState("");
@@ -117,9 +110,8 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
   const boardRef = useRef<HTMLDivElement>(null);
 
   const match = matches.find((m) => m.matchId === matchId) ?? null;
-  const isLivePath = style === "custom" || favourite !== "none";
-  const ready =
-    Boolean(match && style) && (style !== "custom" || customPersona.trim().length > 0);
+  const isLivePath = favourite !== "none";
+  const ready = Boolean(match && style);
 
   // Audio-reactive hook-up: the player streams energy here; we hand it to the
   // scoreboard as a CSS custom property (no React re-render per frame).
@@ -142,7 +134,6 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
           ...(favourite !== "none"
             ? { favouriteTeam: favourite === "home" ? match.homeTeam : match.awayTeam }
             : {}),
-          ...(style === "custom" ? { customPersona: customPersona.trim() } : {}),
         }),
       });
       const body = await res.json();
@@ -229,8 +220,7 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
         </div>
         <div className="persona-grid">
           {PERSONAS.map((p) => {
-            const cached =
-              p.key !== "custom" && match ? match.cachedStyles.includes(p.key) : false;
+            const cached = match ? match.cachedStyles.includes(p.key) : false;
             return (
               <button
                 key={p.key}
@@ -282,17 +272,6 @@ export function Experience({ matches }: { matches: CatalogMatch[] }) {
           </div>
         </div>
 
-        {style === "custom" && (
-          <div className="options">
-            <textarea
-              className="custom-persona"
-              placeholder='Describe your commentator — e.g. "a Shakespearean actor who treats every corner kick as high tragedy"'
-              maxLength={400}
-              value={customPersona}
-              onChange={(e) => setCustomPersona(e.target.value)}
-            />
-          </div>
-        )}
       </section>
 
       {/* ── Step 3: kickoff ── */}

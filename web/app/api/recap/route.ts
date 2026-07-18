@@ -1,32 +1,26 @@
 // Phase 7 backend — the single serverless route: POST /api/recap.
 //
 // Cached-first: preset styles with no personalization are served straight from
-// the committed pipeline outputs (instant, zero API spend). Anything else
-// (custom persona, favourite team) runs the real Phase 5 pipeline live,
-// server-side — the OpenRouter key never reaches the browser. Audio is only
-// ever the pre-generated ElevenLabs mp3 (quota rule: no TTS spend from the
-// website); uncached combinations fall back to browser narration client-side.
+// the committed pipeline outputs (instant, zero API spend). A favourite-team
+// personalization runs the real Phase 5 pipeline live, server-side — the
+// OpenRouter key never reaches the browser. Audio is only ever the pre-generated
+// ElevenLabs mp3 (quota rule: no TTS spend from the website); uncached
+// combinations fall back to browser narration client-side.
 
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import data from "@/lib/generated/data.json";
 import { MatchBriefSchema } from "@/lib/pipeline/types";
 import { generateRecap, type Recap } from "@/lib/pipeline/recap";
-import { MAX_CUSTOM_PERSONA_CHARS } from "@/lib/pipeline/styles";
 
 export const runtime = "nodejs";
 export const maxDuration = 60; // live path rotates free models; give it room
 
-const RequestSchema = z
-  .object({
-    matchId: z.string().regex(/^\d+$/),
-    style: z.enum(["hype", "analyst", "bedtime", "custom"]),
-    favouriteTeam: z.string().min(1).max(60).optional(),
-    customPersona: z.string().min(1).max(MAX_CUSTOM_PERSONA_CHARS).optional(),
-  })
-  .refine((r) => r.style !== "custom" || Boolean(r.customPersona), {
-    message: 'style "custom" requires a customPersona',
-  });
+const RequestSchema = z.object({
+  matchId: z.string().regex(/^\d+$/),
+  style: z.enum(["hype", "analyst", "bedtime"]),
+  favouriteTeam: z.string().min(1).max(60).optional(),
+});
 
 export async function POST(req: Request) {
   let body: z.infer<typeof RequestSchema>;
@@ -48,7 +42,7 @@ export async function POST(req: Request) {
   const audioUrl = (data.audio as Record<string, string>)[stem] ?? null;
 
   // Cached path — presets with no personalization.
-  if (body.style !== "custom" && !body.favouriteTeam) {
+  if (!body.favouriteTeam) {
     const cached = (data.recaps as Record<string, unknown>)[stem] as Recap | undefined;
     if (cached) {
       return NextResponse.json({ recap: cached, audioUrl, source: "cache" });
@@ -71,7 +65,6 @@ export async function POST(req: Request) {
     const brief = MatchBriefSchema.parse(rawBrief);
     const recap = await generateRecap(brief, body.style, {
       favouriteTeam: body.favouriteTeam,
-      customPersona: body.customPersona,
     });
     // Pre-generated audio never matches a personalized text — narration falls
     // back to the browser for live output.
