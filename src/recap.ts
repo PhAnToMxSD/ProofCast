@@ -6,7 +6,7 @@
 // Validation failures throw: an ungrounded recap is never written.
 
 import type { MatchBrief, Proof } from "./types.js";
-import { STYLES, STYLE_KEYS, systemPrompt, type StyleKey } from "./styles.js";
+import { resolveStyle, systemPrompt, type Style, type StyleKey } from "./styles.js";
 import { generate, CANDIDATE_MODELS, QuotaError, type ChatMessage } from "./llm.js";
 
 // What the model actually sees — facts only, no proof URLs/PDAs.
@@ -30,8 +30,7 @@ function slimBrief(brief: MatchBrief) {
   };
 }
 
-export function buildMessages(brief: MatchBrief, styleKey: StyleKey, favouriteTeam?: string): ChatMessage[] {
-  const style = STYLES[styleKey];
+export function buildMessages(brief: MatchBrief, style: Style, favouriteTeam?: string): ChatMessage[] {
   const brief_ = slimBrief(brief);
   const user = [
     `MATCH BRIEF (the only facts you may use):`,
@@ -63,6 +62,7 @@ export type Recap = {
   styleLabel: string;
   model: string;
   favouriteTeam?: string;
+  customPersona?: string; // present only for style "custom" — the listener's raw text
   text: string; // display text — citation tags stripped
   citations: Citation[]; // ordered as they appeared
   wordCount: number;
@@ -155,9 +155,9 @@ function assertLooksLikeProse(rawText: string): void {
 export function finalizeRecap(
   rawText: string,
   brief: MatchBrief,
-  styleKey: StyleKey,
+  style: Style,
   model: string,
-  opts: { favouriteTeam?: string } = {}
+  opts: { favouriteTeam?: string; customPersona?: string } = {}
 ): Recap {
   assertLooksLikeProse(rawText); // throws on chain-of-thought leakage / bad length
   const citations = resolveCitations(rawText, brief); // throws on a fabricated id
@@ -167,10 +167,11 @@ export function finalizeRecap(
   const text = stripTags(rawText);
   return {
     matchId: brief.matchId,
-    style: styleKey,
-    styleLabel: STYLES[styleKey].label,
+    style: style.key,
+    styleLabel: style.label,
     model,
     ...(opts.favouriteTeam ? { favouriteTeam: opts.favouriteTeam } : {}),
+    ...(opts.customPersona ? { customPersona: opts.customPersona } : {}),
     text,
     citations,
     wordCount: text.split(/\s+/).filter(Boolean).length,
@@ -181,10 +182,10 @@ export function finalizeRecap(
 export async function generateRecap(
   brief: MatchBrief,
   styleKey: StyleKey,
-  opts: { favouriteTeam?: string; model?: string; temperature?: number } = {}
+  opts: { favouriteTeam?: string; customPersona?: string; model?: string; temperature?: number } = {}
 ): Promise<Recap> {
-  if (!STYLE_KEYS.includes(styleKey)) throw new Error(`unknown style "${styleKey}"`);
-  const messages = buildMessages(brief, styleKey, opts.favouriteTeam);
+  const style = resolveStyle(styleKey, opts.customPersona); // throws on unknown/missing
+  const messages = buildMessages(brief, style, opts.favouriteTeam);
 
   // Rotate across candidate models on ANY failure — unavailability (429) or a
   // recap that fails grounding/prose validation. This keeps demo output honest
@@ -197,7 +198,10 @@ export async function generateRecap(
         model,
         temperature: opts.temperature,
       });
-      return finalizeRecap(rawText, brief, styleKey, model, { favouriteTeam: opts.favouriteTeam });
+      return finalizeRecap(rawText, brief, style, model, {
+        favouriteTeam: opts.favouriteTeam,
+        customPersona: opts.customPersona,
+      });
     } catch (err) {
       lastErr = err as Error;
       if (chain.length > 1) console.warn(`  · ${model}: ${lastErr.message} — rotating…`);

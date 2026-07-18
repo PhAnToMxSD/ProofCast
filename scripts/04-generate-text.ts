@@ -12,9 +12,10 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import * as cfg from "../src/config.js";
 import { MatchBriefSchema, type MatchBrief } from "../src/types.js";
-import { STYLE_KEYS, type StyleKey } from "../src/styles.js";
+import { STYLE_KEYS, isPresetKey, type StyleKey } from "../src/styles.js";
 import { generateRecap } from "../src/recap.js";
 import { hasApiKey, QuotaError, PRIMARY_MODEL, FALLBACK_MODEL } from "../src/llm.js";
 
@@ -25,12 +26,14 @@ const HELP = `
 ProofCast — 04-generate-text (Phase 5: grounded commentary, no TTS)
 
 Usage:
-  --match <id> --style <hype|analyst|bedtime>   Generate one recap
-  --match <id> --all-styles                     All styles for one match
-  --all                                         Every cached match × every style
+  --match <id> --style <hype|analyst|bedtime>   Generate one preset recap
+  --match <id> --custom "<persona>"             Generate with a listener-chosen persona
+  --match <id> --all-styles                     All preset styles for one match
+  --all                                         Every cached match × every preset style
   --audition --match <id>                       Try candidate models on one brief (picks nothing)
 
 Options:
+  --custom "<..>" Freeform listener persona (e.g. "a sarcastic pirate"). Overrides --style.
   --team <name>   Personalize toward a supported team.
   --model <id>    Override the pinned model.
   --force         Regenerate even if the recap file exists.
@@ -58,20 +61,33 @@ function loadBrief(id: number): MatchBrief {
   return MatchBriefSchema.parse(JSON.parse(fs.readFileSync(p, "utf8")));
 }
 
-function recapPath(id: number, style: StyleKey) {
+// Custom recaps are keyed by a short hash of the persona so different personas
+// don't collide (and the same one is cache-hit).
+function recapPath(id: number, style: StyleKey, customPersona?: string) {
+  if (style === "custom") {
+    const h = crypto.createHash("sha1").update(customPersona ?? "").digest("hex").slice(0, 8);
+    return path.join(RECAPS_DIR, `${id}-custom-${h}.json`);
+  }
   return path.join(RECAPS_DIR, `${id}-${style}.json`);
 }
 
-async function genOne(id: number, style: StyleKey, force: boolean, team?: string, model?: string): Promise<boolean> {
-  const dest = recapPath(id, style);
-  if (fs.existsSync(dest) && !force) {
-    console.log(`· ${id}-${style}: exists (use --force) — skipping`);
+type GenOpts = { force: boolean; team?: string; model?: string; customPersona?: string };
+
+async function genOne(id: number, style: StyleKey, opts: GenOpts): Promise<boolean> {
+  const label = style === "custom" ? `${id}-custom` : `${id}-${style}`;
+  const dest = recapPath(id, style, opts.customPersona);
+  if (fs.existsSync(dest) && !opts.force) {
+    console.log(`· ${label}: exists (use --force) — skipping`);
     return true;
   }
   const brief = loadBrief(id);
-  process.stdout.write(`· ${id}-${style}: generating… `);
+  process.stdout.write(`· ${label}: generating… `);
   try {
-    const recap = await generateRecap(brief, style, { favouriteTeam: team, model });
+    const recap = await generateRecap(brief, style, {
+      favouriteTeam: opts.team,
+      model: opts.model,
+      customPersona: opts.customPersona,
+    });
     fs.mkdirSync(RECAPS_DIR, { recursive: true });
     fs.writeFileSync(dest, JSON.stringify(recap, null, 2));
     console.log(`✓ ${recap.wordCount} words, ${recap.citations.length} citations, model ${recap.model}`);
@@ -110,6 +126,8 @@ async function main() {
   const team = arg("--team");
   const model = arg("--model");
   const force = has("--force");
+  const customPersona = arg("--custom");
+  const opts: GenOpts = { force, team, model, customPersona };
 
   if (has("--audition")) {
     const id = Number(arg("--match"));
@@ -124,16 +142,21 @@ async function main() {
 
   if (has("--all")) {
     if (allMatches.length === 0) throw new Error("no briefs in cache/briefs/");
-    for (const id of allMatches) for (const s of STYLE_KEYS) await genOne(id, s, force, team, model);
+    for (const id of allMatches) for (const s of STYLE_KEYS) await genOne(id, s, opts);
   } else {
     const id = Number(arg("--match"));
     if (!Number.isFinite(id)) throw new Error("--match <id> is required");
-    if (has("--all-styles")) {
-      for (const s of STYLE_KEYS) await genOne(id, s, force, team, model);
+    if (customPersona) {
+      // A custom persona overrides --style/--all-styles.
+      await genOne(id, "custom", opts);
+    } else if (has("--all-styles")) {
+      for (const s of STYLE_KEYS) await genOne(id, s, opts);
     } else {
-      const style = arg("--style") as StyleKey;
-      if (!STYLE_KEYS.includes(style)) throw new Error(`--style must be one of: ${STYLE_KEYS.join(", ")}`);
-      await genOne(id, style, force, team, model);
+      const style = arg("--style");
+      if (!style || !isPresetKey(style)) {
+        throw new Error(`--style must be one of: ${STYLE_KEYS.join(", ")} (or use --custom "<persona>")`);
+      }
+      await genOne(id, style, opts);
     }
   }
 
