@@ -167,4 +167,39 @@ possession are tallied from the individually-proven events in the timeline.
 
 ---
 
+## How we handle the stats
+
+Not every number is the same *kind* of number, and ProofCast is deliberate — and honest — about the
+difference. The stats sheet is built from TxLINE's on-chain feed in three ways:
+
+### 1. Direct on-chain data 🔒
+
+**Goals, corners, yellow cards and red cards** come straight from TxLINE's Merkle-proven match
+record. These are read directly — nothing is calculated — and each one links to the on-chain proof
+for that exact figure. When a stat is marked verified, it means the number itself is provable.
+
+### 2. Values we derive ourselves ⛓
+
+TxLINE streams every **shot** and every **possession phase** as its own on-chain event, but doesn't
+publish a pre-totalled "shots" or "possession %" figure. So ProofCast computes those itself —
+counting the individually-proven shot events (and folding in goals, which are shots too) for **shots**
+and **shots on target**, and measuring each side's share of the possession stream for **possession %**.
+The inputs are all on-chain; the aggregation is ours, and we label these as derived rather than
+claiming them as a single proof.
+
+### 3. Player names, selectively added 📎
+
+TxLINE proves *that* a goal happened, for *which* team, at *what* minute — but the feed doesn't carry
+the scorer's name. A recap that says "someone scored for France in the 60th minute" is far less fun
+to listen to than "**Mbappé** scored in the 60th minute," so ProofCast layers in player names from
+public match reports to make the narration come alive. These names are aligned to the verified goals
+by team and order, and are the one part of the experience clearly attributed to an off-chain source —
+the goal, team and minute underneath them stay on-chain-verified.
+
+The result: a rich, engaging match-centre where the trust boundary is always clear — provable
+figures are provable, derived figures are labelled, and the human touches that make a recap enjoyable
+never masquerade as something they aren't.
+
+---
+
 Built for the **TxODDS World Cup Hackathon** — *Consumer & Fan Experiences* track.
