@@ -78,7 +78,8 @@ flowchart TD
     A["Solana devnet<br/>TxLINE program<br/>daily_scores_roots PDAs"] -->|subscribe → activate| B["Auth layer<br/>src/txline.ts"]
     B -->|JWT + API token| C["Ingestion<br/>src/fetch.ts"]
     C -->|"RawMatch (cache/raw)"| D["Brief builder<br/>src/brief.ts"]
-    C -->|"timeline events"| S["Stats composer<br/>scripts/build-stats.mjs"]
+    C -->|"RawMatch timeline"| S["Stats composer<br/>scripts/build-stats.mjs"]
+    D -.->|"proof anchor"| S
     R["Web2 match report<br/>cache/scorers/*.json"] -->|positional alignment| D
     D -->|"MatchBrief (cache/briefs)"| E["Grounded generation<br/>src/recap.ts + styles.ts"]
     E -->|"validated Recap (cache/recaps)"| F["TTS<br/>src/tts.ts (ElevenLabs)"]
@@ -137,9 +138,9 @@ The client (`makeApiClient`) installs an interceptor that, on a `401`, refreshes
 
 - Any individual statistic is identified by the coordinate **`{ fixtureId, seq, statKey }`** — the fixture, the score-update sequence number the fact landed on, and which statistic changed.
 - `GET /api/scores/stat-validation?fixtureId=…&seq=…&statKey=…` returns the Merkle proof material (`mainTreeProof`, `subTreeProof`, `statProof`) linking that stat to the published daily root.
-- Submitting `validateStat` / `validateStatV2` on-chain against the `daily_scores_roots` PDA verifies the proof and produces a **validation transaction signature** — the per-event on-chain receipt.
+- The program additionally exposes `validateStat` / `validateStatV2` / `validateStatV3` instructions (present in the program IDL) that verify a returned proof on-chain and emit a **validation transaction signature** — an optional per-event receipt. *The reference application resolves and displays the Merkle proof from `stat-validation` and links the fan to the on-chain root PDA; it does not itself submit the validation transaction.*
 
-ProofCast therefore treats **`{ fixtureId, seq, statKey }` + the day's `rootPda`** as the canonical, resolvable proof for any fact. This coordinate is computed once at brief-build time (§7.2) and carried unchanged all the way to the rendered "verify" link.
+ProofCast therefore treats **`{ fixtureId, seq, statKey }` + the day's `rootPda`** as the canonical, resolvable proof for any fact: the stat-validation proof material verifies against the root PDA that anchors it on-chain. This coordinate is computed once at brief-build time (§7.2) and carried unchanged all the way to the rendered "verify" link.
 
 ---
 
@@ -299,10 +300,10 @@ The end-to-end guarantee, stated as a single chain, is:
 
 ```
 daily_scores_roots PDA (on-chain Merkle root)
-   └─ { fixtureId, seq, statKey }  ──stat-validation──▶  Merkle proof  ──validateStatV2──▶  validation tx
+   └─ { fixtureId, seq, statKey }  ──stat-validation──▶  Merkle proof  (optionally ──validateStatV2──▶ validation tx)
         └─ BriefEvent.proof  (deterministic, schema-gated)
              └─ [ev_N] citation in generated prose  (validated, fail-closed)
-                  └─ "verify on-chain" link in the UI  (resolved via keyless proxy)
+                  └─ "verify on-chain" link in the UI  (resolved via keyless proxy → root PDA)
 ```
 
 Any fan can walk this chain backwards from a sentence they heard to the on-chain root that anchors it. That is the entire protocol.

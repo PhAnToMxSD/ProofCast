@@ -1,0 +1,19 @@
+{
+  "matchId": "18257739",
+  "source": {
+    "name": "FIFA / ESPN",
+    "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026",
+    "fetchedAt": "2026-07-20"
+  },
+  "note": "World Cup 2026 Final (20 Jul). Ferran Torres scored the only goal in extra time (106'), set up by Nico Williams. Argentina finished with ten men after Enzo Fernandez was shown a second yellow.",
+  "goals": [
+    { "team": "home", "scorer": "Ferran Torres", "officialMinute": "106'" }
+  ],
+  "cards": [
+    { "team": "away", "player": "Lautaro Martinez", "card": "yellow", "officialMinute": "41'" },
+    { "team": "away", "player": "Leandro Paredes", "card": "yellow", "officialMinute": "52'" },
+    { "team": "away", "player": "Enzo Fernandez", "card": "yellow", "officialMinute": "82'" },
+    { "team": "away", "player": "Alexis Mac Allister", "card": "yellow", "officialMinute": "111'" },
+    { "team": "away", "player": "Enzo Fernandez", "card": "red", "officialMinute": "90+3'" }
+  ]
+}

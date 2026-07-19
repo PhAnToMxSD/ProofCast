@@ -1,0 +1,183 @@
+{
+  "matchId": "18257739",
+  "competition": "World Cup",
+  "date": "2026-07-19",
+  "homeTeam": "Spain",
+  "awayTeam": "Argentina",
+  "finalScore": {
+    "home": 1,
+    "away": 0
+  },
+  "finalScoreProof": {
+    "fixtureId": 18257739,
+    "seq": 1382,
+    "statKey": 1,
+    "timestamp": 1784497682530,
+    "epochDay": 20653,
+    "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+    "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=1382&statKey=1"
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Argentina",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 41,
+      "player": "Lautaro Martinez",
+      "nameSource": "FIFA / ESPN",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 380,
+        "statKey": 4,
+        "timestamp": 1784490371237,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=380&statKey=4"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Argentina",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 52,
+      "player": "Leandro Paredes",
+      "nameSource": "FIFA / ESPN",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 542,
+        "statKey": 4,
+        "timestamp": 1784492925107,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=542&statKey=4"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Argentina",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 82,
+      "player": "Enzo Fernandez",
+      "nameSource": "FIFA / ESPN",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 811,
+        "statKey": 4,
+        "timestamp": 1784494764562,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=811&statKey=4"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "red",
+      "team": "away",
+      "teamName": "Argentina",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 93,
+      "player": "Enzo Fernandez",
+      "nameSource": "FIFA / ESPN",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 942,
+        "statKey": 6,
+        "timestamp": 1784495398821,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=942&statKey=6"
+      }
+    },
+    {
+      "id": "ev_5",
+      "order": 5,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Spain",
+      "homeScore": 1,
+      "awayScore": 0,
+      "minute": 106,
+      "scorer": "Ferran Torres",
+      "nameSource": "FIFA / ESPN",
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 1187,
+        "statKey": 1,
+        "timestamp": 1784497447926,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=1187&statKey=1"
+      }
+    },
+    {
+      "id": "ev_6",
+      "order": 6,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Argentina",
+      "homeScore": 1,
+      "awayScore": 0,
+      "minute": 112,
+      "player": "Alexis Mac Allister",
+      "nameSource": "FIFA / ESPN",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 1233,
+        "statKey": 4,
+        "timestamp": 1784497682530,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=1233&statKey=4"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 1,
+      "away": 0
+    },
+    "yellowCards": {
+      "home": 0,
+      "away": 4
+    },
+    "redCards": {
+      "home": 0,
+      "away": 1
+    },
+    "corners": {
+      "home": 9,
+      "away": 4
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
+    "Scorer names on goal events are sourced from FIFA / ESPN and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
+    "Booked-player names on card events are sourced from FIFA / ESPN and aligned to the on-chain-verified cards — you may name the player for any yellow/red event that has a \"player\" field (never invent one for an event that lacks it).",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "matchId": "18257739",
+  "style": "hype",
+  "styleLabel": "Hype Hometown Commentator",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "The World Cup final, 19 July 2026, and if you love Spain you will never, ever forget this one — Spain against Argentina, winner takes the world. From the first whistle this was Spain's stage, Spain's ball, Spain's night, and Argentina spent the entire evening chasing shadows. Look at the shape of it: Spain hammered in twenty attempts, forcing a remarkable twelve of them on target — twelve genuine tests of the goalkeeper — and Argentina? Three shots all night. Three! And not a single one on target, not one effort that even made the Spanish keeper stretch. You do not reach a World Cup final to sit that deep and fire blanks, and Argentina found that out the hard way.\n\nYou could feel the frustration boiling over. Lautaro Martinez was booked in the 41st minute, hacking down a move he simply couldn't live with. Leandro Paredes went into the book just after the break, on 52 minutes, another Spanish surge snuffed out by a foul because there was no other way to stop it. Then Enzo Fernandez, the heartbeat of that midfield, was cautioned on 82 minutes — and you just knew, you KNEW, he was walking a tightrope. Sure enough, deep into stoppage time he lunged again, saw a second yellow and then the red, and Argentina were down to ten men with the biggest prize in football on the line. Bedlam. Absolute bedlam.\n\nStill Spain came, relentless and unbowed. Nine corners to four, wave after wave after wave, sixty-five percent of the ball, every man in red pushing for the goal that would settle it — and yet somehow, incredibly, it was still goalless as the ninety ran out and we rolled into extra time with the whole world holding its breath. And then — THEN — the moment this whole long night had been begging for. The 106th minute. Nico Williams, electric all evening, wriggles clear and slides it across, and Ferran Torres is there to smash it home! Torres! The man who buried it when it mattered most, and the Spanish bench empties in delirium. One-nil — 1-0, and there was no way back for ten-man Argentina after that.\n\nAnd even then they could not muster a shot on target. A goal down, a man down, chasing a World Cup, and Argentina still could not force the save that might have rescued them — that damning zero in the on-target column tells the whole story. Alexis Mac Allister picked up a late yellow on 112 minutes as the fouls piled up and the clock bled away, but it was academic. Spain saw it out, cool and clinical, and lifted the trophy. Twenty shots to three, twelve on target to nothing, a red card, and a flash of Torres magic. Champions of the world. What a performance. What a night!",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 380,
+        "statKey": 4,
+        "timestamp": 1784490371237,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=380&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 542,
+        "statKey": 4,
+        "timestamp": 1784492925107,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=542&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 811,
+        "statKey": 4,
+        "timestamp": 1784494764562,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=811&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 942,
+        "statKey": 6,
+        "timestamp": 1784495398821,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=942&statKey=6"
+      }
+    },
+    {
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 1187,
+        "statKey": 1,
+        "timestamp": 1784497447926,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=1187&statKey=1"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 1382,
+        "statKey": 1,
+        "timestamp": 1784497682530,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=1382&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
+      "proof": {
+        "fixtureId": 18257739,
+        "seq": 1233,
+        "statKey": 4,
+        "timestamp": 1784497682530,
+        "epochDay": 20653,
+        "rootPda": "9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c",
+        "explorerUrl": "https://explorer.solana.com/address/9yjDecy1xmHSuP3fq4isJxLNrJjk7bigBySxPoYsox8c?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257739&seq=1233&statKey=4"
+      }
+    }
+  ],
+  "wordCount": 474,
+  "generatedAt": "2026-07-19T23:44:47.652Z"
+}

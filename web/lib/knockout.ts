@@ -81,13 +81,7 @@ export type UpcomingMatch = {
   awayTeam: string;
 };
 
-export const UPCOMING: UpcomingMatch[] = [
-  {
-    matchId: "18257739",
-    stage: "Final",
-    competition: "World Cup",
-    date: "2026-07-19",
-    homeTeam: "Spain",
-    awayTeam: "Argentina",
-  },
-];
+// The Final (18257739, Spain 1-0 Argentina) has now been played and has a
+// verified brief, so it renders as a normal played match. No fixtures remain
+// upcoming.
+export const UPCOMING: UpcomingMatch[] = [];
