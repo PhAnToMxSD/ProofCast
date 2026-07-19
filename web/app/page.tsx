@@ -21,13 +21,20 @@ export default function Landing() {
 
   return (
     <main className="landing shell">
+      {/* Flanking trophies — decorative, painted behind the centred content. */}
+      <span className="landing-trophy-side left" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/trophy.png" alt="" />
+      </span>
+      <span className="landing-trophy-side right" aria-hidden="true">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/trophy.png" alt="" />
+      </span>
+
       <span className="landing-bug">
         <span className="live-dot" aria-hidden="true" />
         ProofCast · every number verified
       </span>
-
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="landing-trophy-img" src="/trophy.png" alt="FIFA World Cup trophy" />
 
       <h1 className="landing-title">
         The whole match,

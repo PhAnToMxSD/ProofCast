@@ -1357,6 +1357,7 @@ h1, h2, h3,
 
 /* ── Landing ─────────────────────────────────────────────────────────────── */
 .landing {
+  position: relative;
   min-height: calc(100vh - 90px);
   display: flex;
   flex-direction: column;
@@ -1597,13 +1598,28 @@ h1, h2, h3,
 }
 
 /* Landing hero trophy — centred above the title. */
-.landing-trophy-img {
+/* Flanking landing trophies: wrapper handles side placement + vertical
+   centring; the inner img keeps its own float animation independent of that. */
+.landing-trophy-side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0; /* first in DOM → painted behind the centred content */
+  pointer-events: none;
+  line-height: 0;
+}
+.landing-trophy-side.left { left: clamp(0px, 3vw, 44px); }
+.landing-trophy-side.right { right: clamp(0px, 3vw, 44px); transform: translateY(-50%) scaleX(-1); }
+.landing-trophy-side img {
   display: block;
-  height: clamp(140px, 24vw, 210px);
+  height: clamp(150px, 24vw, 280px);
   width: auto;
-  margin: 20px auto 4px;
   filter: drop-shadow(0 10px 28px rgba(247, 201, 72, 0.34));
   animation: trophyFloat 4.5s ease-in-out infinite;
+}
+/* Narrow viewports have no room beside the text — drop the flanks. */
+@media (max-width: 900px) {
+  .landing-trophy-side { display: none; }
 }
 
 /* Card as a link (reuses .match-card) + a mono receipt stub at its foot. */
@@ -1691,7 +1707,7 @@ a.match-card { text-decoration: none; display: block; }
 
 @media (prefers-reduced-motion: reduce) {
   .ticket, .landing-bug .live-dot,
-  .landing-trophy-img, .head-trophy-img { animation: none; }
+  .landing-trophy-side img, .head-trophy-img { animation: none; }
 }
 
 .landing-crest {
