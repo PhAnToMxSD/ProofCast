@@ -36,9 +36,10 @@ async function readJsonDir(dir) {
   return out;
 }
 
-// ── 1. briefs + recaps → data.json ───────────────────────────────────────────
+// ── 1. briefs + recaps + stats → data.json ───────────────────────────────────
 const briefs = await readJsonDir(path.join(cacheDir, "briefs"));
 const recaps = await readJsonDir(path.join(cacheDir, "recaps"));
+const stats = await readJsonDir(path.join(cacheDir, "stats"));
 
 // ── 2. audio → public/audio ──────────────────────────────────────────────────
 const audio = {};
@@ -59,7 +60,7 @@ const genDir = path.join(webRoot, "lib", "generated");
 await mkdir(genDir, { recursive: true });
 await writeFile(
   path.join(genDir, "data.json"),
-  JSON.stringify({ briefs, recaps, audio, syncedAt: new Date().toISOString() }, null, 2)
+  JSON.stringify({ briefs, recaps, stats, audio, syncedAt: new Date().toISOString() }, null, 2)
 );
 
 // ── 3. pipeline modules (for the live /api/recap path) ───────────────────────
@@ -79,5 +80,6 @@ for (const file of pipelineFiles) {
 
 console.log(
   `sync: ${Object.keys(briefs).length} briefs, ${Object.keys(recaps).length} recaps, ` +
-    `${Object.keys(audio).length} audio file(s), ${pipelineFiles.length} pipeline modules`
+    `${Object.keys(stats).length} stats, ${Object.keys(audio).length} audio file(s), ` +
+    `${pipelineFiles.length} pipeline modules`
 );

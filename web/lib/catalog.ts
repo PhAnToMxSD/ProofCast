@@ -20,6 +20,32 @@ export type CatalogEvent = {
   proofApiUrl: string;
 };
 
+export type StatProof = {
+  fixtureId: number;
+  seq: number;
+  statKey: number;
+  explorerUrl: string;
+  statValidationUrl: string;
+};
+
+export type TeamStatRow = {
+  key: string;
+  label: string;
+  home: number;
+  away: number;
+  unit?: string;
+  kind: "verified" | "derived";
+  events?: number;
+  proofHome?: StatProof;
+  proofAway?: StatProof;
+};
+
+export type MatchStats = {
+  matchId: string;
+  stats: TeamStatRow[];
+  source: string;
+};
+
 export type CatalogMatch = {
   matchId: string;
   competition: string;
@@ -74,4 +100,11 @@ export function getCatalog(): CatalogMatch[] {
       audioStyles: stylesFor(data.audio as Record<string, unknown>, b.matchId),
     }))
     .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+
+const statsMap = (data as { stats?: Record<string, MatchStats> }).stats ?? {};
+
+/** The verified-on-chain team-stats panel for a match, or null if none. */
+export function getMatchStats(matchId: string): MatchStats | null {
+  return (statsMap[matchId] as MatchStats) ?? null;
 }

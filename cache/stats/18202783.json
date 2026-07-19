@@ -1,0 +1,119 @@
+{
+  "matchId": "18202783",
+  "homeTeam": "Switzerland",
+  "awayTeam": "Colombia",
+  "finalScore": {
+    "home": 0,
+    "away": 0
+  },
+  "stats": [
+    {
+      "key": "shots",
+      "label": "Shots",
+      "home": 18,
+      "away": 26,
+      "kind": "derived",
+      "events": 44
+    },
+    {
+      "key": "shotsOnTarget",
+      "label": "Shots on target",
+      "home": 4,
+      "away": 3,
+      "kind": "derived",
+      "events": 44
+    },
+    {
+      "key": "possession",
+      "label": "Possession",
+      "home": 50,
+      "away": 50,
+      "unit": "%",
+      "kind": "derived",
+      "events": 1028
+    },
+    {
+      "key": "corners",
+      "label": "Corners",
+      "home": 3,
+      "away": 7,
+      "kind": "verified",
+      "proofHome": {
+        "fixtureId": 18202783,
+        "seq": 1354,
+        "statKey": 7,
+        "timestamp": 1783465109931,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1354&statKey=7"
+      },
+      "proofAway": {
+        "fixtureId": 18202783,
+        "seq": 1354,
+        "statKey": 8,
+        "timestamp": 1783465109931,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1354&statKey=8"
+      }
+    },
+    {
+      "key": "yellow",
+      "label": "Yellow cards",
+      "home": 3,
+      "away": 2,
+      "kind": "verified",
+      "proofHome": {
+        "fixtureId": 18202783,
+        "seq": 1354,
+        "statKey": 3,
+        "timestamp": 1783465109931,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1354&statKey=3"
+      },
+      "proofAway": {
+        "fixtureId": 18202783,
+        "seq": 1354,
+        "statKey": 4,
+        "timestamp": 1783465109931,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1354&statKey=4"
+      }
+    },
+    {
+      "key": "red",
+      "label": "Red cards",
+      "home": 0,
+      "away": 0,
+      "kind": "verified",
+      "proofHome": {
+        "fixtureId": 18202783,
+        "seq": 1354,
+        "statKey": 5,
+        "timestamp": 1783465109931,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1354&statKey=5"
+      },
+      "proofAway": {
+        "fixtureId": 18202783,
+        "seq": 1354,
+        "statKey": 6,
+        "timestamp": 1783465109931,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1354&statKey=6"
+      }
+    }
+  ],
+  "source": "TxLINE on-chain match feed (competition 72, Solana devnet)",
+  "generatedAt": "2026-07-19T04:54:48.379Z"
+}

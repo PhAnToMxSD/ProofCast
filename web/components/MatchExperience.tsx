@@ -8,11 +8,12 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import type { CatalogMatch } from "@/lib/catalog";
+import type { CatalogMatch, MatchStats } from "@/lib/catalog";
 import type { Recap } from "@/lib/pipeline/recap";
 import { AudioPlayer } from "@/components/AudioPlayer";
 import { Flag } from "@/components/Flag";
 import { Receipts } from "@/components/Receipts";
+import { TeamStats } from "@/components/TeamStats";
 
 type StyleKey = "hype" | "analyst" | "bedtime";
 type RecapResult = { recap: Recap; audioUrl: string | null; source: "cache" | "live" };
@@ -77,7 +78,7 @@ function Brewing() {
   );
 }
 
-export function MatchExperience({ match }: { match: CatalogMatch }) {
+export function MatchExperience({ match, stats }: { match: CatalogMatch; stats: MatchStats | null }) {
   const [style, setStyle] = useState<StyleKey | null>(null);
   const [phase, setPhase] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [result, setResult] = useState<RecapResult | null>(null);
@@ -144,6 +145,9 @@ export function MatchExperience({ match }: { match: CatalogMatch }) {
           </a>
         </p>
       </header>
+
+      {/* ── Verified match statistics (always visible) ── */}
+      {stats && <TeamStats match={match} stats={stats} />}
 
       {/* ── Step 1: narrator ── */}
       <section className="step">

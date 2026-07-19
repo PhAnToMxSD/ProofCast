@@ -1,0 +1,119 @@
+{
+  "matchId": "18192996",
+  "homeTeam": "Mexico",
+  "awayTeam": "England",
+  "finalScore": {
+    "home": 2,
+    "away": 3
+  },
+  "stats": [
+    {
+      "key": "shots",
+      "label": "Shots",
+      "home": 38,
+      "away": 6,
+      "kind": "derived",
+      "events": 44
+    },
+    {
+      "key": "shotsOnTarget",
+      "label": "Shots on target",
+      "home": 3,
+      "away": 2,
+      "kind": "derived",
+      "events": 44
+    },
+    {
+      "key": "possession",
+      "label": "Possession",
+      "home": 61,
+      "away": 39,
+      "unit": "%",
+      "kind": "derived",
+      "events": 824
+    },
+    {
+      "key": "corners",
+      "label": "Corners",
+      "home": 12,
+      "away": 2,
+      "kind": "verified",
+      "proofHome": {
+        "fixtureId": 18192996,
+        "seq": 1047,
+        "statKey": 7,
+        "timestamp": 1783308461073,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=1047&statKey=7"
+      },
+      "proofAway": {
+        "fixtureId": 18192996,
+        "seq": 1047,
+        "statKey": 8,
+        "timestamp": 1783308461073,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=1047&statKey=8"
+      }
+    },
+    {
+      "key": "yellow",
+      "label": "Yellow cards",
+      "home": 2,
+      "away": 3,
+      "kind": "verified",
+      "proofHome": {
+        "fixtureId": 18192996,
+        "seq": 1047,
+        "statKey": 3,
+        "timestamp": 1783308461073,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=1047&statKey=3"
+      },
+      "proofAway": {
+        "fixtureId": 18192996,
+        "seq": 1047,
+        "statKey": 4,
+        "timestamp": 1783308461073,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=1047&statKey=4"
+      }
+    },
+    {
+      "key": "red",
+      "label": "Red cards",
+      "home": 0,
+      "away": 1,
+      "kind": "verified",
+      "proofHome": {
+        "fixtureId": 18192996,
+        "seq": 1047,
+        "statKey": 5,
+        "timestamp": 1783308461073,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=1047&statKey=5"
+      },
+      "proofAway": {
+        "fixtureId": 18192996,
+        "seq": 1047,
+        "statKey": 6,
+        "timestamp": 1783308461073,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=1047&statKey=6"
+      }
+    }
+  ],
+  "source": "TxLINE on-chain match feed (competition 72, Solana devnet)",
+  "generatedAt": "2026-07-19T04:54:48.359Z"
+}

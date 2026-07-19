@@ -1,0 +1,119 @@
+{
+  "matchId": "18198205",
+  "homeTeam": "Portugal",
+  "awayTeam": "Spain",
+  "finalScore": {
+    "home": 0,
+    "away": 1
+  },
+  "stats": [
+    {
+      "key": "shots",
+      "label": "Shots",
+      "home": 21,
+      "away": 26,
+      "kind": "derived",
+      "events": 47
+    },
+    {
+      "key": "shotsOnTarget",
+      "label": "Shots on target",
+      "home": 3,
+      "away": 5,
+      "kind": "derived",
+      "events": 47
+    },
+    {
+      "key": "possession",
+      "label": "Possession",
+      "home": 48,
+      "away": 52,
+      "unit": "%",
+      "kind": "derived",
+      "events": 753
+    },
+    {
+      "key": "corners",
+      "label": "Corners",
+      "home": 3,
+      "away": 7,
+      "kind": "verified",
+      "proofHome": {
+        "fixtureId": 18198205,
+        "seq": 993,
+        "statKey": 7,
+        "timestamp": 1783372324158,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=993&statKey=7"
+      },
+      "proofAway": {
+        "fixtureId": 18198205,
+        "seq": 993,
+        "statKey": 8,
+        "timestamp": 1783372324158,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=993&statKey=8"
+      }
+    },
+    {
+      "key": "yellow",
+      "label": "Yellow cards",
+      "home": 2,
+      "away": 1,
+      "kind": "verified",
+      "proofHome": {
+        "fixtureId": 18198205,
+        "seq": 993,
+        "statKey": 3,
+        "timestamp": 1783372324158,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=993&statKey=3"
+      },
+      "proofAway": {
+        "fixtureId": 18198205,
+        "seq": 993,
+        "statKey": 4,
+        "timestamp": 1783372324158,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=993&statKey=4"
+      }
+    },
+    {
+      "key": "red",
+      "label": "Red cards",
+      "home": 0,
+      "away": 0,
+      "kind": "verified",
+      "proofHome": {
+        "fixtureId": 18198205,
+        "seq": 993,
+        "statKey": 5,
+        "timestamp": 1783372324158,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=993&statKey=5"
+      },
+      "proofAway": {
+        "fixtureId": 18198205,
+        "seq": 993,
+        "statKey": 6,
+        "timestamp": 1783372324158,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=993&statKey=6"
+      }
+    }
+  ],
+  "source": "TxLINE on-chain match feed (competition 72, Solana devnet)",
+  "generatedAt": "2026-07-19T04:54:48.369Z"
+}

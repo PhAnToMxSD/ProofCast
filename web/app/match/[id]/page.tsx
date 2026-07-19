@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getCatalog } from "@/lib/catalog";
+import { getCatalog, getMatchStats } from "@/lib/catalog";
 import { MatchExperience } from "@/components/MatchExperience";
 
 // Statically generate a page for every verified match in the catalog.
@@ -27,5 +27,5 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const { id } = await params;
   const match = getCatalog().find((m) => m.matchId === id);
   if (!match) notFound();
-  return <MatchExperience match={match} />;
+  return <MatchExperience match={match} stats={getMatchStats(id)} />;
 }
