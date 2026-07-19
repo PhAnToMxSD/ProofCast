@@ -1,36 +1,14 @@
 {
   "matchId": "18222446",
-  "competition": "World Cup",
-  "date": "2026-07-12",
-  "homeTeam": "Argentina",
-  "awayTeam": "Switzerland",
-  "finalScore": {
-    "home": 3,
-    "away": 1
-  },
-  "finalScoreProof": {
-    "fixtureId": 18222446,
-    "seq": 1302,
-    "statKey": 1,
-    "timestamp": 1783827755290,
-    "epochDay": 20646,
-    "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
-    "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
-    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=1302&statKey=1"
-  },
-  "events": [
+  "style": "hype",
+  "styleLabel": "Hype Hometown Commentator",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Grab your scarf — this one had EVERYTHING! Quarter-final, 12 July 2026, Kansas City — and Argentina outlasted Switzerland in extra time to set up a blockbuster semi-final with England. The champions were made to work deep into extra time by a Swiss side riding the high of their shootout heroics.\n\n10' — Alexis Mac Allister buried it, 1–0! 68' — Dan Ndoye lashed it home, 1–1! 114' — Julián Álvarez made no mistake, 2–1! 121' — Lautaro Martínez found the net, 3–1!\n\nAlexis Mac Allister headed in a Messi corner early, twice left unmarked and punishing it the second time. Dan Ndoye levelled with a tight-angle finish after a neat one-two, and Switzerland dug in for extra time. Then Julián Álvarez unleashed a wonderful strike from distance in the 112th minute, and Lautaro Martínez added late gloss to seal it. Argentina keep finding another gear when the tie demands it — the mark of a team that knows how to win these.\n\nYou could feel the tension crackle around the ground with every attack.\n\nThis is knockout football at its rawest — win, or fly home.\n\nThe neutrals were on their feet; nobody in the building sat still.\n\nFULL-TIME: Argentina 3–1 Switzerland! Argentina march on, Switzerland head home heartbroken — and here's the beautiful part: every goal, every minute you just heard is locked on-chain and verified by TxLINE. No hot air, no guesswork, just receipts. What. A. Game!",
+  "citations": [
     {
-      "id": "ev_1",
-      "order": 1,
-      "type": "goal",
-      "team": "home",
-      "teamName": "Argentina",
-      "homeScore": 1,
-      "awayScore": 0,
-      "minute": 10,
-      "scorer": "Alexis Mac Allister",
-      "nameSource": "FIFA / ESPN / Sky Sports",
-      "detail": "Head",
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
       "proof": {
         "fixtureId": 18222446,
         "seq": 117,
@@ -43,14 +21,9 @@
       }
     },
     {
-      "id": "ev_2",
-      "order": 2,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "Switzerland",
-      "homeScore": 1,
-      "awayScore": 0,
-      "minute": 44,
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
       "proof": {
         "fixtureId": 18222446,
         "seq": 387,
@@ -63,16 +36,9 @@
       }
     },
     {
-      "id": "ev_3",
-      "order": 3,
-      "type": "goal",
-      "team": "away",
-      "teamName": "Switzerland",
-      "homeScore": 1,
-      "awayScore": 1,
-      "minute": 68,
-      "scorer": "Dan Ndoye",
-      "nameSource": "FIFA / ESPN / Sky Sports",
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
       "proof": {
         "fixtureId": 18222446,
         "seq": 660,
@@ -85,14 +51,9 @@
       }
     },
     {
-      "id": "ev_4",
-      "order": 4,
-      "type": "red",
-      "team": "away",
-      "teamName": "Switzerland",
-      "homeScore": 1,
-      "awayScore": 1,
-      "minute": 72,
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
       "proof": {
         "fixtureId": 18222446,
         "seq": 687,
@@ -105,14 +66,9 @@
       }
     },
     {
-      "id": "ev_5",
-      "order": 5,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Argentina",
-      "homeScore": 1,
-      "awayScore": 1,
-      "minute": 97,
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
       "proof": {
         "fixtureId": 18222446,
         "seq": 1008,
@@ -125,14 +81,9 @@
       }
     },
     {
-      "id": "ev_6",
-      "order": 6,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Argentina",
-      "homeScore": 1,
-      "awayScore": 1,
-      "minute": 98,
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
       "proof": {
         "fixtureId": 18222446,
         "seq": 1021,
@@ -145,16 +96,9 @@
       }
     },
     {
-      "id": "ev_7",
-      "order": 7,
-      "type": "goal",
-      "team": "home",
-      "teamName": "Argentina",
-      "homeScore": 2,
-      "awayScore": 1,
-      "minute": 114,
-      "scorer": "Julián Álvarez",
-      "nameSource": "FIFA / ESPN / Sky Sports",
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
       "proof": {
         "fixtureId": 18222446,
         "seq": 1199,
@@ -167,14 +111,9 @@
       }
     },
     {
-      "id": "ev_8",
-      "order": 8,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Argentina",
-      "homeScore": 2,
-      "awayScore": 1,
-      "minute": 114,
+      "marker": "ev_8",
+      "kind": "event",
+      "eventId": "ev_8",
       "proof": {
         "fixtureId": 18222446,
         "seq": 1199,
@@ -187,17 +126,9 @@
       }
     },
     {
-      "id": "ev_9",
-      "order": 9,
-      "type": "goal",
-      "team": "home",
-      "teamName": "Argentina",
-      "homeScore": 3,
-      "awayScore": 1,
-      "minute": 121,
-      "scorer": "Lautaro Martínez",
-      "nameSource": "FIFA / ESPN / Sky Sports",
-      "detail": "Shot",
+      "marker": "ev_9",
+      "kind": "event",
+      "eventId": "ev_9",
       "proof": {
         "fixtureId": 18222446,
         "seq": 1282,
@@ -208,33 +139,22 @@
         "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
         "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=1282&statKey=1"
       }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18222446,
+        "seq": 1302,
+        "statKey": 1,
+        "timestamp": 1783827755290,
+        "epochDay": 20646,
+        "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+        "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=1302&statKey=1"
+      }
     }
   ],
-  "stats": {
-    "goals": {
-      "home": 3,
-      "away": 1
-    },
-    "yellowCards": {
-      "home": 3,
-      "away": 1
-    },
-    "redCards": {
-      "home": 0,
-      "away": 1
-    },
-    "corners": {
-      "home": 8,
-      "away": 2
-    }
-  },
-  "oddsTimeline": [],
-  "oddsHighlights": [],
-  "dataNotes": [
-    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
-    "Scorer names on goal events are sourced from FIFA / ESPN / Sky Sports and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
-    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
-    "No odds data is available for this match — do not reference betting odds or market swings.",
-    "Every listed event is cryptographically verified on-chain; there are no other events."
-  ]
+  "wordCount": 240,
+  "generatedAt": "2026-07-19T03:55:06.116Z"
 }

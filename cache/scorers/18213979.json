@@ -1,0 +1,26 @@
+{
+  "matchId": "18213979",
+  "source": {
+    "name": "FIFA / England Football",
+    "url": "https://www.englandfootball.com/england/mens-senior-team/fixtures-results/2025-26/World-Cup/norway-england-fifa-world-cup-quarter-final-saturday-11-july-2026-match-centre",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Norway 1-2 England, quarter-final (11 Jul, AET). Schjelderup put Norway ahead; Bellingham levelled in first-half stoppage time and won it in extra time. TxLINE: 36', 47', 93'.",
+  "goals": [
+    {
+      "team": "home",
+      "scorer": "Andreas Schjelderup",
+      "officialMinute": "36'"
+    },
+    {
+      "team": "away",
+      "scorer": "Jude Bellingham",
+      "officialMinute": "45+2'"
+    },
+    {
+      "team": "away",
+      "scorer": "Jude Bellingham",
+      "officialMinute": "93'"
+    }
+  ]
+}

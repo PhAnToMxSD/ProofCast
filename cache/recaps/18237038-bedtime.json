@@ -1,0 +1,100 @@
+{
+  "matchId": "18237038",
+  "style": "bedtime",
+  "styleLabel": "Bedtime Story",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Once upon a matchday — it was the semi-final, on the 14th of July 2026 — two teams walked out under the soft evening lights. Spain outplayed France to reach their first World Cup final since 2010. A heavyweight semi-final between two of the pre-tournament favourites, with a place in the final on the line.\n\nIn the 22nd minute, Mikel Oyarzabal sent the ball gently home from the penalty spot, and the score whispered 0–1. In the 58th minute, Pedro Porro sent the ball gently home, and the score whispered 0–2.\n\nLamine Yamal, the teenage sensation, drew the foul that won the early penalty. Mikel Oyarzabal calmly converted from the spot to settle Spanish nerves. Pedro Porro doubled the advantage after the break, and a subdued France never truly threatened a comeback. Spain were the better side in every phase, and their reward is a shot at a second world title.\n\nThe crowd hummed like a distant sea, rising and falling with every chance.\n\nSomewhere in the stands, a small supporter watched with very wide eyes.\n\nThe floodlights glowed soft and gold, like lamps left on for a bedtime tale.\n\nAnd so the story ended France 0–2 Spain. Spain carried on their long journey, and France lay down to rest. Every goal in this tale is a true one — kept safe and provable on the blockchain by TxLINE — so you can close your eyes knowing not a single fact was ever made up. Sleep well, and goodnight.",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 18237038,
+        "seq": 110,
+        "statKey": 3,
+        "timestamp": 1784056129395,
+        "epochDay": 20648,
+        "rootPda": "FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm",
+        "explorerUrl": "https://explorer.solana.com/address/FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18237038&seq=110&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 18237038,
+        "seq": 221,
+        "statKey": 2,
+        "timestamp": 1784056962796,
+        "epochDay": 20648,
+        "rootPda": "FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm",
+        "explorerUrl": "https://explorer.solana.com/address/FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18237038&seq=221&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 18237038,
+        "seq": 260,
+        "statKey": 4,
+        "timestamp": 1784057441047,
+        "epochDay": 20648,
+        "rootPda": "FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm",
+        "explorerUrl": "https://explorer.solana.com/address/FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18237038&seq=260&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 18237038,
+        "seq": 618,
+        "statKey": 2,
+        "timestamp": 1784060478302,
+        "epochDay": 20648,
+        "rootPda": "FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm",
+        "explorerUrl": "https://explorer.solana.com/address/FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18237038&seq=618&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
+      "proof": {
+        "fixtureId": 18237038,
+        "seq": 896,
+        "statKey": 3,
+        "timestamp": 1784062069191,
+        "epochDay": 20648,
+        "rootPda": "FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm",
+        "explorerUrl": "https://explorer.solana.com/address/FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18237038&seq=896&statKey=3"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18237038,
+        "seq": 1022,
+        "statKey": 1,
+        "timestamp": 1784062069191,
+        "epochDay": 20648,
+        "rootPda": "FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm",
+        "explorerUrl": "https://explorer.solana.com/address/FDU3RVD6u95iLNdVrTNpars2dM8XLyf1doNThPjY7ypm?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18237038&seq=1022&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 249,
+  "generatedAt": "2026-07-19T03:55:06.117Z"
+}

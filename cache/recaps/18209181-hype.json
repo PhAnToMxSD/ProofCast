@@ -1,0 +1,70 @@
+{
+  "matchId": "18209181",
+  "style": "hype",
+  "styleLabel": "Hype Hometown Commentator",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Turn the volume all the way up! Quarter-final, 9 July 2026 — and France booked their semi-final place with a composed, professional win over Morocco. Morocco, the tournament's great disruptors, ran into a France side finding its rhythm at exactly the right time.\n\n60' — Kylian Mbappé buried it, 1–0! 66' — Ousmane Dembélé lashed it home, 2–0!\n\nKylian Mbappé missed a first-half penalty, and for a while it looked as though Morocco might make him pay. He made amends after the break, sweeping in his 20th career World Cup goal and then turning provider. Ousmane Dembélé's fifth of the tournament settled matters and sent Les Bleus into the last four. France did not need to be spectacular; they simply needed to be efficient, and they were.\n\nYou could feel the tension crackle around the ground with every attack.\n\nThis is knockout football at its rawest — win, or fly home.\n\nThe neutrals were on their feet; nobody in the building sat still.\n\nGolden Boot, glory, the lot — it was all on the line out there.\n\nYou could feel the tension crackle around the ground with every attack.\n\nThis is knockout football at its rawest — win, or fly home.\n\nFULL-TIME: France 2–0 Morocco! France march on, Morocco head home heartbroken — and here's the beautiful part: every goal, every minute you just heard is locked on-chain and verified by TxLINE. No hot air, no guesswork, just receipts. What. A. Game!",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 18209181,
+        "seq": 739,
+        "statKey": 1,
+        "timestamp": 1783632332422,
+        "epochDay": 20643,
+        "rootPda": "EUCbk9vftUek4vChr6rnXP9hhR8UuHGBDJKLsAQTZ9Zr",
+        "explorerUrl": "https://explorer.solana.com/address/EUCbk9vftUek4vChr6rnXP9hhR8UuHGBDJKLsAQTZ9Zr?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18209181&seq=739&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 18209181,
+        "seq": 763,
+        "statKey": 4,
+        "timestamp": 1783632437864,
+        "epochDay": 20643,
+        "rootPda": "EUCbk9vftUek4vChr6rnXP9hhR8UuHGBDJKLsAQTZ9Zr",
+        "explorerUrl": "https://explorer.solana.com/address/EUCbk9vftUek4vChr6rnXP9hhR8UuHGBDJKLsAQTZ9Zr?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18209181&seq=763&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 18209181,
+        "seq": 794,
+        "statKey": 1,
+        "timestamp": 1783632657398,
+        "epochDay": 20643,
+        "rootPda": "EUCbk9vftUek4vChr6rnXP9hhR8UuHGBDJKLsAQTZ9Zr",
+        "explorerUrl": "https://explorer.solana.com/address/EUCbk9vftUek4vChr6rnXP9hhR8UuHGBDJKLsAQTZ9Zr?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18209181&seq=794&statKey=1"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18209181,
+        "seq": 1111,
+        "statKey": 1,
+        "timestamp": 1783632657398,
+        "epochDay": 20643,
+        "rootPda": "EUCbk9vftUek4vChr6rnXP9hhR8UuHGBDJKLsAQTZ9Zr",
+        "explorerUrl": "https://explorer.solana.com/address/EUCbk9vftUek4vChr6rnXP9hhR8UuHGBDJKLsAQTZ9Zr?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18209181&seq=1111&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 242,
+  "generatedAt": "2026-07-19T03:55:06.115Z"
+}

@@ -1,0 +1,130 @@
+{
+  "matchId": "18193785",
+  "style": "analyst",
+  "styleLabel": "Deadpan Stats Nerd",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Round of 16 · 7 July 2026. Final score: USA 1–4 Belgium. Belgium ended the USA's home World Cup with a clinical, four-goal display.\n\nThe hosts dreamed of a deep run in front of their own fans; Belgium's golden-tinged generation had other ideas.\n\nThe goals, in sequence: 9′ Charles De Ketelaere — 0–1; 31′ Malik Tillman — 1–1; 33′ Charles De Ketelaere — 1–2; 57′ Hans Vanaken — 1–3; 93′ Romelu Lukaku — 1–4. That is 5 goals in all, USA accounting for 1 and Belgium 4.\n\nCharles De Ketelaere's first-half double did the early damage, either side of Malik Tillman's fine reply for the hosts. For a moment, at 2-1, the American crowd believed a comeback was on. Hans Vanaken's composed finish and a late Romelu Lukaku strike snuffed that out and made the scoreline emphatic. Belgium looked ruthless and experienced — the profile of a side that intends to be around in the final week.\n\nMomentum, as ever in the knockouts, proved a fragile and fleeting thing.\n\nThe expected-goals picture tightened around every set piece and transition.\n\nFine margins decided it, as they so often do at this stage of a tournament.\n\nFor the record, Belgium advanced. Goal, team and minute for every event above are Merkle-proven on Solana devnet via TxLINE; the scorer names are attributed from public match reports and aligned to the verified goals by team and order. Nothing here rests on the commentator's word alone.",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 18193785,
+        "seq": 127,
+        "statKey": 2,
+        "timestamp": 1783383018072,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18193785&seq=127&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 18193785,
+        "seq": 316,
+        "statKey": 1,
+        "timestamp": 1783384328575,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18193785&seq=316&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 18193785,
+        "seq": 335,
+        "statKey": 2,
+        "timestamp": 1783384455272,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18193785&seq=335&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 18193785,
+        "seq": 351,
+        "statKey": 3,
+        "timestamp": 1783384501740,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18193785&seq=351&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
+      "proof": {
+        "fixtureId": 18193785,
+        "seq": 703,
+        "statKey": 2,
+        "timestamp": 1783387325109,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18193785&seq=703&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
+      "proof": {
+        "fixtureId": 18193785,
+        "seq": 823,
+        "statKey": 3,
+        "timestamp": 1783387932746,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18193785&seq=823&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
+      "proof": {
+        "fixtureId": 18193785,
+        "seq": 1110,
+        "statKey": 2,
+        "timestamp": 1783389465772,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18193785&seq=1110&statKey=2"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18193785,
+        "seq": 1120,
+        "statKey": 1,
+        "timestamp": 1783389465772,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18193785&seq=1120&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 241,
+  "generatedAt": "2026-07-19T03:55:06.114Z"
+}

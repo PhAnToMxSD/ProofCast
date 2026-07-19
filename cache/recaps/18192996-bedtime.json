@@ -1,37 +1,14 @@
 {
   "matchId": "18192996",
-  "competition": "World Cup",
-  "date": "2026-07-06",
-  "homeTeam": "Mexico",
-  "awayTeam": "England",
-  "finalScore": {
-    "home": 2,
-    "away": 3
-  },
-  "finalScoreProof": {
-    "fixtureId": 18192996,
-    "seq": 1041,
-    "statKey": 1,
-    "timestamp": 1783306871546,
-    "epochDay": 20640,
-    "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
-    "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
-    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=1041&statKey=1"
-  },
-  "halfTimeScore": {
-    "home": 1,
-    "away": 2
-  },
-  "events": [
+  "style": "bedtime",
+  "styleLabel": "Bedtime Story",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Once upon a matchday — it was the round of 16, on the 6th of July 2026 — two teams walked out under the soft evening lights. England survived a spirited Mexican fightback to win a five-goal thriller. A place in the quarter-finals was the prize, and England had to earn it the hard way against a Mexico side that simply would not lie down.\n\nFirst, in the 36th minute, Jude Bellingham made it 0–1; then, in the 38th minute, Jude Bellingham made it 0–2; then, in the 43rd minute, Julián Quiñones made it 1–2; then, in the 60th minute, Harry Kane made it 1–3; and at last, in the 69th minute, Raúl Jiménez made it 2–3.\n\nJude Bellingham's rapid first-half double — two goals in as many minutes — put England in what looked like comfortable control. Julián Quiñones pulled one back before the break to reopen the tie, and the nerves began to jangle. Harry Kane's penalty restored the two-goal cushion, but Raúl Jiménez's own spot-kick set up a frantic finish that England just about held onto. It was end-to-end, occasionally chaotic, and exactly the kind of test a would-be contender needs to pass.\n\nAnd so the story ended Mexico 2–3 England. England carried on their long journey, and Mexico lay down to rest. Every goal in this tale is a true one — kept safe and provable on the blockchain by TxLINE — so you can close your eyes knowing not a single fact was ever made up. Sleep well, and goodnight.",
+  "citations": [
     {
-      "id": "ev_1",
-      "order": 1,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 1,
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
       "proof": {
         "fixtureId": 18192996,
         "seq": 35,
@@ -44,17 +21,9 @@
       }
     },
     {
-      "id": "ev_2",
-      "order": 2,
-      "type": "goal",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 0,
-      "awayScore": 1,
-      "minute": 36,
-      "scorer": "Jude Bellingham",
-      "nameSource": "FIFA / ESPN",
-      "detail": "Head",
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
       "proof": {
         "fixtureId": 18192996,
         "seq": 338,
@@ -67,17 +36,9 @@
       }
     },
     {
-      "id": "ev_3",
-      "order": 3,
-      "type": "goal",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 0,
-      "awayScore": 2,
-      "minute": 38,
-      "scorer": "Jude Bellingham",
-      "nameSource": "FIFA / ESPN",
-      "detail": "Shot",
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
       "proof": {
         "fixtureId": 18192996,
         "seq": 349,
@@ -90,16 +51,9 @@
       }
     },
     {
-      "id": "ev_4",
-      "order": 4,
-      "type": "goal",
-      "team": "home",
-      "teamName": "Mexico",
-      "homeScore": 1,
-      "awayScore": 2,
-      "minute": 43,
-      "scorer": "Julián Quiñones",
-      "nameSource": "FIFA / ESPN",
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
       "proof": {
         "fixtureId": 18192996,
         "seq": 381,
@@ -112,14 +66,9 @@
       }
     },
     {
-      "id": "ev_5",
-      "order": 5,
-      "type": "red",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 1,
-      "awayScore": 2,
-      "minute": 54,
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
       "proof": {
         "fixtureId": 18192996,
         "seq": 567,
@@ -132,17 +81,9 @@
       }
     },
     {
-      "id": "ev_6",
-      "order": 6,
-      "type": "goal",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 1,
-      "awayScore": 3,
-      "minute": 60,
-      "scorer": "Harry Kane",
-      "nameSource": "FIFA / ESPN",
-      "detail": "Penalty",
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
       "proof": {
         "fixtureId": 18192996,
         "seq": 610,
@@ -155,14 +96,9 @@
       }
     },
     {
-      "id": "ev_7",
-      "order": 7,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 1,
-      "awayScore": 3,
-      "minute": 69,
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
       "proof": {
         "fixtureId": 18192996,
         "seq": 676,
@@ -175,17 +111,9 @@
       }
     },
     {
-      "id": "ev_8",
-      "order": 8,
-      "type": "goal",
-      "team": "home",
-      "teamName": "Mexico",
-      "homeScore": 2,
-      "awayScore": 3,
-      "minute": 69,
-      "scorer": "Raúl Jiménez",
-      "nameSource": "FIFA / ESPN",
-      "detail": "Penalty",
+      "marker": "ev_8",
+      "kind": "event",
+      "eventId": "ev_8",
       "proof": {
         "fixtureId": 18192996,
         "seq": 679,
@@ -198,14 +126,9 @@
       }
     },
     {
-      "id": "ev_9",
-      "order": 9,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Mexico",
-      "homeScore": 2,
-      "awayScore": 3,
-      "minute": 71,
+      "marker": "ev_9",
+      "kind": "event",
+      "eventId": "ev_9",
       "proof": {
         "fixtureId": 18192996,
         "seq": 698,
@@ -218,14 +141,9 @@
       }
     },
     {
-      "id": "ev_10",
-      "order": 10,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 2,
-      "awayScore": 3,
-      "minute": 72,
+      "marker": "ev_10",
+      "kind": "event",
+      "eventId": "ev_10",
       "proof": {
         "fixtureId": 18192996,
         "seq": 703,
@@ -238,14 +156,9 @@
       }
     },
     {
-      "id": "ev_11",
-      "order": 11,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Mexico",
-      "homeScore": 2,
-      "awayScore": 3,
-      "minute": 98,
+      "marker": "ev_11",
+      "kind": "event",
+      "eventId": "ev_11",
       "proof": {
         "fixtureId": 18192996,
         "seq": 980,
@@ -258,14 +171,9 @@
       }
     },
     {
-      "id": "ev_12",
-      "order": 12,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 2,
-      "awayScore": 3,
-      "minute": 99,
+      "marker": "ev_12",
+      "kind": "event",
+      "eventId": "ev_12",
       "proof": {
         "fixtureId": 18192996,
         "seq": 993,
@@ -276,43 +184,22 @@
         "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
         "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=993&statKey=4"
       }
-    }
-  ],
-  "stats": {
-    "goals": {
-      "home": 2,
-      "away": 3
     },
-    "yellowCards": {
-      "home": 2,
-      "away": 4
-    },
-    "redCards": {
-      "home": 0,
-      "away": 1
-    },
-    "corners": {
-      "home": 12,
-      "away": 2
-    },
-    "cornersByHalf": {
-      "first": {
-        "home": 4,
-        "away": 2
-      },
-      "second": {
-        "home": 8,
-        "away": 0
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 1041,
+        "statKey": 1,
+        "timestamp": 1783306871546,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=1041&statKey=1"
       }
     }
-  },
-  "oddsTimeline": [],
-  "oddsHighlights": [],
-  "dataNotes": [
-    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
-    "Scorer names on goal events are sourced from FIFA / ESPN and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
-    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
-    "No odds data is available for this match — do not reference betting odds or market swings.",
-    "Every listed event is cryptographically verified on-chain; there are no other events."
-  ]
+  ],
+  "wordCount": 255,
+  "generatedAt": "2026-07-19T03:55:06.114Z"
 }

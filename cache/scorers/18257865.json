@@ -1,0 +1,62 @@
+{
+  "matchId": "18257865",
+  "source": {
+    "name": "FIFA / ESPN / NBC",
+    "url": "https://www.fifa.com/en/match-centre/match/17/285023/289291/400021542",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "France 4-6 England, third-place play-off (18 Jul) — a 10-goal thriller. Saka's hat-trick sealed bronze; Mbappé's double moved him past Messi's all-time World Cup scoring record.",
+  "goals": [
+    {
+      "team": "away",
+      "scorer": "Declan Rice",
+      "officialMinute": "3'"
+    },
+    {
+      "team": "away",
+      "scorer": "Ezri Konsa",
+      "officialMinute": "18'"
+    },
+    {
+      "team": "away",
+      "scorer": "Bukayo Saka",
+      "officialMinute": "38'"
+    },
+    {
+      "team": "away",
+      "scorer": "Bukayo Saka",
+      "officialMinute": "46'"
+    },
+    {
+      "team": "home",
+      "scorer": "Kylian Mbappé",
+      "officialMinute": "48'"
+    },
+    {
+      "team": "home",
+      "scorer": "Bradley Barcola",
+      "officialMinute": "54'"
+    },
+    {
+      "team": "home",
+      "scorer": "Kylian Mbappé",
+      "officialMinute": "66'"
+    },
+    {
+      "team": "away",
+      "scorer": "Bukayo Saka",
+      "officialMinute": "87'",
+      "penalty": true
+    },
+    {
+      "team": "home",
+      "scorer": "Ousmane Dembélé",
+      "officialMinute": "96'"
+    },
+    {
+      "team": "away",
+      "scorer": "Jude Bellingham",
+      "officialMinute": "90+8'"
+    }
+  ]
+}

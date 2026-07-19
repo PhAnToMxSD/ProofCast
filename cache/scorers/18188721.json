@@ -1,0 +1,17 @@
+{
+  "matchId": "18188721",
+  "source": {
+    "name": "FIFA / ESPN",
+    "url": "https://www.espn.com/soccer/match/_/gameId/760503/france-paraguay",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Paraguay 0-1 France, R16 (4 Jul). Mbappé's VAR-awarded penalty, his 7th of the tournament.",
+  "goals": [
+    {
+      "team": "away",
+      "scorer": "Kylian Mbappé",
+      "officialMinute": "70'",
+      "penalty": true
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "matchId": "18202783",
+  "style": "bedtime",
+  "styleLabel": "Bedtime Story",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Once upon a matchday — it was the round of 16, on the 7th of July 2026 — two teams walked out under the soft evening lights. Switzerland outlasted Colombia across a goalless night and won the shootout to reach their first quarter-final since 1954. Seventy-two years of hurt sat on Swiss shoulders; ninety minutes, extra time and twelve yards would decide whether it finally lifted.\n\nThey tried and tried, through ninety minutes and then extra time, but the net stayed as still and quiet as a sleeping house — until the penalty shootout finally, kindly, chose a winner.\n\nNeither side could find a way through in ninety minutes or extra time; chances came and went at both ends without reward. The shootout brought the drama the open play had withheld. Davinson Sánchez rattled his spot-kick against the bar and Gregor Kobel saved smartly from Cucho Hernández, before Rubén Vargas held his nerve to send Switzerland through 4-3. For a nation that had waited generations, this was catharsis — and a quarter-final date with the champions to come.\n\nAnd so the story ended Switzerland 0–0 Colombia. Switzerland carried on their long journey, and Colombia lay down to rest. Every goal in this tale is a true one — kept safe and provable on the blockchain by TxLINE — so you can close your eyes knowing not a single fact was ever made up. Sleep well, and goodnight.",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 553,
+        "statKey": 3,
+        "timestamp": 1783458623402,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=553&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 630,
+        "statKey": 3,
+        "timestamp": 1783459083191,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=630&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 645,
+        "statKey": 4,
+        "timestamp": 1783459174865,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=645&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 1011,
+        "statKey": 4,
+        "timestamp": 1783461849710,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1011&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 1116,
+        "statKey": 3,
+        "timestamp": 1783462483548,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1116&statKey=3"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 1349,
+        "statKey": 1,
+        "timestamp": 1783462483548,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1349&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 237,
+  "generatedAt": "2026-07-19T03:55:06.115Z"
+}

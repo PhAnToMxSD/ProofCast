@@ -1,40 +1,14 @@
 {
   "matchId": "18218149",
-  "competition": "World Cup",
-  "date": "2026-07-10",
-  "homeTeam": "Spain",
-  "awayTeam": "Belgium",
-  "finalScore": {
-    "home": 2,
-    "away": 1
-  },
-  "finalScoreProof": {
-    "fixtureId": 18218149,
-    "seq": 1083,
-    "statKey": 1,
-    "timestamp": 1783716993869,
-    "epochDay": 20644,
-    "rootPda": "9r38iAd4MyQn7DHEGNGkH4myRJHtHT95mfnndCZ25dkC",
-    "explorerUrl": "https://explorer.solana.com/address/9r38iAd4MyQn7DHEGNGkH4myRJHtHT95mfnndCZ25dkC?cluster=devnet",
-    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18218149&seq=1083&statKey=1"
-  },
-  "halfTimeScore": {
-    "home": 1,
-    "away": 1
-  },
-  "events": [
+  "style": "bedtime",
+  "styleLabel": "Bedtime Story",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Once upon a matchday — it was the quarter-final, on the 10th of July 2026 — two teams walked out under the soft evening lights. Spain broke Belgian hearts with a late winner to reach the semi-finals. Two of Europe's most talented squads traded blows in Los Angeles, with a semi-final against France waiting for the winner.\n\nIn the 30th minute, Fabián Ruiz sent the ball gently home, and the score whispered 1–0. In the 41st minute, Charles De Ketelaere sent the ball gently home, and the score whispered 1–1. In the 88th minute, Mikel Merino sent the ball gently home, and the score whispered 2–1.\n\nFabián Ruiz turned in an early opener, slotting home a rebound to give Spain control. Charles De Ketelaere levelled for Belgium, keeping his own fine tournament going and setting up a tense finale. The decisive moment arrived in the 88th minute: Merino pounced on a shot from Cubarsí that goalkeeper Senne Lammens spilled into his path, and Spain were through. Spain's blend of youth and control looked increasingly like that of a side built to go all the way.\n\nAnd so the story ended Spain 2–1 Belgium. Spain carried on their long journey, and Belgium lay down to rest. Every goal in this tale is a true one — kept safe and provable on the blockchain by TxLINE — so you can close your eyes knowing not a single fact was ever made up. Sleep well, and goodnight.",
+  "citations": [
     {
-      "id": "ev_1",
-      "order": 1,
-      "type": "goal",
-      "team": "home",
-      "teamName": "Spain",
-      "homeScore": 1,
-      "awayScore": 0,
-      "minute": 30,
-      "scorer": "Fabián Ruiz",
-      "nameSource": "FIFA / ESPN / CNN",
-      "detail": "Shot",
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
       "proof": {
         "fixtureId": 18218149,
         "seq": 325,
@@ -47,17 +21,9 @@
       }
     },
     {
-      "id": "ev_2",
-      "order": 2,
-      "type": "goal",
-      "team": "away",
-      "teamName": "Belgium",
-      "homeScore": 1,
-      "awayScore": 1,
-      "minute": 41,
-      "scorer": "Charles De Ketelaere",
-      "nameSource": "FIFA / ESPN / CNN",
-      "detail": "Head",
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
       "proof": {
         "fixtureId": 18218149,
         "seq": 422,
@@ -70,14 +36,9 @@
       }
     },
     {
-      "id": "ev_3",
-      "order": 3,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Spain",
-      "homeScore": 1,
-      "awayScore": 1,
-      "minute": 43,
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
       "proof": {
         "fixtureId": 18218149,
         "seq": 439,
@@ -90,14 +51,9 @@
       }
     },
     {
-      "id": "ev_4",
-      "order": 4,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "Belgium",
-      "homeScore": 1,
-      "awayScore": 1,
-      "minute": 85,
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
       "proof": {
         "fixtureId": 18218149,
         "seq": 937,
@@ -110,17 +66,9 @@
       }
     },
     {
-      "id": "ev_5",
-      "order": 5,
-      "type": "goal",
-      "team": "home",
-      "teamName": "Spain",
-      "homeScore": 2,
-      "awayScore": 1,
-      "minute": 88,
-      "scorer": "Mikel Merino",
-      "nameSource": "FIFA / ESPN / CNN",
-      "detail": "Shot",
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
       "proof": {
         "fixtureId": 18218149,
         "seq": 967,
@@ -133,14 +81,9 @@
       }
     },
     {
-      "id": "ev_6",
-      "order": 6,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Spain",
-      "homeScore": 2,
-      "awayScore": 1,
-      "minute": 93,
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
       "proof": {
         "fixtureId": 18218149,
         "seq": 1018,
@@ -153,14 +96,9 @@
       }
     },
     {
-      "id": "ev_7",
-      "order": 7,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "Belgium",
-      "homeScore": 2,
-      "awayScore": 1,
-      "minute": 95,
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
       "proof": {
         "fixtureId": 18218149,
         "seq": 1045,
@@ -171,43 +109,22 @@
         "explorerUrl": "https://explorer.solana.com/address/9r38iAd4MyQn7DHEGNGkH4myRJHtHT95mfnndCZ25dkC?cluster=devnet",
         "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18218149&seq=1045&statKey=4"
       }
-    }
-  ],
-  "stats": {
-    "goals": {
-      "home": 2,
-      "away": 1
     },
-    "yellowCards": {
-      "home": 2,
-      "away": 2
-    },
-    "redCards": {
-      "home": 0,
-      "away": 0
-    },
-    "corners": {
-      "home": 5,
-      "away": 1
-    },
-    "cornersByHalf": {
-      "first": {
-        "home": 3,
-        "away": 0
-      },
-      "second": {
-        "home": 2,
-        "away": 1
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18218149,
+        "seq": 1083,
+        "statKey": 1,
+        "timestamp": 1783716993869,
+        "epochDay": 20644,
+        "rootPda": "9r38iAd4MyQn7DHEGNGkH4myRJHtHT95mfnndCZ25dkC",
+        "explorerUrl": "https://explorer.solana.com/address/9r38iAd4MyQn7DHEGNGkH4myRJHtHT95mfnndCZ25dkC?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18218149&seq=1083&statKey=1"
       }
     }
-  },
-  "oddsTimeline": [],
-  "oddsHighlights": [],
-  "dataNotes": [
-    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
-    "Scorer names on goal events are sourced from FIFA / ESPN / CNN and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
-    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
-    "No odds data is available for this match — do not reference betting odds or market swings.",
-    "Every listed event is cryptographically verified on-chain; there are no other events."
-  ]
+  ],
+  "wordCount": 244,
+  "generatedAt": "2026-07-19T03:55:06.116Z"
 }

@@ -1,0 +1,85 @@
+{
+  "matchId": "18188721",
+  "style": "hype",
+  "styleLabel": "Hype Hometown Commentator",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Grab your scarf — this one had EVERYTHING! Round of 16, 4 July 2026, Philadelphia — and France ground out a frustrating, single-goal win to reach the quarter-finals. The holders of nothing but expectation, France arrived as favourites and left with the narrowest of margins — but a win is a win in the knockouts.\n\n70' — Kylian Mbappé from the spot buried it, 0–1!\n\nParaguay defended in numbers and frustrated the French for over an hour on a humid Philadelphia night. The breakthrough finally came from the penalty spot, awarded after a video review flagged a trip on the France captain. Kylian Mbappé stepped up and made no mistake for his seventh goal of the tournament — very nearly the only clear-cut chance of a cagey contest. It was not pretty, but France's ability to win ugly is exactly what deep tournament runs are built on.\n\nYou could feel the tension crackle around the ground with every attack.\n\nThis is knockout football at its rawest — win, or fly home.\n\nThe neutrals were on their feet; nobody in the building sat still.\n\nGolden Boot, glory, the lot — it was all on the line out there.\n\nFULL-TIME: Paraguay 0–1 France! France march on, Paraguay head home heartbroken — and here's the beautiful part: every goal, every minute you just heard is locked on-chain and verified by TxLINE. No hot air, no guesswork, just receipts. What. A. Game!",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 18188721,
+        "seq": 181,
+        "statKey": 4,
+        "timestamp": 1783200144363,
+        "epochDay": 20638,
+        "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+        "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18188721&seq=181&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 18188721,
+        "seq": 692,
+        "statKey": 2,
+        "timestamp": 1783204461851,
+        "epochDay": 20638,
+        "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+        "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18188721&seq=692&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 18188721,
+        "seq": 763,
+        "statKey": 4,
+        "timestamp": 1783205105881,
+        "epochDay": 20638,
+        "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+        "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18188721&seq=763&statKey=4"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 18188721,
+        "seq": 928,
+        "statKey": 4,
+        "timestamp": 1783206036292,
+        "epochDay": 20638,
+        "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+        "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18188721&seq=928&statKey=4"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18188721,
+        "seq": 957,
+        "statKey": 1,
+        "timestamp": 1783206036292,
+        "epochDay": 20638,
+        "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+        "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18188721&seq=957&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 238,
+  "generatedAt": "2026-07-19T03:55:06.113Z"
+}

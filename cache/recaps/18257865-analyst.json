@@ -1,40 +1,14 @@
 {
   "matchId": "18257865",
-  "competition": "World Cup",
-  "date": "2026-07-18",
-  "homeTeam": "France",
-  "awayTeam": "England",
-  "finalScore": {
-    "home": 4,
-    "away": 6
-  },
-  "finalScoreProof": {
-    "fixtureId": 18257865,
-    "seq": 1192,
-    "statKey": 1,
-    "timestamp": 1784415688045,
-    "epochDay": 20652,
-    "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
-    "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
-    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=1192&statKey=1"
-  },
-  "halfTimeScore": {
-    "home": 0,
-    "away": 4
-  },
-  "events": [
+  "style": "analyst",
+  "styleLabel": "Deadpan Stats Nerd",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Third-place play-off · 18 July 2026. Final score: France 4–6 England. A ten-goal bronze-medal classic ended with England on top — and a scoring record for Kylian Mbappé.\n\nOfficially a match for third place; unofficially, one of the maddest games the tournament produced.\n\nThe goals, in sequence: 3′ Declan Rice — 0–1; 18′ Ezri Konsa — 0–2; 38′ Bukayo Saka — 0–3; 46′ Bukayo Saka — 0–4; 48′ Kylian Mbappé — 1–4; 54′ Bradley Barcola — 2–4; 66′ Kylian Mbappé — 3–4; 87′ Bukayo Saka (pen) — 3–5; 96′ Ousmane Dembélé — 4–5; 98′ Jude Bellingham — 4–6. That is 10 goals in all, France accounting for 4 and England 6.\n\nEngland raced into a four-goal lead through Declan Rice, Ezri Konsa and a Bukayo Saka double, and it looked like a rout. France roared back: Kylian Mbappé struck twice around a Bradley Barcola goal to close it to 3-4 and set nerves jangling. But Saka completed his hat-trick from the penalty spot, Ousmane Dembélé kept France alive, and Jude Bellingham had the very last word. Mbappé's double moved him above Lionel Messi as the World Cup's all-time leading scorer — yet it was England who went home with the bronze.\n\nFor the record, England advanced. Goal, team and minute for every event above are Merkle-proven on Solana devnet via TxLINE; the scorer names are attributed from public match reports and aligned to the verified goals by team and order. Nothing here rests on the commentator's word alone.",
+  "citations": [
     {
-      "id": "ev_1",
-      "order": 1,
-      "type": "goal",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 0,
-      "awayScore": 1,
-      "minute": 3,
-      "scorer": "Declan Rice",
-      "nameSource": "FIFA / ESPN / NBC",
-      "detail": "Shot",
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
       "proof": {
         "fixtureId": 18257865,
         "seq": 52,
@@ -47,17 +21,9 @@
       }
     },
     {
-      "id": "ev_2",
-      "order": 2,
-      "type": "goal",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 0,
-      "awayScore": 2,
-      "minute": 18,
-      "scorer": "Ezri Konsa",
-      "nameSource": "FIFA / ESPN / NBC",
-      "detail": "Head",
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
       "proof": {
         "fixtureId": 18257865,
         "seq": 251,
@@ -70,16 +36,9 @@
       }
     },
     {
-      "id": "ev_3",
-      "order": 3,
-      "type": "goal",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 0,
-      "awayScore": 3,
-      "minute": 38,
-      "scorer": "Bukayo Saka",
-      "nameSource": "FIFA / ESPN / NBC",
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
       "proof": {
         "fixtureId": 18257865,
         "seq": 456,
@@ -92,17 +51,9 @@
       }
     },
     {
-      "id": "ev_4",
-      "order": 4,
-      "type": "goal",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 0,
-      "awayScore": 4,
-      "minute": 46,
-      "scorer": "Bukayo Saka",
-      "nameSource": "FIFA / ESPN / NBC",
-      "detail": "Shot",
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
       "proof": {
         "fixtureId": 18257865,
         "seq": 575,
@@ -115,17 +66,9 @@
       }
     },
     {
-      "id": "ev_5",
-      "order": 5,
-      "type": "goal",
-      "team": "home",
-      "teamName": "France",
-      "homeScore": 1,
-      "awayScore": 4,
-      "minute": 48,
-      "scorer": "Kylian Mbappé",
-      "nameSource": "FIFA / ESPN / NBC",
-      "detail": "Shot",
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
       "proof": {
         "fixtureId": 18257865,
         "seq": 653,
@@ -138,17 +81,9 @@
       }
     },
     {
-      "id": "ev_6",
-      "order": 6,
-      "type": "goal",
-      "team": "home",
-      "teamName": "France",
-      "homeScore": 2,
-      "awayScore": 4,
-      "minute": 54,
-      "scorer": "Bradley Barcola",
-      "nameSource": "FIFA / ESPN / NBC",
-      "detail": "Shot",
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
       "proof": {
         "fixtureId": 18257865,
         "seq": 737,
@@ -161,17 +96,9 @@
       }
     },
     {
-      "id": "ev_7",
-      "order": 7,
-      "type": "goal",
-      "team": "home",
-      "teamName": "France",
-      "homeScore": 3,
-      "awayScore": 4,
-      "minute": 66,
-      "scorer": "Kylian Mbappé",
-      "nameSource": "FIFA / ESPN / NBC",
-      "detail": "Shot",
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
       "proof": {
         "fixtureId": 18257865,
         "seq": 896,
@@ -184,17 +111,9 @@
       }
     },
     {
-      "id": "ev_8",
-      "order": 8,
-      "type": "goal",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 3,
-      "awayScore": 5,
-      "minute": 87,
-      "scorer": "Bukayo Saka",
-      "nameSource": "FIFA / ESPN / NBC",
-      "detail": "Penalty",
+      "marker": "ev_8",
+      "kind": "event",
+      "eventId": "ev_8",
       "proof": {
         "fixtureId": 18257865,
         "seq": 1061,
@@ -207,17 +126,9 @@
       }
     },
     {
-      "id": "ev_9",
-      "order": 9,
-      "type": "goal",
-      "team": "home",
-      "teamName": "France",
-      "homeScore": 4,
-      "awayScore": 5,
-      "minute": 96,
-      "scorer": "Ousmane Dembélé",
-      "nameSource": "FIFA / ESPN / NBC",
-      "detail": "Shot",
+      "marker": "ev_9",
+      "kind": "event",
+      "eventId": "ev_9",
       "proof": {
         "fixtureId": 18257865,
         "seq": 1165,
@@ -230,17 +141,9 @@
       }
     },
     {
-      "id": "ev_10",
-      "order": 10,
-      "type": "goal",
-      "team": "away",
-      "teamName": "England",
-      "homeScore": 4,
-      "awayScore": 6,
-      "minute": 98,
-      "scorer": "Jude Bellingham",
-      "nameSource": "FIFA / ESPN / NBC",
-      "detail": "Shot",
+      "marker": "ev_10",
+      "kind": "event",
+      "eventId": "ev_10",
       "proof": {
         "fixtureId": 18257865,
         "seq": 1186,
@@ -251,42 +154,22 @@
         "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
         "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=1186&statKey=2"
       }
-    }
-  ],
-  "stats": {
-    "goals": {
-      "home": 4,
-      "away": 6
     },
-    "yellowCards": {
-      "home": 0,
-      "away": 0
-    },
-    "redCards": {
-      "home": 0,
-      "away": 0
-    },
-    "corners": {
-      "home": 3,
-      "away": 4
-    },
-    "cornersByHalf": {
-      "first": {
-        "home": 2,
-        "away": 3
-      },
-      "second": {
-        "home": 1,
-        "away": 1
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 1192,
+        "statKey": 1,
+        "timestamp": 1784415688045,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=1192&statKey=1"
       }
     }
-  },
-  "oddsTimeline": [],
-  "oddsHighlights": [],
-  "dataNotes": [
-    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
-    "Scorer names on goal events are sourced from FIFA / ESPN / NBC and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
-    "No odds data is available for this match — do not reference betting odds or market swings.",
-    "Every listed event is cryptographically verified on-chain; there are no other events."
-  ]
+  ],
+  "wordCount": 248,
+  "generatedAt": "2026-07-19T03:55:06.117Z"
 }

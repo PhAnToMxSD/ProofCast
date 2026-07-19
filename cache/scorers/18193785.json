@@ -1,0 +1,36 @@
+{
+  "matchId": "18193785",
+  "source": {
+    "name": "FIFA / ESPN",
+    "url": "https://www.fifa.com/en/match-centre/match/17/285023/289288/400021534",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "USA 1-4 Belgium, R16 (7 Jul). De Ketelaere's first-half double, Vanaken and Lukaku add gloss; Tillman for the USA.",
+  "goals": [
+    {
+      "team": "away",
+      "scorer": "Charles De Ketelaere",
+      "officialMinute": "9'"
+    },
+    {
+      "team": "home",
+      "scorer": "Malik Tillman",
+      "officialMinute": "31'"
+    },
+    {
+      "team": "away",
+      "scorer": "Charles De Ketelaere",
+      "officialMinute": "33'"
+    },
+    {
+      "team": "away",
+      "scorer": "Hans Vanaken",
+      "officialMinute": "57'"
+    },
+    {
+      "team": "away",
+      "scorer": "Romelu Lukaku",
+      "officialMinute": "90+3'"
+    }
+  ]
+}

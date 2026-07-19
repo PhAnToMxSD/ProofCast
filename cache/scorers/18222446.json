@@ -1,0 +1,31 @@
+{
+  "matchId": "18222446",
+  "source": {
+    "name": "FIFA / ESPN / Sky Sports",
+    "url": "https://www.fifa.com/en/match-centre/match/17/285023/289290/400021537",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Argentina 3-1 Switzerland, quarter-final (12 Jul, AET). Mac Allister header; Ndoye levelled; Álvarez's stunner and Lautaro's late strike in extra time. TxLINE clock: 114'/121'.",
+  "goals": [
+    {
+      "team": "home",
+      "scorer": "Alexis Mac Allister",
+      "officialMinute": "10'"
+    },
+    {
+      "team": "away",
+      "scorer": "Dan Ndoye",
+      "officialMinute": "68'"
+    },
+    {
+      "team": "home",
+      "scorer": "Julián Álvarez",
+      "officialMinute": "112'"
+    },
+    {
+      "team": "home",
+      "scorer": "Lautaro Martínez",
+      "officialMinute": "120+1'"
+    }
+  ]
+}

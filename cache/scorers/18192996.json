@@ -1,0 +1,38 @@
+{
+  "matchId": "18192996",
+  "source": {
+    "name": "FIFA / ESPN",
+    "url": "https://www.fifa.com/en/match-centre/match/17/285023/289288/400021531",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Mexico 2-3 England, R16 (6 Jul). Bellingham's first-half double and a Kane penalty; Quiñones and a Jiménez penalty for Mexico.",
+  "goals": [
+    {
+      "team": "away",
+      "scorer": "Jude Bellingham",
+      "officialMinute": "36'"
+    },
+    {
+      "team": "away",
+      "scorer": "Jude Bellingham",
+      "officialMinute": "38'"
+    },
+    {
+      "team": "home",
+      "scorer": "Julián Quiñones",
+      "officialMinute": "43'"
+    },
+    {
+      "team": "away",
+      "scorer": "Harry Kane",
+      "officialMinute": "60'",
+      "penalty": true
+    },
+    {
+      "team": "home",
+      "scorer": "Raúl Jiménez",
+      "officialMinute": "69'",
+      "penalty": true
+    }
+  ]
+}

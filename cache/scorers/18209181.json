@@ -1,0 +1,21 @@
+{
+  "matchId": "18209181",
+  "source": {
+    "name": "FIFA / ESPN / CNN",
+    "url": "https://www.fifa.com/en/match-centre/match/17/285023/289289/400021536",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "France 2-0 Morocco, quarter-final (9 Jul). Mbappé (after missing a first-half penalty) and Dembélé. Minutes 60'/66' match TxLINE exactly.",
+  "goals": [
+    {
+      "team": "home",
+      "scorer": "Kylian Mbappé",
+      "officialMinute": "60'"
+    },
+    {
+      "team": "home",
+      "scorer": "Ousmane Dembélé",
+      "officialMinute": "66'"
+    }
+  ]
+}

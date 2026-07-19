@@ -1,0 +1,26 @@
+{
+  "matchId": "18185036",
+  "source": {
+    "name": "FIFA / ESPN / Al Jazeera",
+    "url": "https://www.fifa.com/en/match-centre/match/17/285023/289288/400021530",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Canada 0-3 Morocco, World Cup 2026 Round of 16 (4 Jul). Ounahi's second-half double and Rahimi's stoppage-time third. Names via public match reports, aligned to TxLINE's verified goals by team + order.",
+  "goals": [
+    {
+      "team": "away",
+      "scorer": "Azzedine Ounahi",
+      "officialMinute": "50'"
+    },
+    {
+      "team": "away",
+      "scorer": "Azzedine Ounahi",
+      "officialMinute": "82'"
+    },
+    {
+      "team": "away",
+      "scorer": "Soufiane Rahimi",
+      "officialMinute": "90+8'"
+    }
+  ]
+}

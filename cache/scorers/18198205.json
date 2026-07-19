@@ -1,0 +1,16 @@
+{
+  "matchId": "18198205",
+  "source": {
+    "name": "FIFA / ESPN",
+    "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026/articles/portugal-spain-match-report-highlights",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Portugal 0-1 Spain, R16 (6 Jul). Mikel Merino's stoppage-time winner. TxLINE clock: 91'.",
+  "goals": [
+    {
+      "team": "away",
+      "scorer": "Mikel Merino",
+      "officialMinute": "90+1'"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "matchId": "18202701",
+  "source": {
+    "name": "FIFA / ESPN / Olympics",
+    "url": "https://www.fifa.com/en/match-centre/match/17/285023/289288/400021528",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Argentina 3-2 Egypt, R16 (7 Jul). Egypt led 2-0 (Ibrahim, Zico); Romero, Messi and a stoppage-time Fernández header completed the comeback. Web2 differs on Egypt's opener minute (~15'); TxLINE pins it at 46' — kept the verified minute, name aligned by order.",
+  "goals": [
+    {
+      "team": "away",
+      "scorer": "Omar Ibrahim",
+      "officialMinute": "46'"
+    },
+    {
+      "team": "away",
+      "scorer": "Zico",
+      "officialMinute": "67'"
+    },
+    {
+      "team": "home",
+      "scorer": "Cristian Romero",
+      "officialMinute": "79'"
+    },
+    {
+      "team": "home",
+      "scorer": "Lionel Messi",
+      "officialMinute": "84'"
+    },
+    {
+      "team": "home",
+      "scorer": "Enzo Fernández",
+      "officialMinute": "90+2'"
+    }
+  ]
+}

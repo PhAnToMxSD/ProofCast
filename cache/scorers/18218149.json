@@ -1,0 +1,26 @@
+{
+  "matchId": "18218149",
+  "source": {
+    "name": "FIFA / ESPN / CNN",
+    "url": "https://www.fifa.com/en/match-centre/match/17/285023/289289/400021538",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Spain 2-1 Belgium, quarter-final (10 Jul). Fabián Ruiz and a late Merino rebound; De Ketelaere for Belgium.",
+  "goals": [
+    {
+      "team": "home",
+      "scorer": "Fabián Ruiz",
+      "officialMinute": "30'"
+    },
+    {
+      "team": "away",
+      "scorer": "Charles De Ketelaere",
+      "officialMinute": "41'"
+    },
+    {
+      "team": "home",
+      "scorer": "Mikel Merino",
+      "officialMinute": "88'"
+    }
+  ]
+}

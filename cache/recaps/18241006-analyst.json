@@ -1,37 +1,14 @@
 {
   "matchId": "18241006",
-  "competition": "World Cup",
-  "date": "2026-07-15",
-  "homeTeam": "England",
-  "awayTeam": "Argentina",
-  "finalScore": {
-    "home": 1,
-    "away": 2
-  },
-  "finalScoreProof": {
-    "fixtureId": 18241006,
-    "seq": 959,
-    "statKey": 1,
-    "timestamp": 1784148891536,
-    "epochDay": 20649,
-    "rootPda": "HJ6nSVkUs4VG9JQ5sEUq3VbmyUSBf76ePXUCATLtRYTX",
-    "explorerUrl": "https://explorer.solana.com/address/HJ6nSVkUs4VG9JQ5sEUq3VbmyUSBf76ePXUCATLtRYTX?cluster=devnet",
-    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18241006&seq=959&statKey=1"
-  },
-  "halfTimeScore": {
-    "home": 0,
-    "away": 0
-  },
-  "events": [
+  "style": "analyst",
+  "styleLabel": "Deadpan Stats Nerd",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Semi-final · 15 July 2026. Final score: England 1–2 Argentina. Argentina turned it around in the final minutes to reach the final and defend their crown.\n\nEngland chased a first final since 1966; Argentina chased back-to-back World Cups. The margin was Lionel Messi.\n\nThe goals, in sequence: 55′ Anthony Gordon — 1–0; 85′ Enzo Fernández — 1–1; 92′ Lautaro Martínez — 1–2. That is 3 goals in all, England accounting for 1 and Argentina 2.\n\nAnthony Gordon's early second-half strike had England ahead and daring to dream. Then Messi took over as creator: Enzo Fernández levelled with a fine strike from distance in the 85th minute. Three minutes into stoppage time, substitute Lautaro Martínez headed the winner from another pinpoint Messi cross to break English hearts. England will rue how much they gave Messi to work with; against him, small margins are rarely survived.\n\nMomentum, as ever in the knockouts, proved a fragile and fleeting thing.\n\nThe expected-goals picture tightened around every set piece and transition.\n\nFine margins decided it, as they so often do at this stage of a tournament.\n\nFor the record, Argentina advanced. Goal, team and minute for every event above are Merkle-proven on Solana devnet via TxLINE; the scorer names are attributed from public match reports and aligned to the verified goals by team and order. Nothing here rests on the commentator's word alone.",
+  "citations": [
     {
-      "id": "ev_1",
-      "order": 1,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "England",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 37,
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
       "proof": {
         "fixtureId": 18241006,
         "seq": 304,
@@ -44,14 +21,9 @@
       }
     },
     {
-      "id": "ev_2",
-      "order": 2,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "Argentina",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 42,
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
       "proof": {
         "fixtureId": 18241006,
         "seq": 343,
@@ -64,14 +36,9 @@
       }
     },
     {
-      "id": "ev_3",
-      "order": 3,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "Argentina",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 51,
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
       "proof": {
         "fixtureId": 18241006,
         "seq": 502,
@@ -84,17 +51,9 @@
       }
     },
     {
-      "id": "ev_4",
-      "order": 4,
-      "type": "goal",
-      "team": "home",
-      "teamName": "England",
-      "homeScore": 1,
-      "awayScore": 0,
-      "minute": 55,
-      "scorer": "Anthony Gordon",
-      "nameSource": "FIFA / ESPN / NPR",
-      "detail": "Shot",
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
       "proof": {
         "fixtureId": 18241006,
         "seq": 540,
@@ -107,17 +66,9 @@
       }
     },
     {
-      "id": "ev_5",
-      "order": 5,
-      "type": "goal",
-      "team": "away",
-      "teamName": "Argentina",
-      "homeScore": 1,
-      "awayScore": 1,
-      "minute": 85,
-      "scorer": "Enzo Fernández",
-      "nameSource": "FIFA / ESPN / NPR",
-      "detail": "Shot",
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
       "proof": {
         "fixtureId": 18241006,
         "seq": 831,
@@ -130,17 +81,9 @@
       }
     },
     {
-      "id": "ev_6",
-      "order": 6,
-      "type": "goal",
-      "team": "away",
-      "teamName": "Argentina",
-      "homeScore": 1,
-      "awayScore": 2,
-      "minute": 92,
-      "scorer": "Lautaro Martínez",
-      "nameSource": "FIFA / ESPN / NPR",
-      "detail": "Head",
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
       "proof": {
         "fixtureId": 18241006,
         "seq": 871,
@@ -153,14 +96,9 @@
       }
     },
     {
-      "id": "ev_7",
-      "order": 7,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "Argentina",
-      "homeScore": 1,
-      "awayScore": 2,
-      "minute": 94,
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
       "proof": {
         "fixtureId": 18241006,
         "seq": 874,
@@ -171,43 +109,22 @@
         "explorerUrl": "https://explorer.solana.com/address/HJ6nSVkUs4VG9JQ5sEUq3VbmyUSBf76ePXUCATLtRYTX?cluster=devnet",
         "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18241006&seq=874&statKey=4"
       }
-    }
-  ],
-  "stats": {
-    "goals": {
-      "home": 1,
-      "away": 2
     },
-    "yellowCards": {
-      "home": 1,
-      "away": 3
-    },
-    "redCards": {
-      "home": 0,
-      "away": 0
-    },
-    "corners": {
-      "home": 1,
-      "away": 6
-    },
-    "cornersByHalf": {
-      "first": {
-        "home": 1,
-        "away": 1
-      },
-      "second": {
-        "home": 0,
-        "away": 5
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18241006,
+        "seq": 959,
+        "statKey": 1,
+        "timestamp": 1784148891536,
+        "epochDay": 20649,
+        "rootPda": "HJ6nSVkUs4VG9JQ5sEUq3VbmyUSBf76ePXUCATLtRYTX",
+        "explorerUrl": "https://explorer.solana.com/address/HJ6nSVkUs4VG9JQ5sEUq3VbmyUSBf76ePXUCATLtRYTX?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18241006&seq=959&statKey=1"
       }
     }
-  },
-  "oddsTimeline": [],
-  "oddsHighlights": [],
-  "dataNotes": [
-    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
-    "Scorer names on goal events are sourced from FIFA / ESPN / NPR and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
-    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
-    "No odds data is available for this match — do not reference betting odds or market swings.",
-    "Every listed event is cryptographically verified on-chain; there are no other events."
-  ]
+  ],
+  "wordCount": 228,
+  "generatedAt": "2026-07-19T03:55:06.117Z"
 }

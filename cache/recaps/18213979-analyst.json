@@ -1,0 +1,85 @@
+{
+  "matchId": "18213979",
+  "style": "analyst",
+  "styleLabel": "Deadpan Stats Nerd",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Quarter-final · 11 July 2026 · Miami. Final score: Norway 1–2 England. Billed as Haaland versus Kane, it was Jude Bellingham who decided it — and ended Norway's fairytale.\n\nTwo of the tournament's most feared number nines shared the marquee, but the headlines belonged to someone else entirely.\n\nThe goals, in sequence: 36′ Andreas Schjelderup — 1–0; 47′ Jude Bellingham — 1–1; 93′ Jude Bellingham — 1–2. That is 3 goals in all, Norway accounting for 1 and England 2.\n\nAndreas Schjelderup gave Norway a deserved lead late in the first half, and the dream of a first semi-final flickered. Bellingham levelled in first-half stoppage time with a driving run and a cool finish. He struck again in extra time to send England to their first semi-final since 2018 and bring Erling Haaland's remarkable run to a shocking end. Neither Haaland nor Kane found the net; the game's biggest stage found a different hero.\n\nMomentum, as ever in the knockouts, proved a fragile and fleeting thing.\n\nThe expected-goals picture tightened around every set piece and transition.\n\nFor the record, England advanced. Goal, team and minute for every event above are Merkle-proven on Solana devnet via TxLINE; the scorer names are attributed from public match reports and aligned to the verified goals by team and order. Nothing here rests on the commentator's word alone.",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 18213979,
+        "seq": 314,
+        "statKey": 1,
+        "timestamp": 1783805882803,
+        "epochDay": 20645,
+        "rootPda": "EdJuEftTBNwXRWJpvYCziVxKT87qMDVu9V6HC7PwGffB",
+        "explorerUrl": "https://explorer.solana.com/address/EdJuEftTBNwXRWJpvYCziVxKT87qMDVu9V6HC7PwGffB?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18213979&seq=314&statKey=1"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 18213979,
+        "seq": 418,
+        "statKey": 2,
+        "timestamp": 1783806532285,
+        "epochDay": 20645,
+        "rootPda": "EdJuEftTBNwXRWJpvYCziVxKT87qMDVu9V6HC7PwGffB",
+        "explorerUrl": "https://explorer.solana.com/address/EdJuEftTBNwXRWJpvYCziVxKT87qMDVu9V6HC7PwGffB?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18213979&seq=418&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 18213979,
+        "seq": 885,
+        "statKey": 2,
+        "timestamp": 1783811470820,
+        "epochDay": 20645,
+        "rootPda": "EdJuEftTBNwXRWJpvYCziVxKT87qMDVu9V6HC7PwGffB",
+        "explorerUrl": "https://explorer.solana.com/address/EdJuEftTBNwXRWJpvYCziVxKT87qMDVu9V6HC7PwGffB?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18213979&seq=885&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 18213979,
+        "seq": 1129,
+        "statKey": 3,
+        "timestamp": 1783813273019,
+        "epochDay": 20645,
+        "rootPda": "EdJuEftTBNwXRWJpvYCziVxKT87qMDVu9V6HC7PwGffB",
+        "explorerUrl": "https://explorer.solana.com/address/EdJuEftTBNwXRWJpvYCziVxKT87qMDVu9V6HC7PwGffB?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18213979&seq=1129&statKey=3"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18213979,
+        "seq": 1180,
+        "statKey": 1,
+        "timestamp": 1783813273019,
+        "epochDay": 20645,
+        "rootPda": "EdJuEftTBNwXRWJpvYCziVxKT87qMDVu9V6HC7PwGffB",
+        "explorerUrl": "https://explorer.solana.com/address/EdJuEftTBNwXRWJpvYCziVxKT87qMDVu9V6HC7PwGffB?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18213979&seq=1180&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 223,
+  "generatedAt": "2026-07-19T03:55:06.116Z"
+}

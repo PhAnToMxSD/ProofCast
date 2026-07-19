@@ -1,0 +1,26 @@
+{
+  "matchId": "18241006",
+  "source": {
+    "name": "FIFA / ESPN / NPR",
+    "url": "https://www.fifa.com/en/match-centre/match/17/285023/289290/400021540",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "England 1-2 Argentina, semi-final (15 Jul). Gordon put England ahead; Messi assisted both as Enzo Fernández levelled and Martínez headed a late winner.",
+  "goals": [
+    {
+      "team": "home",
+      "scorer": "Anthony Gordon",
+      "officialMinute": "55'"
+    },
+    {
+      "team": "away",
+      "scorer": "Enzo Fernández",
+      "officialMinute": "85'"
+    },
+    {
+      "team": "away",
+      "scorer": "Lautaro Martínez",
+      "officialMinute": "90+2'"
+    }
+  ]
+}

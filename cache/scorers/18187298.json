@@ -1,0 +1,27 @@
+{
+  "matchId": "18187298",
+  "source": {
+    "name": "Al Jazeera / ESPN",
+    "url": "https://www.aljazeera.com/sports/2026/7/5/haaland-scores-twice-as-norway-stun-brazil-2-1-in-world-cup-2026-last-16",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "Brazil 1-2 Norway, R16 (5 Jul). Haaland's two late goals stun Brazil; Neymar's stoppage-time penalty a consolation. TxLINE pins Brazil's goal at 90+10.",
+  "goals": [
+    {
+      "team": "away",
+      "scorer": "Erling Haaland",
+      "officialMinute": "79'"
+    },
+    {
+      "team": "away",
+      "scorer": "Erling Haaland",
+      "officialMinute": "90'"
+    },
+    {
+      "team": "home",
+      "scorer": "Neymar",
+      "officialMinute": "90+10'",
+      "penalty": true
+    }
+  ]
+}

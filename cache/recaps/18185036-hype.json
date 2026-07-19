@@ -1,37 +1,14 @@
 {
   "matchId": "18185036",
-  "competition": "World Cup",
-  "date": "2026-07-04",
-  "homeTeam": "Canada",
-  "awayTeam": "Morocco",
-  "finalScore": {
-    "home": 0,
-    "away": 3
-  },
-  "finalScoreProof": {
-    "fixtureId": 18185036,
-    "seq": 1118,
-    "statKey": 1,
-    "timestamp": 1783191771986,
-    "epochDay": 20638,
-    "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
-    "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
-    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18185036&seq=1118&statKey=1"
-  },
-  "halfTimeScore": {
-    "home": 0,
-    "away": 0
-  },
-  "events": [
+  "style": "hype",
+  "styleLabel": "Hype Hometown Commentator",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "What a night in the World Cup! Round of 16, 4 July 2026, Houston — and Morocco marched into the last eight and ended the co-hosts' dream on home soil. For Canada, one of three host nations, this was the end of a home World Cup; for Morocco, a fourth straight knockout scalp and a statement of intent.\n\n50' — Azzedine Ounahi buried it, 0–1! 82' — Azzedine Ounahi lashed it home, 0–2! 98' — Soufiane Rahimi made no mistake, 0–3!\n\nAzzedine Ounahi took over after the interval, first curling home a right-footed shot through traffic after a clever Achraf Hakimi free-kick, then punishing a stretched Canadian back line for his second. Substitute Soufiane Rahimi, released by Brahim Díaz, made the win emphatic deep into stoppage time. Canada huffed and puffed in front of their own crowd but never truly troubled the Moroccan defence. Morocco, the surprise semi-finalists of 2022, again looked like the tournament's great disruptors.\n\nYou could feel the tension crackle around the ground with every attack.\n\nThis is knockout football at its rawest — win, or fly home.\n\nThe neutrals were on their feet; nobody in the building sat still.\n\nFULL-TIME: Canada 0–3 Morocco! Morocco march on, Canada head home heartbroken — and here's the beautiful part: every goal, every minute you just heard is locked on-chain and verified by TxLINE. No hot air, no guesswork, just receipts. What. A. Game!",
+  "citations": [
     {
-      "id": "ev_1",
-      "order": 1,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "Morocco",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 20,
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
       "proof": {
         "fixtureId": 18185036,
         "seq": 246,
@@ -44,14 +21,9 @@
       }
     },
     {
-      "id": "ev_2",
-      "order": 2,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "Morocco",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 40,
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
       "proof": {
         "fixtureId": 18185036,
         "seq": 419,
@@ -64,14 +36,9 @@
       }
     },
     {
-      "id": "ev_3",
-      "order": 3,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Canada",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 41,
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
       "proof": {
         "fixtureId": 18185036,
         "seq": 424,
@@ -84,14 +51,9 @@
       }
     },
     {
-      "id": "ev_4",
-      "order": 4,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Canada",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 43,
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
       "proof": {
         "fixtureId": 18185036,
         "seq": 465,
@@ -104,14 +66,9 @@
       }
     },
     {
-      "id": "ev_5",
-      "order": 5,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "Morocco",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 45,
+      "marker": "ev_5",
+      "kind": "event",
+      "eventId": "ev_5",
       "proof": {
         "fixtureId": 18185036,
         "seq": 475,
@@ -124,14 +81,9 @@
       }
     },
     {
-      "id": "ev_6",
-      "order": 6,
-      "type": "yellow",
-      "team": "away",
-      "teamName": "Morocco",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 51,
+      "marker": "ev_6",
+      "kind": "event",
+      "eventId": "ev_6",
       "proof": {
         "fixtureId": 18185036,
         "seq": 549,
@@ -144,14 +96,9 @@
       }
     },
     {
-      "id": "ev_7",
-      "order": 7,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Canada",
-      "homeScore": 0,
-      "awayScore": 0,
-      "minute": 49,
+      "marker": "ev_7",
+      "kind": "event",
+      "eventId": "ev_7",
       "proof": {
         "fixtureId": 18185036,
         "seq": 614,
@@ -164,17 +111,9 @@
       }
     },
     {
-      "id": "ev_8",
-      "order": 8,
-      "type": "goal",
-      "team": "away",
-      "teamName": "Morocco",
-      "homeScore": 0,
-      "awayScore": 1,
-      "minute": 50,
-      "scorer": "Azzedine Ounahi",
-      "nameSource": "FIFA / ESPN / Al Jazeera",
-      "detail": "Shot",
+      "marker": "ev_8",
+      "kind": "event",
+      "eventId": "ev_8",
       "proof": {
         "fixtureId": 18185036,
         "seq": 619,
@@ -187,14 +126,9 @@
       }
     },
     {
-      "id": "ev_9",
-      "order": 9,
-      "type": "yellow",
-      "team": "home",
-      "teamName": "Canada",
-      "homeScore": 0,
-      "awayScore": 1,
-      "minute": 67,
+      "marker": "ev_9",
+      "kind": "event",
+      "eventId": "ev_9",
       "proof": {
         "fixtureId": 18185036,
         "seq": 800,
@@ -207,17 +141,9 @@
       }
     },
     {
-      "id": "ev_10",
-      "order": 10,
-      "type": "goal",
-      "team": "away",
-      "teamName": "Morocco",
-      "homeScore": 0,
-      "awayScore": 2,
-      "minute": 82,
-      "scorer": "Azzedine Ounahi",
-      "nameSource": "FIFA / ESPN / Al Jazeera",
-      "detail": "Shot",
+      "marker": "ev_10",
+      "kind": "event",
+      "eventId": "ev_10",
       "proof": {
         "fixtureId": 18185036,
         "seq": 920,
@@ -230,17 +156,9 @@
       }
     },
     {
-      "id": "ev_11",
-      "order": 11,
-      "type": "goal",
-      "team": "away",
-      "teamName": "Morocco",
-      "homeScore": 0,
-      "awayScore": 3,
-      "minute": 98,
-      "scorer": "Soufiane Rahimi",
-      "nameSource": "FIFA / ESPN / Al Jazeera",
-      "detail": "Shot",
+      "marker": "ev_11",
+      "kind": "event",
+      "eventId": "ev_11",
       "proof": {
         "fixtureId": 18185036,
         "seq": 1115,
@@ -251,43 +169,22 @@
         "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
         "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18185036&seq=1115&statKey=2"
       }
-    }
-  ],
-  "stats": {
-    "goals": {
-      "home": 0,
-      "away": 3
     },
-    "yellowCards": {
-      "home": 4,
-      "away": 4
-    },
-    "redCards": {
-      "home": 0,
-      "away": 0
-    },
-    "corners": {
-      "home": 11,
-      "away": 1
-    },
-    "cornersByHalf": {
-      "first": {
-        "home": 5,
-        "away": 0
-      },
-      "second": {
-        "home": 6,
-        "away": 1
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18185036,
+        "seq": 1118,
+        "statKey": 1,
+        "timestamp": 1783191771986,
+        "epochDay": 20638,
+        "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+        "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18185036&seq=1118&statKey=1"
       }
     }
-  },
-  "oddsTimeline": [],
-  "oddsHighlights": [],
-  "dataNotes": [
-    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
-    "Scorer names on goal events are sourced from FIFA / ESPN / Al Jazeera and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
-    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
-    "No odds data is available for this match — do not reference betting odds or market swings.",
-    "Every listed event is cryptographically verified on-chain; there are no other events."
-  ]
+  ],
+  "wordCount": 234,
+  "generatedAt": "2026-07-19T03:55:06.111Z"
 }

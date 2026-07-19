@@ -1,0 +1,22 @@
+{
+  "matchId": "18237038",
+  "source": {
+    "name": "FIFA / ESPN / NBC",
+    "url": "https://www.fifa.com/en/match-centre/match/17/285023/289290/400021541",
+    "fetchedAt": "2026-07-19"
+  },
+  "note": "France 0-2 Spain, semi-final (14 Jul). An Oyarzabal penalty (won by Yamal) and Pedro Porro sent Spain to the final.",
+  "goals": [
+    {
+      "team": "away",
+      "scorer": "Mikel Oyarzabal",
+      "officialMinute": "22'",
+      "penalty": true
+    },
+    {
+      "team": "away",
+      "scorer": "Pedro Porro",
+      "officialMinute": "58'"
+    }
+  ]
+}

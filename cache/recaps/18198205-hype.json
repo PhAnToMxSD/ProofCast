@@ -1,0 +1,85 @@
+{
+  "matchId": "18198205",
+  "style": "hype",
+  "styleLabel": "Hype Hometown Commentator",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Grab your scarf — this one had EVERYTHING! Round of 16, 6 July 2026, Dallas — and Spain needed a moment of stoppage-time quality to break stubborn, well-drilled Portugal. Two Iberian heavyweights, one quarter-final ticket, and ninety minutes that gave almost nothing away until the very last breath.\n\n91' — Mikel Merino buried it, 0–1!\n\nThe first half was shot-high and goal-shy; Mikel Oyarzabal spurned Spain's best early chance after Dani Olmo sent him clean through. Portugal sat deep, stayed compact, and looked to have earned extra time with a disciplined defensive display. But it fell to substitute Mikel Merino to snatch it at the death, his cool late strike settling a tie that had refused to break. In tournaments this tight, the difference between going home and going through is often a single decisive touch.\n\nYou could feel the tension crackle around the ground with every attack.\n\nThis is knockout football at its rawest — win, or fly home.\n\nThe neutrals were on their feet; nobody in the building sat still.\n\nGolden Boot, glory, the lot — it was all on the line out there.\n\nYou could feel the tension crackle around the ground with every attack.\n\nFULL-TIME: Portugal 0–1 Spain! Spain march on, Portugal head home heartbroken — and here's the beautiful part: every goal, every minute you just heard is locked on-chain and verified by TxLINE. No hot air, no guesswork, just receipts. What. A. Game!",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 18198205,
+        "seq": 885,
+        "statKey": 3,
+        "timestamp": 1783371060331,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=885&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 18198205,
+        "seq": 904,
+        "statKey": 2,
+        "timestamp": 1783371237591,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=904&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 18198205,
+        "seq": 929,
+        "statKey": 3,
+        "timestamp": 1783371352507,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=929&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 18198205,
+        "seq": 982,
+        "statKey": 4,
+        "timestamp": 1783371650465,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=982&statKey=4"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18198205,
+        "seq": 989,
+        "statKey": 1,
+        "timestamp": 1783371650465,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=989&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 239,
+  "generatedAt": "2026-07-19T03:55:06.114Z"
+}

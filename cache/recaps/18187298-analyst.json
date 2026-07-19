@@ -1,0 +1,85 @@
+{
+  "matchId": "18187298",
+  "style": "analyst",
+  "styleLabel": "Deadpan Stats Nerd",
+  "model": "ProofCast editorial (composed from TxLINE-verified events + web2 names)",
+  "text": "Round of 16 · 5 July 2026 · East Rutherford. Final score: Brazil 1–2 Norway. Erling Haaland dragged Norway to their first-ever World Cup quarter-final and sent five-time winners Brazil crashing out.\n\nNorway had never been this far; Brazil had never gone home this early since 1990. History swung on a single, breathless finish.\n\nThe goals, in sequence: 79′ Erling Haaland — 0–1; 90′ Erling Haaland — 0–2; 100′ Neymar (pen) — 1–2. That is 3 goals in all, Brazil accounting for 1 and Norway 2.\n\nGoalkeeper Ørjan Nyland had already produced a sensational display, saving a first-half penalty from Bruno Guimarães to keep the tie level. Then Haaland took over, striking twice in the final eleven minutes — his sixth and seventh goals of the tournament — to stun the favourites. Neymar's stoppage-time penalty was little more than a consolation for a Brazil side that had run out of ideas. For a Norwegian generation long told this could not be done, Haaland was busy proving himself wrong.\n\nMomentum, as ever in the knockouts, proved a fragile and fleeting thing.\n\nFor the record, Norway advanced. Goal, team and minute for every event above are Merkle-proven on Solana devnet via TxLINE; the scorer names are attributed from public match reports and aligned to the verified goals by team and order. Nothing here rests on the commentator's word alone.",
+  "citations": [
+    {
+      "marker": "ev_1",
+      "kind": "event",
+      "eventId": "ev_1",
+      "proof": {
+        "fixtureId": 18187298,
+        "seq": 887,
+        "statKey": 2,
+        "timestamp": 1783287759254,
+        "epochDay": 20639,
+        "rootPda": "7FwXux2xDDCLngnWiJceaXr2h1bDeBe5uKAsmYQruHL3",
+        "explorerUrl": "https://explorer.solana.com/address/7FwXux2xDDCLngnWiJceaXr2h1bDeBe5uKAsmYQruHL3?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18187298&seq=887&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_2",
+      "kind": "event",
+      "eventId": "ev_2",
+      "proof": {
+        "fixtureId": 18187298,
+        "seq": 996,
+        "statKey": 2,
+        "timestamp": 1783288366263,
+        "epochDay": 20639,
+        "rootPda": "7FwXux2xDDCLngnWiJceaXr2h1bDeBe5uKAsmYQruHL3",
+        "explorerUrl": "https://explorer.solana.com/address/7FwXux2xDDCLngnWiJceaXr2h1bDeBe5uKAsmYQruHL3?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18187298&seq=996&statKey=2"
+      }
+    },
+    {
+      "marker": "ev_3",
+      "kind": "event",
+      "eventId": "ev_3",
+      "proof": {
+        "fixtureId": 18187298,
+        "seq": 1049,
+        "statKey": 3,
+        "timestamp": 1783288666978,
+        "epochDay": 20639,
+        "rootPda": "7FwXux2xDDCLngnWiJceaXr2h1bDeBe5uKAsmYQruHL3",
+        "explorerUrl": "https://explorer.solana.com/address/7FwXux2xDDCLngnWiJceaXr2h1bDeBe5uKAsmYQruHL3?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18187298&seq=1049&statKey=3"
+      }
+    },
+    {
+      "marker": "ev_4",
+      "kind": "event",
+      "eventId": "ev_4",
+      "proof": {
+        "fixtureId": 18187298,
+        "seq": 1074,
+        "statKey": 1,
+        "timestamp": 1783288953952,
+        "epochDay": 20639,
+        "rootPda": "7FwXux2xDDCLngnWiJceaXr2h1bDeBe5uKAsmYQruHL3",
+        "explorerUrl": "https://explorer.solana.com/address/7FwXux2xDDCLngnWiJceaXr2h1bDeBe5uKAsmYQruHL3?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18187298&seq=1074&statKey=1"
+      }
+    },
+    {
+      "marker": "final",
+      "kind": "final",
+      "proof": {
+        "fixtureId": 18187298,
+        "seq": 1097,
+        "statKey": 1,
+        "timestamp": 1783288953952,
+        "epochDay": 20639,
+        "rootPda": "7FwXux2xDDCLngnWiJceaXr2h1bDeBe5uKAsmYQruHL3",
+        "explorerUrl": "https://explorer.solana.com/address/7FwXux2xDDCLngnWiJceaXr2h1bDeBe5uKAsmYQruHL3?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18187298&seq=1097&statKey=1"
+      }
+    }
+  ],
+  "wordCount": 227,
+  "generatedAt": "2026-07-19T03:55:06.113Z"
+}

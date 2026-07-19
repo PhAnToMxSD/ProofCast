@@ -32,6 +32,8 @@
       "homeScore": 0,
       "awayScore": 1,
       "minute": 9,
+      "scorer": "Charles De Ketelaere",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 18193785,
@@ -53,6 +55,8 @@
       "homeScore": 1,
       "awayScore": 1,
       "minute": 31,
+      "scorer": "Malik Tillman",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 18193785,
@@ -74,6 +78,8 @@
       "homeScore": 1,
       "awayScore": 2,
       "minute": 33,
+      "scorer": "Charles De Ketelaere",
+      "nameSource": "FIFA / ESPN",
       "detail": "Head",
       "proof": {
         "fixtureId": 18193785,
@@ -115,6 +121,8 @@
       "homeScore": 1,
       "awayScore": 3,
       "minute": 57,
+      "scorer": "Hans Vanaken",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 18193785,
@@ -156,6 +164,8 @@
       "homeScore": 1,
       "awayScore": 4,
       "minute": 93,
+      "scorer": "Romelu Lukaku",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 18193785,
@@ -201,7 +211,7 @@
   "oddsHighlights": [],
   "dataNotes": [
     "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
-    "Scorer names are not available — refer to teams, not named players, for goals.",
+    "Scorer names on goal events are sourced from FIFA / ESPN and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
     "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
     "No odds data is available for this match — do not reference betting odds or market swings.",
     "Every listed event is cryptographically verified on-chain; there are no other events."

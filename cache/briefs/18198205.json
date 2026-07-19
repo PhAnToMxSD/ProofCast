@@ -52,6 +52,8 @@
       "homeScore": 0,
       "awayScore": 1,
       "minute": 91,
+      "scorer": "Mikel Merino",
+      "nameSource": "FIFA / ESPN",
       "detail": "Shot",
       "proof": {
         "fixtureId": 18198205,
@@ -137,7 +139,7 @@
   "oddsHighlights": [],
   "dataNotes": [
     "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
-    "Scorer names are not available — refer to teams, not named players, for goals.",
+    "Scorer names on goal events are sourced from FIFA / ESPN and aligned to the on-chain-verified goals — you may name the scorer for any goal event that has a \"scorer\" field (never invent one for an event that lacks it).",
     "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
     "No odds data is available for this match — do not reference betting odds or market swings.",
     "Every listed event is cryptographically verified on-chain; there are no other events."
