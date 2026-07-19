@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Saira_Condensed, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/SiteFooter";
+import { FootballIntro } from "@/components/FootballIntro";
 
 // Broadcast score-bug display, clean body, ledger/receipt mono.
 const display = Saira_Condensed({
@@ -33,7 +34,18 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+      <head>
+        {/* Gate the intro before paint: if it already ran this tab session, mark the
+            document so <FootballIntro> never mounts and there's no flash on reload. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(sessionStorage.getItem('pc-intro')==='1')document.documentElement.classList.add('fi-done')}catch(e){}",
+          }}
+        />
+      </head>
       <body>
+        <FootballIntro />
         {/* Stadium backdrop: pitch stripes, halfway line + centre circle, floodlights */}
         <div className="stadium" aria-hidden="true">
           <div className="stadium-stripes" />
