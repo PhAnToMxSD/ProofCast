@@ -1,7 +1,27 @@
-# ProofCast — AI Match Storyteller
+# ProofCast — The Verified Football Stats & Storyteller Platform
 
-Post-match AI commentary recaps generated from cryptographically verified **TxLINE** match
-data, narrated as audio, with on-chain "verify this moment" proof links.
+**ProofCast is a go-to hub for football fans: every match in the protocol comes with a full,
+cryptographically verified stats sheet — possession, shots, shots on target, corners, yellow and
+red cards, goals, half-time scores and the complete event timeline — _and_ an AI-narrated recap on
+top.** The numbers aren't scraped or guessed; they're proven against **TxLINE**'s on-chain Merkle
+roots, so a fan gets the same match-centre they'd expect from any big sports site, except here
+every figure carries a "verify this on-chain" receipt.
+
+The AI audio recap is the headline feature, but it sits on top of the real product: a complete,
+trustworthy match-stats experience. Pick any fixture and you see the full scoreboard and stats
+card first; then choose a narrator persona and get the story of the match as audio, with an
+on-chain proof link next to every cited fact.
+
+### What a fan gets per match
+
+| Layer | What's shown | Trust |
+|---|---|---|
+| **Verified stats** | Goals · Corners · Yellow cards · Red cards | 🔒 per-stat TxLINE Merkle proof |
+| **Derived stats** | Shots · Shots on target · Possession % | ⛓ counted from N individually-proven on-chain events |
+| **Match detail** | Half-time score · per-half corner split · full event timeline with minutes | 🔒 on-chain-anchored |
+| **Scorer names** | Who scored / who was booked | 📎 web2 report (FIFA/ESPN), cited, cross-checked against the chain |
+| **Odds movement** | Win-probability timeline + biggest swings | computed from the TxLINE odds feed |
+| **AI recap** | 3 narrator personas, audio + transcript | grounded — cites only the verified facts above |
 
 Built for the **TxODDS World Cup Hackathon** — *Consumer & Fan Experiences* track. Devnet only.
 
@@ -315,10 +335,14 @@ Voice per persona (stock voices, no cloning on free tier): `hype` → Antoni, `a
 
 ## Phase 7 — Website (`/web`)
 
-A single-page Next.js app that wraps the already-working pipeline: pick a match → pick a
-commentator persona → the recap plays on a night-stadium scoreboard with both nations' flags,
-an audio-reactive visualizer, the transcript, and an **on-chain receipt for every cited fact**
-(Solana Explorer + TxLINE Merkle-proof links).
+A Next.js app that presents each match as a full fan match-centre first and an AI recap second:
+pick a match → see the complete **verified stats card** (possession, shots, shots on target,
+corners, cards, goals, half-time score) with a proof badge on every row → then pick a commentator
+persona and the recap plays on a night-stadium scoreboard with both nations' flags, an
+audio-reactive visualizer, the transcript, and an **on-chain receipt for every cited fact and every
+stat** (Solana Explorer + TxLINE Merkle-proof links). The stats panel is
+[web/components/TeamStats.tsx](web/components/TeamStats.tsx) — ProofCast's answer to a Google
+match-stats card, except every number is provable.
 
 ```bash
 cd web

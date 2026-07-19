@@ -6,7 +6,7 @@ import { Flag } from "@/components/Flag";
 
 export const metadata: Metadata = {
   title: "Matches — ProofCast",
-  description: "Pick a verified World Cup fixture — group stage to the final — and brew its recap.",
+  description: "Pick a verified World Cup fixture — group stage to the final — for its full on-chain stats sheet and an AI recap.",
 };
 
 function fmtDate(iso: string): string {
@@ -102,8 +102,9 @@ export default function MatchesPage() {
           <h1>Pick a match</h1>
           <p className="lede">
             The full 2026 World Cup knockout run — {knockoutCount} ties from the Round of 16 to the
-            Final — plus the verified group-stage fixtures. Choose any played match to pick a narrator
-            and brew its recap; every fact links to its on-chain proof.
+            Final — plus the verified group-stage fixtures. Open any played match for its complete
+            stats sheet — possession, shots, corners, cards and goals — then pick a narrator and brew
+            its recap; every figure and every fact links to its on-chain proof.
           </p>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}

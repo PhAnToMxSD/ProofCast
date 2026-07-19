@@ -23,21 +23,22 @@ export default function Landing() {
     <main className="landing shell">
       <span className="landing-bug">
         <span className="live-dot" aria-hidden="true" />
-        ProofCast · matchday, on the record
+        ProofCast · every number verified
       </span>
 
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img className="landing-trophy-img" src="/trophy.png" alt="FIFA World Cup trophy" />
 
       <h1 className="landing-title">
-        Every sentence
+        The whole match,
         <br />
-        has a <span className="verify">receipt</span>.
+        <span className="verify">on the record</span>.
       </h1>
 
       <p className="landing-sub">
-        Matchday recaps built from cryptographically verified TxLINE data and narrated aloud.
-        Every fact you hear links to its proof on Solana — nothing is invented.
+        A full match-centre for every fixture — possession, shots, corners, cards and goals, each
+        figure proven against TxLINE&apos;s on-chain record — with an AI recap narrated on top.
+        Nothing is scraped or invented; every number and every sentence links to its proof on Solana.
       </p>
 
       {featured && (
@@ -68,7 +69,7 @@ export default function Landing() {
         <Link href="/matches" className="cta">
           Browse the matches <span aria-hidden="true">→</span>
         </Link>
-        <span className="cta-note">{catalog.length} World Cup fixtures · 3 narrators each</span>
+        <span className="cta-note">{catalog.length} World Cup fixtures · full verified stats · 3 narrators each</span>
       </div>
 
       <ol className="how">
@@ -81,16 +82,16 @@ export default function Landing() {
         </li>
         <li>
           <span className="how-idx">STEP 02</span>
-          <span className="how-k">Choose a narrator</span>
+          <span className="how-k">Read the stats</span>
           <span className="how-v">
-            Hype commentator, deadpan analyst, or bedtime story — same facts, different voice.
+            Possession, shots, corners and cards — the full match sheet, every figure proven on-chain.
           </span>
         </li>
         <li>
           <span className="how-idx">STEP 03</span>
-          <span className="how-k">Listen</span>
+          <span className="how-k">Hear the story</span>
           <span className="how-v">
-            Play the recap. Every claim carries a link to its on-chain proof.
+            Pick a narrator and play the recap. Every claim carries a link to its on-chain proof.
           </span>
         </li>
       </ol>

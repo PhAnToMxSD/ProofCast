@@ -19,9 +19,9 @@ const mono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ProofCast — every sentence has a receipt",
+  title: "ProofCast — the whole match, on the record",
   description:
-    "AI matchday recaps generated from cryptographically verified TxLINE match data, narrated aloud, with on-chain proof links for every fact.",
+    "A verified football match-centre: full on-chain stats — possession, shots, corners, cards and goals — for every fixture, plus AI recaps narrated aloud. Every figure and every fact links to its TxLINE proof on Solana.",
 };
 
 export const viewport: Viewport = {
