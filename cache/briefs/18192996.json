@@ -1,0 +1,306 @@
+{
+  "matchId": "18192996",
+  "competition": "World Cup",
+  "date": "2026-07-06",
+  "homeTeam": "Mexico",
+  "awayTeam": "England",
+  "finalScore": {
+    "home": 2,
+    "away": 3
+  },
+  "finalScoreProof": {
+    "fixtureId": 18192996,
+    "seq": 1041,
+    "statKey": 1,
+    "timestamp": 1783306871546,
+    "epochDay": 20640,
+    "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+    "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=1041&statKey=1"
+  },
+  "halfTimeScore": {
+    "home": 1,
+    "away": 2
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 1,
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 35,
+        "statKey": 4,
+        "timestamp": 1783299672367,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=35&statKey=4"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "goal",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 0,
+      "awayScore": 1,
+      "minute": 36,
+      "detail": "Head",
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 338,
+        "statKey": 2,
+        "timestamp": 1783301839848,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=338&statKey=2"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "goal",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 0,
+      "awayScore": 2,
+      "minute": 38,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 349,
+        "statKey": 2,
+        "timestamp": 1783301941971,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=349&statKey=2"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Mexico",
+      "homeScore": 1,
+      "awayScore": 2,
+      "minute": 43,
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 381,
+        "statKey": 1,
+        "timestamp": 1783302173724,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=381&statKey=1"
+      }
+    },
+    {
+      "id": "ev_5",
+      "order": 5,
+      "type": "red",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 1,
+      "awayScore": 2,
+      "minute": 54,
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 567,
+        "statKey": 6,
+        "timestamp": 1783304131501,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=567&statKey=6"
+      }
+    },
+    {
+      "id": "ev_6",
+      "order": 6,
+      "type": "goal",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 1,
+      "awayScore": 3,
+      "minute": 60,
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 610,
+        "statKey": 2,
+        "timestamp": 1783304576158,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=610&statKey=2"
+      }
+    },
+    {
+      "id": "ev_7",
+      "order": 7,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 1,
+      "awayScore": 3,
+      "minute": 69,
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 676,
+        "statKey": 4,
+        "timestamp": 1783305027178,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=676&statKey=4"
+      }
+    },
+    {
+      "id": "ev_8",
+      "order": 8,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Mexico",
+      "homeScore": 2,
+      "awayScore": 3,
+      "minute": 69,
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 679,
+        "statKey": 1,
+        "timestamp": 1783305091866,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=679&statKey=1"
+      }
+    },
+    {
+      "id": "ev_9",
+      "order": 9,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Mexico",
+      "homeScore": 2,
+      "awayScore": 3,
+      "minute": 71,
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 698,
+        "statKey": 3,
+        "timestamp": 1783305190300,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=698&statKey=3"
+      }
+    },
+    {
+      "id": "ev_10",
+      "order": 10,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 2,
+      "awayScore": 3,
+      "minute": 72,
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 703,
+        "statKey": 4,
+        "timestamp": 1783305286852,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=703&statKey=4"
+      }
+    },
+    {
+      "id": "ev_11",
+      "order": 11,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Mexico",
+      "homeScore": 2,
+      "awayScore": 3,
+      "minute": 98,
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 980,
+        "statKey": 3,
+        "timestamp": 1783306815128,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=980&statKey=3"
+      }
+    },
+    {
+      "id": "ev_12",
+      "order": 12,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 2,
+      "awayScore": 3,
+      "minute": 99,
+      "proof": {
+        "fixtureId": 18192996,
+        "seq": 993,
+        "statKey": 4,
+        "timestamp": 1783306871546,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18192996&seq=993&statKey=4"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 2,
+      "away": 3
+    },
+    "yellowCards": {
+      "home": 2,
+      "away": 4
+    },
+    "redCards": {
+      "home": 0,
+      "away": 1
+    },
+    "corners": {
+      "home": 12,
+      "away": 2
+    },
+    "cornersByHalf": {
+      "first": {
+        "home": 4,
+        "away": 2
+      },
+      "second": {
+        "home": 8,
+        "away": 0
+      }
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
+    "Scorer names are not available — refer to teams, not named players, for goals.",
+    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

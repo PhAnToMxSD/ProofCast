@@ -15,7 +15,6 @@ import { Flag } from "@/components/Flag";
 import { Receipts } from "@/components/Receipts";
 
 type StyleKey = "hype" | "analyst" | "bedtime";
-type Favourite = "none" | "home" | "away";
 type RecapResult = { recap: Recap; audioUrl: string | null; source: "cache" | "live" };
 
 const PERSONAS: Array<{ key: StyleKey; icon: string; label: string; blurb: string }> = [
@@ -80,7 +79,6 @@ function Brewing() {
 
 export function MatchExperience({ match }: { match: CatalogMatch }) {
   const [style, setStyle] = useState<StyleKey | null>(null);
-  const [favourite, setFavourite] = useState<Favourite>("none");
   const [phase, setPhase] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [result, setResult] = useState<RecapResult | null>(null);
   const [error, setError] = useState("");
@@ -88,7 +86,6 @@ export function MatchExperience({ match }: { match: CatalogMatch }) {
   const stageRef = useRef<HTMLDivElement>(null);
   const boardRef = useRef<HTMLDivElement>(null);
 
-  const isLivePath = favourite !== "none";
   const ready = Boolean(style);
 
   // Audio-reactive hook-up: the player streams energy here; we hand it to the
@@ -106,13 +103,7 @@ export function MatchExperience({ match }: { match: CatalogMatch }) {
       const res = await fetch("/api/recap", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          matchId: match.matchId,
-          style,
-          ...(favourite !== "none"
-            ? { favouriteTeam: favourite === "home" ? match.homeTeam : match.awayTeam }
-            : {}),
-        }),
+        body: JSON.stringify({ matchId: match.matchId, style }),
       });
       const body = await res.json();
       if (!res.ok) throw new Error(body.error ?? `request failed (${res.status})`);
@@ -183,23 +174,6 @@ export function MatchExperience({ match }: { match: CatalogMatch }) {
             );
           })}
         </div>
-
-        <div className="options">
-          <span className="label">Supporting:</span>
-          <div className="segmented" role="group" aria-label="Favourite team">
-            <button className={favourite === "none" ? "active" : ""} onClick={() => setFavourite("none")}>
-              Neutral
-            </button>
-            <button className={favourite === "home" ? "active" : ""} onClick={() => setFavourite("home")}>
-              <Flag team={match.homeTeam} size={18} />
-              {match.homeTeam}
-            </button>
-            <button className={favourite === "away" ? "active" : ""} onClick={() => setFavourite("away")}>
-              <Flag team={match.awayTeam} size={18} />
-              {match.awayTeam}
-            </button>
-          </div>
-        </div>
       </section>
 
       {/* ── Step 2: brew ── */}
@@ -212,9 +186,7 @@ export function MatchExperience({ match }: { match: CatalogMatch }) {
               <span aria-hidden="true">⚽</span> {phase === "done" ? "Brew another take" : "Brew the recap"}
             </button>
             <span className="kickoff-note">
-              {isLivePath
-                ? "Personalized — brewed live by the grounded pipeline (needs the server's OpenRouter key)."
-                : "Pre-verified combinations play instantly from the committed pipeline output."}
+              Pre-verified combinations play instantly from the committed pipeline output.
             </span>
           </>
         )}
@@ -255,6 +227,7 @@ export function MatchExperience({ match }: { match: CatalogMatch }) {
 
           <AudioPlayer
             key={`${result.recap.matchId}-${result.recap.style}-${result.recap.generatedAt ?? ""}`}
+            matchId={match.matchId}
             audioUrl={result.audioUrl}
             text={result.recap.text}
             styleKey={result.recap.style}

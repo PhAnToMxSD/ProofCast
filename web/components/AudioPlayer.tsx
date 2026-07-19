@@ -1,29 +1,26 @@
 "use client";
 
-// The matchday player. Two narration sources:
-//  - a pre-generated ElevenLabs mp3 (the quota-guarded Phase 6 asset) — driven
-//    through a Web Audio analyser for a real frequency visualizer;
-//  - the browser's SpeechSynthesis voice for combinations that have no mp3
-//    (site never spends ElevenLabs quota) — energy is simulated per word.
+// The matchday player. Narration is always a real ElevenLabs mp3 — there is no
+// browser-voice fallback. When a combination has no pre-generated audio yet, the
+// player offers a "Generate studio audio" button that synthesizes it on demand
+// via /api/audio (quota-guarded, key stays server-side). If the account's
+// ElevenLabs credits are exhausted, the button surfaces a credits-ended error.
 //
-// Either way the component reports a 0..1 "energy" upward every frame; the
-// scoreboard maps it onto flag scale/glow and the bouncing ball via --energy.
+// While an mp3 plays it is driven through a Web Audio analyser for a real
+// frequency visualizer, and the component reports a 0..1 "energy" upward every
+// frame; the scoreboard maps it onto flag scale/glow and the bouncing ball.
 
 import { useCallback, useEffect, useRef, useState } from "react";
 
 type Props = {
+  matchId: string;
   audioUrl: string | null;
   text: string;
   styleKey: string;
   onEnergy: (e: number) => void;
 };
 
-const TTS_VOICE_TUNING: Record<string, { rate: number; pitch: number }> = {
-  hype: { rate: 1.08, pitch: 1.12 },
-  analyst: { rate: 0.98, pitch: 0.85 },
-  bedtime: { rate: 0.85, pitch: 1.0 },
-};
-const DEFAULT_TTS_TUNING = { rate: 1.0, pitch: 1.0 };
+type GenError = { message: string; creditsEnded: boolean };
 
 function fmt(sec: number): string {
   if (!isFinite(sec) || sec < 0) return "0:00";
@@ -32,7 +29,11 @@ function fmt(sec: number): string {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-export function AudioPlayer({ audioUrl, text, styleKey, onEnergy }: Props) {
+export function AudioPlayer({ matchId, audioUrl, text, styleKey, onEnergy }: Props) {
+  const [url, setUrl] = useState<string | null>(audioUrl);
+  const [generating, setGenerating] = useState(false);
+  const [genError, setGenError] = useState<GenError | null>(null);
+
   const [playing, setPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -42,14 +43,13 @@ export function AudioPlayer({ audioUrl, text, styleKey, onEnergy }: Props) {
   const ctxRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
   const rafRef = useRef(0);
-  const energyRef = useRef(0);
   const playingRef = useRef(false);
-  const ttsProgressRef = useRef(0); // chars spoken (browser narration)
 
-  const isTts = !audioUrl;
-  // Rough browser-narration length estimate so the clock isn't blank.
-  const ttsEstimate =
-    (text.split(/\s+/).length / (170 * (TTS_VOICE_TUNING[styleKey]?.rate ?? 1))) * 60;
+  // Keep local url in sync if the parent hands us a different recap/style.
+  useEffect(() => {
+    setUrl(audioUrl);
+    setGenError(null);
+  }, [audioUrl]);
 
   // ── analyser wiring (mp3 mode) ─────────────────────────────────────────
   const ensureAnalyser = useCallback(() => {
@@ -109,15 +109,6 @@ export function AudioPlayer({ audioUrl, text, styleKey, onEnergy }: Props) {
           sum += v;
         }
         energy = Math.min(1, (sum / BARS) * 1.6);
-      } else if (playingRef.current) {
-        // browser narration: pseudo-spectrum shaped by simulated energy
-        energyRef.current *= 0.94; // decay between word boundaries
-        const e = energyRef.current;
-        for (let i = 0; i < BARS; i++) {
-          const wave = 0.5 + 0.5 * Math.sin(t * 6 + i * 0.9) * Math.sin(t * 2.3 + i * 0.31);
-          heights.push(e * (0.25 + 0.75 * wave));
-        }
-        energy = e * 0.8;
       } else {
         // idle: a gentle crowd wave
         for (let i = 0; i < BARS; i++) {
@@ -153,18 +144,10 @@ export function AudioPlayer({ audioUrl, text, styleKey, onEnergy }: Props) {
   // ── teardown ───────────────────────────────────────────────────────────
   useEffect(() => {
     return () => {
-      window.speechSynthesis?.cancel();
       ctxRef.current?.close().catch(() => {});
       onEnergy(0);
     };
   }, [onEnergy]);
-
-  // Chrome quietly stalls long utterances; nudging resume() keeps it talking.
-  useEffect(() => {
-    if (!isTts || !playing) return;
-    const id = setInterval(() => window.speechSynthesis?.resume(), 8000);
-    return () => clearInterval(id);
-  }, [isTts, playing]);
 
   const setIsPlaying = (v: boolean) => {
     playingRef.current = v;
@@ -181,51 +164,42 @@ export function AudioPlayer({ audioUrl, text, styleKey, onEnergy }: Props) {
     else el.pause();
   };
 
-  const toggleTts = () => {
-    const synth = window.speechSynthesis;
-    if (!synth) return;
-    if (synth.speaking && !synth.paused) {
-      synth.pause();
-      setIsPlaying(false);
-      return;
+  const generate = async () => {
+    setGenerating(true);
+    setGenError(null);
+    try {
+      const res = await fetch("/api/audio", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ matchId, style: styleKey, text }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setGenError({
+          message: data.error ?? `generation failed (${res.status})`,
+          creditsEnded: Boolean(data.creditsEnded),
+        });
+        return;
+      }
+      setUrl(data.audioUrl as string);
+    } catch (err) {
+      setGenError({
+        message: err instanceof Error ? err.message : String(err),
+        creditsEnded: false,
+      });
+    } finally {
+      setGenerating(false);
     }
-    if (synth.paused) {
-      synth.resume();
-      setIsPlaying(true);
-      return;
-    }
-    const u = new SpeechSynthesisUtterance(text);
-    const tune = TTS_VOICE_TUNING[styleKey] ?? DEFAULT_TTS_TUNING;
-    u.rate = tune.rate;
-    u.pitch = tune.pitch;
-    u.onboundary = (ev) => {
-      energyRef.current = Math.min(1, 0.55 + Math.random() * 0.4);
-      ttsProgressRef.current = ev.charIndex;
-      setCurrentTime((ev.charIndex / text.length) * ttsEstimate);
-    };
-    u.onend = () => {
-      setIsPlaying(false);
-      setCurrentTime(0);
-      ttsProgressRef.current = 0;
-    };
-    u.onerror = () => setIsPlaying(false);
-    synth.cancel();
-    synth.speak(u);
-    setIsPlaying(true);
   };
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
-  const shownDuration = isTts ? ttsEstimate : duration;
-  const shownProgress = isTts
-    ? (ttsProgressRef.current / Math.max(1, text.length)) * 100
-    : progress;
 
   return (
     <div className="player">
-      {audioUrl && (
+      {url && (
         <audio
           ref={audioRef}
-          src={audioUrl}
+          src={url}
           preload="metadata"
           crossOrigin="anonymous"
           onPlay={() => setIsPlaying(true)}
@@ -238,19 +212,17 @@ export function AudioPlayer({ audioUrl, text, styleKey, onEnergy }: Props) {
       <div className="row">
         <button
           className={`play-btn ${playing ? "playing" : ""}`}
-          onClick={isTts ? toggleTts : toggleMp3}
+          onClick={toggleMp3}
+          disabled={!url}
           aria-label={playing ? "Pause narration" : "Play narration"}
         >
           {playing ? "❚❚" : "▶"}
         </button>
         <div className="track">
           <div className="titles">
-            <span className="who">
-              {isTts ? "Browser voice narration" : "ElevenLabs narration"}
-            </span>
+            <span className="who">ElevenLabs narration</span>
             <span className="time">
-              {fmt(currentTime)} / {isTts ? "~" : ""}
-              {fmt(shownDuration)}
+              {fmt(currentTime)} / {fmt(duration)}
             </span>
           </div>
           <input
@@ -259,9 +231,9 @@ export function AudioPlayer({ audioUrl, text, styleKey, onEnergy }: Props) {
             min={0}
             max={100}
             step={0.1}
-            value={Math.min(100, shownProgress)}
-            disabled={isTts}
-            style={{ "--progress": `${shownProgress}%` } as React.CSSProperties}
+            value={Math.min(100, progress)}
+            disabled={!url}
+            style={{ "--progress": `${progress}%` } as React.CSSProperties}
             onChange={(e) => {
               const el = audioRef.current;
               if (!el || !duration) return;
@@ -272,10 +244,37 @@ export function AudioPlayer({ audioUrl, text, styleKey, onEnergy }: Props) {
         </div>
       </div>
       <canvas ref={canvasRef} className="visualizer" aria-hidden="true" />
-      {isTts && (
-        <div className="source-note">
-          No pre-generated ElevenLabs audio for this combination — narrated by your
-          browser to protect the TTS quota.
+
+      {!url && (
+        <div className="gen-audio">
+          <button className="gen-btn" onClick={generate} disabled={generating}>
+            {generating ? (
+              <>
+                <span className="spin" aria-hidden="true">◜</span> Synthesizing with ElevenLabs…
+              </>
+            ) : (
+              <>🎧 Generate studio audio</>
+            )}
+          </button>
+          <span className="gen-note">
+            {generating
+              ? "Calling ElevenLabs — this uses your monthly character quota."
+              : "No studio narration yet for this take. Generate it with ElevenLabs (spends TTS quota)."}
+          </span>
+        </div>
+      )}
+
+      {genError && (
+        <div className={`gen-error ${genError.creditsEnded ? "credits" : ""}`} role="alert">
+          {genError.creditsEnded ? (
+            <>
+              <strong>🚫 ElevenLabs credits have ended.</strong> {genError.message}
+            </>
+          ) : (
+            <>
+              <strong>Audio generation failed.</strong> {genError.message}
+            </>
+          )}
         </div>
       )}
     </div>

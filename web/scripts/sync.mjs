@@ -65,7 +65,7 @@ await writeFile(
 // ── 3. pipeline modules (for the live /api/recap path) ───────────────────────
 // Copied verbatim except: relative ".js" specifiers become extensionless so the
 // Next bundler resolves them back to the .ts sources.
-const pipelineFiles = ["types.ts", "styles.ts", "llm.ts", "recap.ts"];
+const pipelineFiles = ["types.ts", "styles.ts", "llm.ts", "recap.ts", "tts.ts"];
 const pipeDst = path.join(webRoot, "lib", "pipeline");
 await mkdir(pipeDst, { recursive: true });
 for (const file of pipelineFiles) {

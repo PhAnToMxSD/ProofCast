@@ -3,9 +3,10 @@
 // Cached-first: preset styles with no personalization are served straight from
 // the committed pipeline outputs (instant, zero API spend). A favourite-team
 // personalization runs the real Phase 5 pipeline live, server-side — the
-// OpenRouter key never reaches the browser. Audio is only ever the pre-generated
-// ElevenLabs mp3 (quota rule: no TTS spend from the website); uncached
-// combinations fall back to browser narration client-side.
+// OpenRouter key never reaches the browser. Audio is the pre-generated
+// ElevenLabs mp3 when one exists; combinations with no mp3 return audioUrl:null
+// and the client offers on-demand synthesis via POST /api/audio (no browser
+// narration fallback).
 
 import { NextResponse } from "next/server";
 import { z } from "zod";

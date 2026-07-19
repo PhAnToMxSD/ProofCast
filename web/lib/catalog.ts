@@ -3,6 +3,7 @@
 
 import data from "@/lib/generated/data.json";
 import type { MatchBrief } from "@/lib/pipeline/types";
+import { stageFor, type Stage } from "@/lib/knockout";
 
 export type CatalogEvent = {
   id: string;
@@ -22,6 +23,7 @@ export type CatalogEvent = {
 export type CatalogMatch = {
   matchId: string;
   competition: string;
+  stage: Stage;
   date: string;
   homeTeam: string;
   awayTeam: string;
@@ -47,6 +49,7 @@ export function getCatalog(): CatalogMatch[] {
     .map((b) => ({
       matchId: b.matchId,
       competition: b.competition,
+      stage: stageFor(b.matchId),
       date: b.date,
       homeTeam: b.homeTeam,
       awayTeam: b.awayTeam,

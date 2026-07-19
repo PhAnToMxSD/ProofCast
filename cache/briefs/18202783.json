@@ -1,0 +1,154 @@
+{
+  "matchId": "18202783",
+  "competition": "World Cup",
+  "date": "2026-07-07",
+  "homeTeam": "Switzerland",
+  "awayTeam": "Colombia",
+  "finalScore": {
+    "home": 0,
+    "away": 0
+  },
+  "finalScoreProof": {
+    "fixtureId": 18202783,
+    "seq": 1349,
+    "statKey": 1,
+    "timestamp": 1783462483548,
+    "epochDay": 20641,
+    "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+    "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1349&statKey=1"
+  },
+  "halfTimeScore": {
+    "home": 0,
+    "away": 0
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Switzerland",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 51,
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 553,
+        "statKey": 3,
+        "timestamp": 1783458623402,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=553&statKey=3"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Switzerland",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 59,
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 630,
+        "statKey": 3,
+        "timestamp": 1783459083191,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=630&statKey=3"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Colombia",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 60,
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 645,
+        "statKey": 4,
+        "timestamp": 1783459174865,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=645&statKey=4"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Colombia",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 95,
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 1011,
+        "statKey": 4,
+        "timestamp": 1783461849710,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1011&statKey=4"
+      }
+    },
+    {
+      "id": "ev_5",
+      "order": 5,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Switzerland",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 105,
+      "proof": {
+        "fixtureId": 18202783,
+        "seq": 1116,
+        "statKey": 3,
+        "timestamp": 1783462483548,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202783&seq=1116&statKey=3"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 0,
+      "away": 0
+    },
+    "yellowCards": {
+      "home": 3,
+      "away": 2
+    },
+    "redCards": {
+      "home": 0,
+      "away": 0
+    },
+    "corners": {
+      "home": 3,
+      "away": 7
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
+    "Scorer names are not available — refer to teams, not named players, for goals.",
+    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

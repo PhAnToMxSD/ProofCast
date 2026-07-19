@@ -1,0 +1,145 @@
+{
+  "matchId": "18198205",
+  "competition": "World Cup",
+  "date": "2026-07-06",
+  "homeTeam": "Portugal",
+  "awayTeam": "Spain",
+  "finalScore": {
+    "home": 0,
+    "away": 1
+  },
+  "finalScoreProof": {
+    "fixtureId": 18198205,
+    "seq": 989,
+    "statKey": 1,
+    "timestamp": 1783371650465,
+    "epochDay": 20640,
+    "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+    "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=989&statKey=1"
+  },
+  "halfTimeScore": {
+    "home": 0,
+    "away": 0
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Portugal",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 89,
+      "proof": {
+        "fixtureId": 18198205,
+        "seq": 885,
+        "statKey": 3,
+        "timestamp": 1783371060331,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=885&statKey=3"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "goal",
+      "team": "away",
+      "teamName": "Spain",
+      "homeScore": 0,
+      "awayScore": 1,
+      "minute": 91,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18198205,
+        "seq": 904,
+        "statKey": 2,
+        "timestamp": 1783371237591,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=904&statKey=2"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Portugal",
+      "homeScore": 0,
+      "awayScore": 1,
+      "minute": 94,
+      "proof": {
+        "fixtureId": 18198205,
+        "seq": 929,
+        "statKey": 3,
+        "timestamp": 1783371352507,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=929&statKey=3"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Spain",
+      "homeScore": 0,
+      "awayScore": 1,
+      "minute": 99,
+      "proof": {
+        "fixtureId": 18198205,
+        "seq": 982,
+        "statKey": 4,
+        "timestamp": 1783371650465,
+        "epochDay": 20640,
+        "rootPda": "CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV",
+        "explorerUrl": "https://explorer.solana.com/address/CMtVGDyWsZ4u3yeYeyC9yxNzzyvwco6Jgtd9ubRJWCGV?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18198205&seq=982&statKey=4"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 0,
+      "away": 1
+    },
+    "yellowCards": {
+      "home": 2,
+      "away": 1
+    },
+    "redCards": {
+      "home": 0,
+      "away": 0
+    },
+    "corners": {
+      "home": 3,
+      "away": 7
+    },
+    "cornersByHalf": {
+      "first": {
+        "home": 3,
+        "away": 2
+      },
+      "second": {
+        "home": 0,
+        "away": 5
+      }
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
+    "Scorer names are not available — refer to teams, not named players, for goals.",
+    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

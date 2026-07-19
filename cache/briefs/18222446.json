@@ -1,0 +1,232 @@
+{
+  "matchId": "18222446",
+  "competition": "World Cup",
+  "date": "2026-07-12",
+  "homeTeam": "Argentina",
+  "awayTeam": "Switzerland",
+  "finalScore": {
+    "home": 3,
+    "away": 1
+  },
+  "finalScoreProof": {
+    "fixtureId": 18222446,
+    "seq": 1302,
+    "statKey": 1,
+    "timestamp": 1783827755290,
+    "epochDay": 20646,
+    "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+    "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=1302&statKey=1"
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Argentina",
+      "homeScore": 1,
+      "awayScore": 0,
+      "minute": 10,
+      "detail": "Head",
+      "proof": {
+        "fixtureId": 18222446,
+        "seq": 117,
+        "statKey": 1,
+        "timestamp": 1783818695057,
+        "epochDay": 20646,
+        "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+        "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=117&statKey=1"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Switzerland",
+      "homeScore": 1,
+      "awayScore": 0,
+      "minute": 44,
+      "proof": {
+        "fixtureId": 18222446,
+        "seq": 387,
+        "statKey": 4,
+        "timestamp": 1783820656555,
+        "epochDay": 20646,
+        "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+        "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=387&statKey=4"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "goal",
+      "team": "away",
+      "teamName": "Switzerland",
+      "homeScore": 1,
+      "awayScore": 1,
+      "minute": 68,
+      "proof": {
+        "fixtureId": 18222446,
+        "seq": 660,
+        "statKey": 2,
+        "timestamp": 1783823310331,
+        "epochDay": 20646,
+        "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+        "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=660&statKey=2"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "red",
+      "team": "away",
+      "teamName": "Switzerland",
+      "homeScore": 1,
+      "awayScore": 1,
+      "minute": 72,
+      "proof": {
+        "fixtureId": 18222446,
+        "seq": 687,
+        "statKey": 6,
+        "timestamp": 1783823571727,
+        "epochDay": 20646,
+        "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+        "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=687&statKey=6"
+      }
+    },
+    {
+      "id": "ev_5",
+      "order": 5,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Argentina",
+      "homeScore": 1,
+      "awayScore": 1,
+      "minute": 97,
+      "proof": {
+        "fixtureId": 18222446,
+        "seq": 1008,
+        "statKey": 3,
+        "timestamp": 1783825915959,
+        "epochDay": 20646,
+        "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+        "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=1008&statKey=3"
+      }
+    },
+    {
+      "id": "ev_6",
+      "order": 6,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Argentina",
+      "homeScore": 1,
+      "awayScore": 1,
+      "minute": 98,
+      "proof": {
+        "fixtureId": 18222446,
+        "seq": 1021,
+        "statKey": 3,
+        "timestamp": 1783826005176,
+        "epochDay": 20646,
+        "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+        "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=1021&statKey=3"
+      }
+    },
+    {
+      "id": "ev_7",
+      "order": 7,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Argentina",
+      "homeScore": 2,
+      "awayScore": 1,
+      "minute": 114,
+      "proof": {
+        "fixtureId": 18222446,
+        "seq": 1199,
+        "statKey": 1,
+        "timestamp": 1783827258257,
+        "epochDay": 20646,
+        "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+        "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=1199&statKey=1"
+      }
+    },
+    {
+      "id": "ev_8",
+      "order": 8,
+      "type": "yellow",
+      "team": "home",
+      "teamName": "Argentina",
+      "homeScore": 2,
+      "awayScore": 1,
+      "minute": 114,
+      "proof": {
+        "fixtureId": 18222446,
+        "seq": 1199,
+        "statKey": 3,
+        "timestamp": 1783827258257,
+        "epochDay": 20646,
+        "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+        "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=1199&statKey=3"
+      }
+    },
+    {
+      "id": "ev_9",
+      "order": 9,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Argentina",
+      "homeScore": 3,
+      "awayScore": 1,
+      "minute": 121,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18222446,
+        "seq": 1282,
+        "statKey": 1,
+        "timestamp": 1783827755290,
+        "epochDay": 20646,
+        "rootPda": "FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH",
+        "explorerUrl": "https://explorer.solana.com/address/FtnZq4V8mp56GUNEGGXfL1MuyT81cvoz59yeKn192HdH?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18222446&seq=1282&statKey=1"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 3,
+      "away": 1
+    },
+    "yellowCards": {
+      "home": 3,
+      "away": 1
+    },
+    "redCards": {
+      "home": 0,
+      "away": 1
+    },
+    "corners": {
+      "home": 8,
+      "away": 2
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
+    "Scorer names are not available — refer to teams, not named players, for goals.",
+    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

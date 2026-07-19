@@ -1,0 +1,144 @@
+{
+  "matchId": "18188721",
+  "competition": "World Cup",
+  "date": "2026-07-04",
+  "homeTeam": "Paraguay",
+  "awayTeam": "France",
+  "finalScore": {
+    "home": 0,
+    "away": 1
+  },
+  "finalScoreProof": {
+    "fixtureId": 18188721,
+    "seq": 957,
+    "statKey": 1,
+    "timestamp": 1783206036292,
+    "epochDay": 20638,
+    "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+    "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18188721&seq=957&statKey=1"
+  },
+  "halfTimeScore": {
+    "home": 0,
+    "away": 0
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "France",
+      "homeScore": 0,
+      "awayScore": 0,
+      "minute": 19,
+      "proof": {
+        "fixtureId": 18188721,
+        "seq": 181,
+        "statKey": 4,
+        "timestamp": 1783200144363,
+        "epochDay": 20638,
+        "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+        "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18188721&seq=181&statKey=4"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "goal",
+      "team": "away",
+      "teamName": "France",
+      "homeScore": 0,
+      "awayScore": 1,
+      "minute": 70,
+      "proof": {
+        "fixtureId": 18188721,
+        "seq": 692,
+        "statKey": 2,
+        "timestamp": 1783204461851,
+        "epochDay": 20638,
+        "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+        "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18188721&seq=692&statKey=2"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "France",
+      "homeScore": 0,
+      "awayScore": 1,
+      "minute": 81,
+      "proof": {
+        "fixtureId": 18188721,
+        "seq": 763,
+        "statKey": 4,
+        "timestamp": 1783205105881,
+        "epochDay": 20638,
+        "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+        "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18188721&seq=763&statKey=4"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "France",
+      "homeScore": 0,
+      "awayScore": 1,
+      "minute": 97,
+      "proof": {
+        "fixtureId": 18188721,
+        "seq": 928,
+        "statKey": 4,
+        "timestamp": 1783206036292,
+        "epochDay": 20638,
+        "rootPda": "DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA",
+        "explorerUrl": "https://explorer.solana.com/address/DjE6qSDHJEUwbXXTV5v1YSQpzfsWcRsARbWqLqR3KoSA?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18188721&seq=928&statKey=4"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 0,
+      "away": 1
+    },
+    "yellowCards": {
+      "home": 0,
+      "away": 3
+    },
+    "redCards": {
+      "home": 0,
+      "away": 0
+    },
+    "corners": {
+      "home": 2,
+      "away": 12
+    },
+    "cornersByHalf": {
+      "first": {
+        "home": 0,
+        "away": 7
+      },
+      "second": {
+        "home": 2,
+        "away": 5
+      }
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
+    "Scorer names are not available — refer to teams, not named players, for goals.",
+    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

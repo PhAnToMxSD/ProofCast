@@ -1,0 +1,227 @@
+{
+  "matchId": "18202701",
+  "competition": "World Cup",
+  "date": "2026-07-07",
+  "homeTeam": "Argentina",
+  "awayTeam": "Egypt",
+  "finalScore": {
+    "home": 3,
+    "away": 2
+  },
+  "finalScoreProof": {
+    "fixtureId": 18202701,
+    "seq": 1040,
+    "statKey": 1,
+    "timestamp": 1783447297915,
+    "epochDay": 20641,
+    "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+    "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202701&seq=1040&statKey=1"
+  },
+  "halfTimeScore": {
+    "home": 0,
+    "away": 1
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "goal",
+      "team": "away",
+      "teamName": "Egypt",
+      "homeScore": 0,
+      "awayScore": 1,
+      "minute": 46,
+      "proof": {
+        "fixtureId": 18202701,
+        "seq": 486,
+        "statKey": 2,
+        "timestamp": 1783444091012,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202701&seq=486&statKey=2"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "goal",
+      "team": "away",
+      "teamName": "Egypt",
+      "homeScore": 0,
+      "awayScore": 2,
+      "minute": 67,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18202701,
+        "seq": 728,
+        "statKey": 2,
+        "timestamp": 1783445552103,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202701&seq=728&statKey=2"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Argentina",
+      "homeScore": 1,
+      "awayScore": 2,
+      "minute": 79,
+      "detail": "Head",
+      "proof": {
+        "fixtureId": 18202701,
+        "seq": 830,
+        "statKey": 1,
+        "timestamp": 1783446226916,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202701&seq=830&statKey=1"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Argentina",
+      "homeScore": 2,
+      "awayScore": 2,
+      "minute": 84,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18202701,
+        "seq": 876,
+        "statKey": 1,
+        "timestamp": 1783446511481,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202701&seq=876&statKey=1"
+      }
+    },
+    {
+      "id": "ev_5",
+      "order": 5,
+      "type": "goal",
+      "team": "home",
+      "teamName": "Argentina",
+      "homeScore": 3,
+      "awayScore": 2,
+      "minute": 94,
+      "proof": {
+        "fixtureId": 18202701,
+        "seq": 965,
+        "statKey": 1,
+        "timestamp": 1783447120218,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202701&seq=965&statKey=1"
+      }
+    },
+    {
+      "id": "ev_6",
+      "order": 6,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Egypt",
+      "homeScore": 3,
+      "awayScore": 2,
+      "minute": 94,
+      "proof": {
+        "fixtureId": 18202701,
+        "seq": 965,
+        "statKey": 4,
+        "timestamp": 1783447120218,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202701&seq=965&statKey=4"
+      }
+    },
+    {
+      "id": "ev_7",
+      "order": 7,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Egypt",
+      "homeScore": 3,
+      "awayScore": 2,
+      "minute": 94,
+      "proof": {
+        "fixtureId": 18202701,
+        "seq": 965,
+        "statKey": 4,
+        "timestamp": 1783447120218,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202701&seq=965&statKey=4"
+      }
+    },
+    {
+      "id": "ev_8",
+      "order": 8,
+      "type": "yellow",
+      "team": "away",
+      "teamName": "Egypt",
+      "homeScore": 3,
+      "awayScore": 2,
+      "minute": 98,
+      "proof": {
+        "fixtureId": 18202701,
+        "seq": 1010,
+        "statKey": 4,
+        "timestamp": 1783447297915,
+        "epochDay": 20641,
+        "rootPda": "GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ",
+        "explorerUrl": "https://explorer.solana.com/address/GRJBcG6G9CnvvNZPQagxietR7caFtAG8sFRZ2mg5n8QZ?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18202701&seq=1010&statKey=4"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 3,
+      "away": 2
+    },
+    "yellowCards": {
+      "home": 0,
+      "away": 3
+    },
+    "redCards": {
+      "home": 0,
+      "away": 0
+    },
+    "corners": {
+      "home": 6,
+      "away": 1
+    },
+    "cornersByHalf": {
+      "first": {
+        "home": 1,
+        "away": 1
+      },
+      "second": {
+        "home": 5,
+        "away": 0
+      }
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
+    "Scorer names are not available — refer to teams, not named players, for goals.",
+    "Card-taker names are NOT available — refer to the team, not a named player, for yellow/red cards.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}

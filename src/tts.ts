@@ -36,13 +36,17 @@ export type VoiceProfile = {
   similarityBoost: number;
 };
 
+// All three are ElevenLabs PREMADE default voices — the only category the free
+// tier can use via the API. Library-only voices (e.g. Antoni/Rachel) return
+// `paid_plan_required`. Audition/swap these in the ElevenLabs web UI, then paste
+// the id here or pass --voice on the CLI.
 export const VOICES: Record<StyleKey, VoiceProfile> = {
-  // energetic, excitable male sports commentator
-  hype: { voiceId: "ErXwobaYiN019PkySvjV", name: "Antoni", stability: 0.3, similarityBoost: 0.75 },
-  // measured, dry, articulate analyst
-  analyst: { voiceId: "pNInz6obpgDQGcFmaJgB", name: "Adam", stability: 0.6, similarityBoost: 0.75 },
-  // soft, warm, slow storyteller
-  bedtime: { voiceId: "21m00Tcm4TlvDq8ikWAM", name: "Rachel", stability: 0.75, similarityBoost: 0.75 },
+  // energetic, excitable male sports commentator (Charlie — "Deep, Confident, Energetic")
+  hype: { voiceId: "IKne3meq5aSn9XLyUdCD", name: "Charlie", stability: 0.3, similarityBoost: 0.75 },
+  // measured, dry, articulate analyst (Daniel — "Steady Broadcaster", British)
+  analyst: { voiceId: "onwK4e9ZLuTAKqWW03F9", name: "Daniel", stability: 0.6, similarityBoost: 0.75 },
+  // soft, warm, slow female storyteller (Lily — "Velvety Actress", British)
+  bedtime: { voiceId: "pFZP5JQG7iQjIQuC4Bku", name: "Lily", stability: 0.75, similarityBoost: 0.75 },
 };
 
 // Highest-quality stock model. Billing is per INPUT character regardless of the

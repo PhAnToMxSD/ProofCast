@@ -1,0 +1,271 @@
+{
+  "matchId": "18257865",
+  "competition": "World Cup",
+  "date": "2026-07-18",
+  "homeTeam": "France",
+  "awayTeam": "England",
+  "finalScore": {
+    "home": 4,
+    "away": 6
+  },
+  "finalScoreProof": {
+    "fixtureId": 18257865,
+    "seq": 1192,
+    "statKey": 1,
+    "timestamp": 1784415688045,
+    "epochDay": 20652,
+    "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+    "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+    "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=1192&statKey=1"
+  },
+  "halfTimeScore": {
+    "home": 0,
+    "away": 4
+  },
+  "events": [
+    {
+      "id": "ev_1",
+      "order": 1,
+      "type": "goal",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 0,
+      "awayScore": 1,
+      "minute": 3,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 52,
+        "statKey": 2,
+        "timestamp": 1784408630197,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=52&statKey=2"
+      }
+    },
+    {
+      "id": "ev_2",
+      "order": 2,
+      "type": "goal",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 0,
+      "awayScore": 2,
+      "minute": 18,
+      "detail": "Head",
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 251,
+        "statKey": 2,
+        "timestamp": 1784409560602,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=251&statKey=2"
+      }
+    },
+    {
+      "id": "ev_3",
+      "order": 3,
+      "type": "goal",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 0,
+      "awayScore": 3,
+      "minute": 38,
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 456,
+        "statKey": 2,
+        "timestamp": 1784410682257,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=456&statKey=2"
+      }
+    },
+    {
+      "id": "ev_4",
+      "order": 4,
+      "type": "goal",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 0,
+      "awayScore": 4,
+      "minute": 46,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 575,
+        "statKey": 2,
+        "timestamp": 1784411257795,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=575&statKey=2"
+      }
+    },
+    {
+      "id": "ev_5",
+      "order": 5,
+      "type": "goal",
+      "team": "home",
+      "teamName": "France",
+      "homeScore": 1,
+      "awayScore": 4,
+      "minute": 48,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 653,
+        "statKey": 1,
+        "timestamp": 1784412686262,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=653&statKey=1"
+      }
+    },
+    {
+      "id": "ev_6",
+      "order": 6,
+      "type": "goal",
+      "team": "home",
+      "teamName": "France",
+      "homeScore": 2,
+      "awayScore": 4,
+      "minute": 54,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 737,
+        "statKey": 1,
+        "timestamp": 1784413066722,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=737&statKey=1"
+      }
+    },
+    {
+      "id": "ev_7",
+      "order": 7,
+      "type": "goal",
+      "team": "home",
+      "teamName": "France",
+      "homeScore": 3,
+      "awayScore": 4,
+      "minute": 66,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 896,
+        "statKey": 1,
+        "timestamp": 1784413802844,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=896&statKey=1"
+      }
+    },
+    {
+      "id": "ev_8",
+      "order": 8,
+      "type": "goal",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 3,
+      "awayScore": 5,
+      "minute": 87,
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 1061,
+        "statKey": 2,
+        "timestamp": 1784415062186,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=1061&statKey=2"
+      }
+    },
+    {
+      "id": "ev_9",
+      "order": 9,
+      "type": "goal",
+      "team": "home",
+      "teamName": "France",
+      "homeScore": 4,
+      "awayScore": 5,
+      "minute": 96,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 1165,
+        "statKey": 1,
+        "timestamp": 1784415567104,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=1165&statKey=1"
+      }
+    },
+    {
+      "id": "ev_10",
+      "order": 10,
+      "type": "goal",
+      "team": "away",
+      "teamName": "England",
+      "homeScore": 4,
+      "awayScore": 6,
+      "minute": 98,
+      "detail": "Shot",
+      "proof": {
+        "fixtureId": 18257865,
+        "seq": 1186,
+        "statKey": 2,
+        "timestamp": 1784415688045,
+        "epochDay": 20652,
+        "rootPda": "C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi",
+        "explorerUrl": "https://explorer.solana.com/address/C9vY83pzub2a4d3Qve5NuR4cuXc8Yq68fKRRad4xR4bi?cluster=devnet",
+        "statValidationUrl": "https://txline-dev.txodds.com/api/scores/stat-validation?fixtureId=18257865&seq=1186&statKey=2"
+      }
+    }
+  ],
+  "stats": {
+    "goals": {
+      "home": 4,
+      "away": 6
+    },
+    "yellowCards": {
+      "home": 0,
+      "away": 0
+    },
+    "redCards": {
+      "home": 0,
+      "away": 0
+    },
+    "corners": {
+      "home": 3,
+      "away": 4
+    },
+    "cornersByHalf": {
+      "first": {
+        "home": 2,
+        "away": 3
+      },
+      "second": {
+        "home": 1,
+        "away": 1
+      }
+    }
+  },
+  "oddsTimeline": [],
+  "oddsHighlights": [],
+  "dataNotes": [
+    "Each event's \"minute\" is the real match-clock minute for that moment, on-chain-anchored via the same record we prove — you may state it (e.g. \"in the 7th minute\").",
+    "Scorer names are not available — refer to teams, not named players, for goals.",
+    "No odds data is available for this match — do not reference betting odds or market swings.",
+    "Every listed event is cryptographically verified on-chain; there are no other events."
+  ]
+}
