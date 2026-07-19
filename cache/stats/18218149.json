@@ -10,18 +10,18 @@
     {
       "key": "shots",
       "label": "Shots",
-      "home": 26,
-      "away": 6,
+      "home": 15,
+      "away": 4,
       "kind": "derived",
-      "events": 32
+      "events": 19
     },
     {
       "key": "shotsOnTarget",
       "label": "Shots on target",
-      "home": 4,
-      "away": 1,
+      "home": 6,
+      "away": 2,
       "kind": "derived",
-      "events": 32
+      "events": 8
     },
     {
       "key": "possession",
@@ -115,5 +115,5 @@
     }
   ],
   "source": "TxLINE on-chain match feed (competition 72, Solana devnet)",
-  "generatedAt": "2026-07-19T04:54:48.394Z"
+  "generatedAt": "2026-07-19T06:16:03.128Z"
 }

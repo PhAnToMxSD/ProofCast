@@ -68,16 +68,30 @@ function buildStats(id) {
   const keyFor = (slotP1, slotP2) => ({ home: p1Home ? slotP1 : slotP2, away: p1Home ? slotP2 : slotP1 });
   const kCorner = keyFor(7, 8), kYellow = keyFor(3, 4), kRed = keyFor(5, 6);
 
-  // ── derived: shots + shots on target (dedup by Seq) ──
-  const shotBySeq = new Map();
-  for (const r of tl) if (r.Action === "shot" && r.Seq != null) shotBySeq.set(r.Seq, r);
-  let shotH = 0, shotA = 0, otH = 0, otA = 0;
-  for (const r of shotBySeq.values()) {
-    const on = r.Data?.Outcome === "OnTarget";
-    if (r.Participant === homeIdx) { shotH++; if (on) otH++; }
-    else if (r.Participant === awayIdx) { shotA++; if (on) otA++; }
+  // ── derived: shots + shots on target ──
+  // Shot records are amended in place (logged unconfirmed → confirmed), so dedup
+  // by Id and keep the confirmed version — counting raw records over-counts ~2x.
+  // A goal is logged as its own `goal` event, NOT a shot, so add goals back in:
+  // every goal is a shot, and by definition on target. (Without this, on-target
+  // could come out below the goal count.)
+  const shotById = new Map();
+  for (const r of tl) {
+    if (r.Action !== "shot" || r.Id == null) continue;
+    const cur = shotById.get(r.Id);
+    if (!cur || (r.Confirmed && !cur.Confirmed) || r.Seq > cur.Seq) shotById.set(r.Id, r);
   }
-  const shotEvents = shotBySeq.size;
+  let shotH = 0, shotA = 0, otH = 0, otA = 0;
+  for (const s of shotById.values()) {
+    if (!s.Confirmed || !s.Data?.Outcome) continue; // ignore unconfirmed/pending
+    const on = s.Data.Outcome === "OnTarget";
+    if (s.Participant === homeIdx) { shotH++; if (on) otH++; }
+    else if (s.Participant === awayIdx) { shotA++; if (on) otA++; }
+  }
+  const goalsH = brief.finalScore.home ?? 0, goalsA = brief.finalScore.away ?? 0;
+  shotH += goalsH; shotA += goalsA; // goals are shots
+  otH += goalsH; otA += goalsA;     // and they are on target
+  const shotEvents = shotH + shotA;
+  const otEvents = otH + otA;
 
   // ── derived: possession share (count of on-chain possession-tagged records) ──
   let posH = 0, posA = 0;
@@ -91,7 +105,7 @@ function buildStats(id) {
 
   const stats = [
     { key: "shots", label: "Shots", home: shotH, away: shotA, kind: "derived", events: shotEvents },
-    { key: "shotsOnTarget", label: "Shots on target", home: otH, away: otA, kind: "derived", events: shotEvents },
+    { key: "shotsOnTarget", label: "Shots on target", home: otH, away: otA, kind: "derived", events: otEvents },
     { key: "possession", label: "Possession", home: possH, away: 100 - possH, unit: "%", kind: "derived", events: possEvents },
     {
       key: "corners", label: "Corners", home: Th.Corners ?? 0, away: Ta.Corners ?? 0, kind: "verified",
