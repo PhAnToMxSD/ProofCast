@@ -111,17 +111,20 @@ export async function POST(req: Request) {
     );
   }
 
-  // Persist to both the served dir and the repo-canonical cache.
+  // Persist to both the served dir and the repo-canonical cache. This is
+  // best-effort: locally it commits the canonical mp3 so the next build embeds
+  // it, but on a serverless host (Vercel) the filesystem is read-only, so a
+  // write failure must NOT lose the audio we just paid to synthesize. When we
+  // can't write a served file, hand the bytes back inline as a data: URL — the
+  // <audio> element and the visualizer's MediaElementSource both play it.
   try {
     fs.mkdirSync(PUBLIC_AUDIO, { recursive: true });
     fs.mkdirSync(CACHE_AUDIO, { recursive: true });
     fs.writeFileSync(publicPath, mp3);
     fs.writeFileSync(path.join(CACHE_AUDIO, `${stem}.mp3`), mp3);
-  } catch (err: any) {
-    return NextResponse.json(
-      { error: `audio was generated but could not be saved: ${err?.message ?? err}` },
-      { status: 500 }
-    );
+  } catch {
+    const dataUrl = `data:audio/mpeg;base64,${mp3.toString("base64")}`;
+    return NextResponse.json({ audioUrl: dataUrl, source: "generated", chars });
   }
 
   return NextResponse.json({ audioUrl, source: "generated", chars });
