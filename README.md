@@ -202,4 +202,21 @@ never masquerade as something they aren't.
 
 ---
 
+## Community & fan engagement
+
+ProofCast isn't just something you watch and listen to — it's somewhere fans gather. Every match page
+has a **Match talk** wall at the bottom where the community can react to the game together.
+
+- **💬 Comment on any match** — drop your take, your hot reaction, or your post-match verdict under
+  each fixture. Comments are kept per match, so every conversation stays with the game it's about.
+- **🙋 Pick a username** — set a display name once from the top-right of the comment wall and it
+  carries across every match. No sign-up, no wallet, no friction — you're one click from joining in.
+- **🧵 Your voice, your control** — see the whole thread newest-first, and remove your own comments
+  any time.
+
+It turns each match from a one-way recap into a shared matchday moment — the kind of banter and
+back-and-forth that keeps fans coming back between games.
+
+---
+
 Built for the **TxODDS World Cup Hackathon** — *Consumer & Fan Experiences* track.

@@ -1187,6 +1187,188 @@ body {
   padding: clamp(18px, 3.5vw, 28px);
 }
 
+/* ── Match talk (community comments) ───────────────────────────────────── */
+
+.comments {
+  margin-top: 24px;
+  border: 1px solid var(--edge);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: clamp(18px, 3.5vw, 28px);
+}
+
+.cm-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.cm-head h3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.cm-count {
+  font-family: var(--type-mono);
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+  background: var(--card-hover);
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  padding: 1px 8px;
+}
+
+/* username control (top-right) */
+.cm-set-name,
+.cm-name-save,
+.cm-post {
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 7px 14px;
+  border: 1px solid var(--grass);
+  background: color-mix(in srgb, var(--grass) 16%, transparent);
+  color: var(--grass-bright);
+  transition: background 0.15s ease;
+}
+.cm-set-name:hover,
+.cm-name-save:hover,
+.cm-post:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--grass) 26%, transparent);
+}
+.cm-post:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  border-color: var(--edge);
+  background: var(--card-hover);
+  color: var(--ink-faint);
+}
+.cm-name-edit {
+  display: inline-flex;
+  gap: 6px;
+}
+.cm-name-input,
+.cm-textarea {
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg-1);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+.cm-name-input { font-size: 0.85rem; width: 160px; }
+.cm-name-input:focus,
+.cm-textarea:focus {
+  outline: none;
+  border-color: rgba(63, 240, 162, 0.5);
+}
+.cm-name-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 5px 12px 5px 5px;
+  border: 1px solid var(--edge);
+  background: var(--card-hover);
+  color: var(--ink);
+}
+.cm-name-chip:hover { border-color: rgba(63, 240, 162, 0.4); }
+.cm-edit { color: var(--ink-faint); font-size: 0.72rem; }
+
+.cm-avatar {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--bg-0);
+  background: linear-gradient(135deg, var(--grass-bright), var(--grass));
+}
+
+/* compose box */
+.cm-compose {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.cm-textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 64px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.cm-textarea:disabled { opacity: 0.6; cursor: not-allowed; }
+.cm-compose-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.cm-hint { color: var(--ink-faint); font-size: 0.72rem; }
+
+/* list */
+.cm-empty {
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 14px 0;
+}
+.cm-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.cm-item {
+  display: flex;
+  gap: 12px;
+  animation: riseIn 0.35s ease both;
+}
+.cm-body { min-width: 0; flex: 1; }
+.cm-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 3px;
+}
+.cm-author { font-weight: 700; font-size: 0.86rem; }
+.cm-time { color: var(--ink-faint); font-size: 0.72rem; }
+.cm-delete {
+  margin-left: auto;
+  font: inherit;
+  font-size: 0.7rem;
+  color: var(--ink-faint);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.cm-delete:hover { color: var(--danger); }
+.cm-text {
+  color: var(--ink-dim);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
 .receipts .intro {
   color: var(--ink-dim);
   font-size: 0.86rem;

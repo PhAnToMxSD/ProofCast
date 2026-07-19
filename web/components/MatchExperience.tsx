@@ -14,6 +14,7 @@ import { AudioPlayer } from "@/components/AudioPlayer";
 import { Flag } from "@/components/Flag";
 import { Receipts } from "@/components/Receipts";
 import { TeamStats } from "@/components/TeamStats";
+import { Comments } from "@/components/Comments";
 
 type StyleKey = "hype" | "analyst" | "bedtime";
 type RecapResult = { recap: Recap; audioUrl: string | null; source: "cache" | "live" };
@@ -245,8 +246,7 @@ export function MatchExperience({ match, stats }: { match: CatalogMatch; stats: 
 
           <section className="transcript">
             <h3>
-              <span aria-hidden="true">🎙</span> {result.recap.styleLabel} —{" "}
-              {result.source === "cache" ? "pre-verified recap" : "brewed live"}
+              <span aria-hidden="true">🎙</span> {result.recap.styleLabel} — your recap
             </h3>
             {paragraphs.map((p, i) => (
               <p key={i} style={{ animationDelay: `${0.12 * i}s` }}>{p}</p>
@@ -256,6 +256,9 @@ export function MatchExperience({ match, stats }: { match: CatalogMatch; stats: 
           <Receipts recap={result.recap} match={match} />
         </div>
       )}
+
+      {/* ── Community: match talk (always visible) ── */}
+      <Comments matchId={match.matchId} />
     </div>
   );
 }
