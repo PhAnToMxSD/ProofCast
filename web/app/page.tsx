@@ -26,6 +26,9 @@ export default function Landing() {
         ProofCast · matchday, on the record
       </span>
 
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="landing-trophy-img" src="/trophy.png" alt="FIFA World Cup trophy" />
+
       <h1 className="landing-title">
         Every sentence
         <br />

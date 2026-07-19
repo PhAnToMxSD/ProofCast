@@ -97,13 +97,17 @@ export default function MatchesPage() {
         <Link href="/" className="back-link">← Home</Link>
       </div>
 
-      <header className="page-head">
-        <h1>Pick a match</h1>
-        <p className="lede">
-          The full 2026 World Cup knockout run — {knockoutCount} ties from the Round of 16 to the
-          Final — plus the verified group-stage fixtures. Choose any played match to pick a narrator
-          and brew its recap; every fact links to its on-chain proof.
-        </p>
+      <header className="page-head with-trophy">
+        <div className="page-head-text">
+          <h1>Pick a match</h1>
+          <p className="lede">
+            The full 2026 World Cup knockout run — {knockoutCount} ties from the Round of 16 to the
+            Final — plus the verified group-stage fixtures. Choose any played match to pick a narrator
+            and brew its recap; every fact links to its on-chain proof.
+          </p>
+        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className="head-trophy-img" src="/trophy.png" alt="FIFA World Cup trophy" />
       </header>
 
       {STAGE_ORDER.map((stage) => {
