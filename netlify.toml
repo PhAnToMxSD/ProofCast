@@ -1,0 +1,15 @@
+# The deployable site is the Next.js app in web/. Without this, Netlify builds
+# the repo root (the Solana pipeline package, which produces no site) and every
+# route 404s. `base` moves the whole build into web/; the sync step in
+# `prebuild` still reaches ../cache and ../src (both committed) from there.
+[build]
+  base = "web"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Netlify's Next.js runtime — wires App Router SSR + /api routes to functions.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
