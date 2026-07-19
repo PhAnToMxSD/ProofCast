@@ -100,6 +100,14 @@ export function MatchExperience({ match, stats }: { match: CatalogMatch; stats: 
     setPhase("loading");
     setResult(null);
     setError("");
+
+
+    const started = Date.now();
+    const MIN_BREW_MS = 2600;
+    const holdBrew = async () => {
+      const left = MIN_BREW_MS - (Date.now() - started);
+      if (left > 0) await new Promise((r) => setTimeout(r, left));
+    };
     try {
       const res = await fetch("/api/recap", {
         method: "POST",
@@ -108,10 +116,12 @@ export function MatchExperience({ match, stats }: { match: CatalogMatch; stats: 
       });
       const body = await res.json();
       if (!res.ok) throw new Error(body.error ?? `request failed (${res.status})`);
+      await holdBrew();
       setResult(body as RecapResult);
       setPhase("done");
       setTimeout(() => stageRef.current?.scrollIntoView({ behavior: "smooth" }), 80);
     } catch (err) {
+      await holdBrew();
       setError(err instanceof Error ? err.message : String(err));
       setPhase("error");
     }
@@ -158,7 +168,6 @@ export function MatchExperience({ match, stats }: { match: CatalogMatch; stats: 
         </div>
         <div className="persona-grid">
           {PERSONAS.map((p) => {
-            const cached = match.cachedStyles.includes(p.key);
             return (
               <button
                 key={p.key}
@@ -169,11 +178,7 @@ export function MatchExperience({ match, stats }: { match: CatalogMatch; stats: 
                 <span className="icon" aria-hidden="true">{p.icon}</span>
                 <h3>{p.label}</h3>
                 <p>{p.blurb}</p>
-                {cached ? (
-                  <span className="tag">⚡ instant — pre-verified</span>
-                ) : (
-                  <span className="tag live">● generated live</span>
-                )}
+                <span className="tag live">● grounded in verified data</span>
               </button>
             );
           })}
@@ -190,7 +195,7 @@ export function MatchExperience({ match, stats }: { match: CatalogMatch; stats: 
               <span aria-hidden="true">⚽</span> {phase === "done" ? "Brew another take" : "Brew the recap"}
             </button>
             <span className="kickoff-note">
-              Pre-verified combinations play instantly from the committed pipeline output.
+              Your recap is generated live — TxLINE&apos;s verified match data woven into the style you picked.
             </span>
           </>
         )}
