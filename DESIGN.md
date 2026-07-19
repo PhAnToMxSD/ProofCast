@@ -1,337 +1,373 @@
-# AI Match Storyteller — Implementation Plan
+# ProofCast — A Protocol for Verifiable, Grounded Sports Storytelling
 
-**Project:** Post-match AI commentary recaps generated from cryptographically verified TxLINE match data, narrated as audio, with on-chain "verify this moment" proof links.
+**A whitepaper on turning cryptographically-anchored match data into audit-ready, AI-narrated match recaps.**
 
-**Hackathon:** TxODDS World Cup Hackathon — *Consumer & Fan Experiences* track ($16K), on Superteam Earn.
-**Deadline:** Submissions close **19 July 2026**. Winners announced 29 July 2026.
-**Qualifying bar:** Must be a *functional build or live testnet application using TxLINE data as a primary input.*
+Version 1.0 · Network: Solana devnet · Data source: TxLINE (TxODDS) · Competition scope: FIFA World Cup 2026 (competition id `72`)
 
 ---
 
-## 0. Guiding constraints (read before writing any code)
+## Abstract
 
-1. **Terminal-first.** Every phase must be runnable as a standalone CLI script and verified before moving on. The website is the LAST step, and only wraps an already-working pipeline.
-2. **Devnet only.** Never touch mainnet. Devnet SOL from a faucet, free World Cup tier, no TxL purchase.
-3. **Time is the binding constraint, not cost.** Prefer the boring option that finishes.
-4. **ElevenLabs free tier = 10,000 characters/month total.** This is the scarcest resource in the whole project. NEVER call TTS during iteration. Text pipeline gets tested freely; TTS gets called only on text we've already approved. Budget: ~1,500–2,500 chars per recap → only ~4–6 generations exist for the entire month.
-5. **Cache everything to disk.** Raw TxLINE responses, match briefs, generated text, and audio. Re-running a script must never re-hit a paid/limited API for data already fetched.
-6. **No fabricated facts.** The LLM only ever sees a structured brief we built from verified data. If it isn't in the brief, it must not appear in the recap.
-7. **Secrets in `.env` only.** Never commit keys. Never ship keys to the frontend.
+Sports fans consume an enormous volume of match data and AI-generated commentary, almost none of which is provably true. Every site reports slightly different numbers, and no consumer product can show *where a figure came from* or *that it was not fabricated*. ProofCast is a protocol and reference application that closes this gap end to end. It ingests match data from **TxLINE**, whose every statistic is anchored on-chain via a daily Merkle-root scheme on Solana; derives a minimal, verifiable **MatchBrief**; and uses that brief as the *sole* input to a grounded language-model pipeline that produces a persona-styled, spoken recap. Every factual claim in the output resolves to an on-chain proof coordinate a fan can independently verify.
+
+The core contribution is a strict, end-to-end **provenance chain**: `on-chain Merkle root → per-stat proof → MatchBrief event → cited sentence → rendered "verify" link`. At no point is a fact permitted to enter the pipeline without a resolvable proof, and at no point is the language model shown anything it is not allowed to state. The result is AI sports content with a receipt behind every sentence.
 
 ---
 
-## 1. Prerequisites the human must supply
+## 1. Motivation
 
-Claude Code should check for these at the start and stop with a clear message if any are missing.
+### 1.1 The trust deficit in sports data
 
-| Item | Where to get it | Env var |
-|---|---|---|
-| Solana devnet keypair | `solana-keygen new` (or generate in-script) | `SOLANA_KEYPAIR_PATH` |
-| Devnet SOL | `solana airdrop 2 --url devnet` or web faucet | — |
-| OpenRouter API key | openrouter.ai (email/GitHub signup, no card) | `OPENROUTER_API_KEY` |
-| ElevenLabs API key | elevenlabs.io free tier | `ELEVENLABS_API_KEY` |
+Consumer sports data is a chain of unverifiable intermediaries. A statistic is observed by a data collector, passed through one or more aggregators, reformatted by a publisher, and finally shown to a fan — who has no way to audit any link in that chain. When two sources disagree, there is no ground truth to appeal to. When an AI system generates a "match recap," the problem compounds: language models hallucinate scorers, minutes, and scorelines that never happened, and the reader cannot tell fabricated detail from fact.
 
-No TxLINE key is issued up-front — it is *earned* via the on-chain subscribe + activate flow in Phase 2.
+### 1.2 The opportunity
+
+TxLINE anchors sports data on-chain: each score, stat, and fixture is committed to Solana under a daily Merkle-root scheme, so any individual figure can be proven to belong to a published, immutable root. This makes it possible — for the first time in a consumer product — to build an experience where *the data layer is cryptographically verifiable* and *the presentation layer refuses to state anything the data layer cannot back*.
+
+ProofCast is the demonstration of that thesis: a mainstream-feeling fan product (no wallet, no sign-up, no crypto vocabulary) sitting on a foundation of provable truth.
 
 ---
 
-## 2. Phase 0 — Scaffold (target: 20 min)
+## 2. Design goals and non-goals
+
+**Goals.**
+
+1. **Verifiability by default.** Every user-visible fact — goals, cards, corners, shots, possession, the scoreline, and every sentence of narration — must resolve to an on-chain proof coordinate.
+2. **No fabrication.** The generation layer may only ever assert facts present in a verified brief; violations must fail closed, not degrade silently.
+3. **Explicit trust tiers.** Where a fact is *not* on-chain (a player's name), its provenance must be labelled distinctly and never blurred with on-chain verification.
+4. **Zero web3 friction for the fan.** No wallet, no signing, no chain vocabulary in the default experience.
+5. **Deterministic, reproducible artifacts.** Every stage caches to disk; re-running never re-hits a paid or rate-limited API for data already fetched.
+
+**Non-goals.**
+
+- Real-time / live-match streaming (the protocol targets *completed* matches; the feed's per-fixture live stream is explicitly not used for finished games).
+- Mainnet operation (the reference implementation is devnet-only by design; see §12).
+- Editorial opinion as fact — tone and colour are welcome, invented facts are not.
+
+---
+
+## 3. Trust model
+
+ProofCast draws a hard line between two classes of fact and never lets them blur.
+
+| Class | Examples | Source | Guarantee shown to the fan |
+|---|---|---|---|
+| **On-chain verified** | that a goal happened, for which team, the running score, the match minute, corner/card/shot/possession figures | TxLINE Merkle-proven stat slots + derived on-chain events | "🔒 verified on-chain" + a resolvable proof link |
+| **Web2 attributed** | the scorer's name, the booked player's name | Public match report (e.g. FIFA / ESPN), authored once into a committed file | "name via `<source>`" — explicitly *not* an on-chain claim |
+
+The minute of an event is treated as **on-chain verified**, because it is derived from the running match clock carried on the very same score record whose sequence and stat map are proven (§6.3). The *name* attached to a goal or card is treated as **web2 attributed** and is aligned to a verified event by position, never invented (§8).
+
+### 3.1 Threat model
+
+The protocol defends against the following:
+
+- **Fabricated events / phantom goals.** Mitigated by deriving events from monotonic on-chain stat counters and reconciling event counts to the proven final score (§6.4, §7.4).
+- **Revoked events (VAR-disallowed goals, corrections).** Mitigated by a decrement-aware extraction that pops tentative events when a counter drops (§6.4).
+- **Model hallucination.** Mitigated by the anti-hallucination brief contract (§7) and post-generation validation that rejects fabricated citations, wrong scorelines, and reasoning leakage (§9.3).
+- **Name misattribution.** Mitigated by count-checked positional alignment that *throws* on any disagreement with the chain, plus a minute cross-check (§8).
+- **Proof-link forgery / dead links.** Every proof coordinate is computed deterministically from on-chain-derived values; the resolution proxy authenticates server-side so a link cannot be spoofed by a client (§10.2).
+
+---
+
+## 4. System architecture
+
+ProofCast is a **pipeline protocol**: a sequence of pure, cacheable transformations from on-chain data to a rendered, verifiable experience. Each stage writes a committed artifact that the next stage consumes, so any stage can be re-run or audited in isolation.
+
+```mermaid
+flowchart TD
+    A["Solana devnet<br/>TxLINE program<br/>daily_scores_roots PDAs"] -->|subscribe → activate| B["Auth layer<br/>src/txline.ts"]
+    B -->|JWT + API token| C["Ingestion<br/>src/fetch.ts"]
+    C -->|"RawMatch (cache/raw)"| D["Brief builder<br/>src/brief.ts"]
+    C -->|"timeline events"| S["Stats composer<br/>scripts/build-stats.mjs"]
+    R["Web2 match report<br/>cache/scorers/*.json"] -->|positional alignment| D
+    D -->|"MatchBrief (cache/briefs)"| E["Grounded generation<br/>src/recap.ts + styles.ts"]
+    E -->|"validated Recap (cache/recaps)"| F["TTS<br/>src/tts.ts (ElevenLabs)"]
+    D --> W["Web app (Next.js)"]
+    S --> W
+    E --> W
+    F -->|"mp3 (cache/audio)"| W
+    W -->|"GET /api/proof"| P["Proof resolution proxy"]
+    P -->|"stat-validation (Merkle proof)"| A
+```
+
+The **guiding invariant** across all stages: *a fact without a proof coordinate cannot advance to the next stage.* Zod schemas enforce this structurally (§7.1), and runtime assertions enforce it semantically (§9.3).
+
+---
+
+## 5. The TxLINE verification layer
+
+### 5.1 On-chain access as an earned credential
+
+Unlike a conventional API key issued out-of-band, TxLINE access is **earned on-chain**. The reference implementation (`src/txline.ts`) performs the full handshake:
+
+1. **Ensure a Token-2022 associated token account (ATA)** for the subscribing wallet against the service token mint `4Zao8ocPhmMgq7PdsYWyxvqySMGx7xb9cMftPMkEokRG`, retrying until the RPC has synced the account.
+2. **Subscribe on-chain** by invoking `subscribe(service_level_id: u16, weeks: u8)` on program `6pW64gN1s2uqjHkn1unFeEjAwJkPGHoppGvS715wyP2J` via Anchor, with accounts resolved from the program's PDAs (`pricing_matrix`, `token_treasury_v2`, and the treasury's Token-2022 vault). The confirmed transaction signature `txSig` becomes the proof-of-subscription. The reference config uses `SERVICE_LEVEL_ID = 1` ("World Cup & Int Friendlies"), `DURATION_WEEKS = 4`, `SELECTED_LEAGUES = []` (the standard free bundle).
+3. **Obtain a guest JWT** via `POST /auth/guest/start` (a keyless request; the JWT is valid ~30 days).
+4. **Sign the activation preimage** with the *same* wallet that subscribed. The exact preimage is:
+
+   ```
+   preimage = `${txSig}:${SELECTED_LEAGUES.join(",")}:${jwt}`
+   ```
+
+   With empty leagues this collapses to `${txSig}::${jwt}` (two colons). The signature is an **ed25519 detached signature, base64-encoded**.
+5. **Activate** via `POST /api/token/activate` with `Authorization: Bearer <jwt>` and body `{ txSig, walletSignature, leagues }` (note the field is `walletSignature`, not `signature`). The response is a long-lived API token (`txoracle_api_…`), returned as `text/plain` or `{ token }`.
+6. **Persist** `{ wallet, apiToken, jwt, subscribeTxSig, serviceLevelId, selectedLeagues, activatedAt }` to `cache/auth.json` so the protocol never re-subscribes.
+
+### 5.2 Dual-credential data requests
+
+Every authenticated data request carries **both** headers:
 
 ```
-/ai-match-storyteller
-  /scripts          # CLI entry points, run in order
-    01-auth.ts
-    02-fetch-match.ts
-    03-build-brief.ts
-    04-generate-text.ts
-    05-generate-audio.ts
-    06-run-all.ts
-  /src
-    txline.ts       # auth + data client
-    brief.ts        # raw feed -> structured MatchBrief
-    styles.ts       # commentary persona prompts
-    llm.ts          # OpenRouter client
-    tts.ts          # ElevenLabs client
-    types.ts
-  /cache
-    /raw            # raw TxLINE responses (gitignored)
-    /briefs         # structured JSON briefs (COMMITTED - demo fallback)
-    /recaps         # generated text (COMMITTED - demo fallback)
-    /audio          # generated mp3 (COMMITTED - demo fallback)
-  /web              # Phase 7 ONLY - do not start early
-  .env.example
-  .gitignore
-  README.md
+Authorization: Bearer <guest JWT>
+X-Api-Token:   <long-lived API token>
 ```
 
-**Stack:** Node.js + TypeScript, `tsx` for running scripts directly. Deps: `@solana/web3.js`, `@coral-xyz/anchor`, `@solana/spl-token`, `axios`, `tweetnacl`, `dotenv`, `zod` (brief validation).
+The client (`makeApiClient`) installs an interceptor that, on a `401`, refreshes the guest JWT once from the same host and retries with the same API token, writing the refreshed JWT back to the cache. This is the only recovery path needed because the JWT is long-lived; a `403` at activation indicates a preimage/wallet/encoding/network mismatch rather than expiry.
 
-**Checkpoint:** `npx tsx scripts/01-auth.ts --help` runs without crashing.
+### 5.3 The Merkle proof scheme
 
----
+**There is no per-event transaction signature in the feed.** Verification is a Merkle scheme:
 
-## 3. Phase 1 — Read the docs first (target: 20 min)
+- TxLINE publishes **daily Merkle roots** on-chain in program PDAs. The PDA for a given day is derived deterministically:
 
-**Do not write the TxLINE client from memory or from this plan's snippets alone.** The API shapes below are indicative; the docs are authoritative.
+  ```
+  seed      = u16 little-endian(epochDay)          // epochDay = floor(timestamp_ms / 86_400_000)
+  rootPda   = findProgramAddress(["daily_scores_roots", seed], PROGRAM_ID)
+  ```
 
-1. Fetch `https://txline-docs.txodds.com/llms.txt` — this is the LLM-friendly documentation index.
-2. From it, read at minimum:
-   - Quickstart (auth, subscribe, activate)
-   - **World Cup Free Tier** page (service levels 1 or 12 — which one we need)
-   - **Runnable Devnet Examples** (they ship working free-tier activation + fixture/scores scripts — *copy these, don't reinvent*)
-   - API Reference: fixtures, scores, odds endpoints + response shapes
-   - Troubleshooting
-3. Write down in `README.md`: the exact endpoints, the service level ID we're using, and the response field names for scores/events/odds.
+- Any individual statistic is identified by the coordinate **`{ fixtureId, seq, statKey }`** — the fixture, the score-update sequence number the fact landed on, and which statistic changed.
+- `GET /api/scores/stat-validation?fixtureId=…&seq=…&statKey=…` returns the Merkle proof material (`mainTreeProof`, `subTreeProof`, `statProof`) linking that stat to the published daily root.
+- Submitting `validateStat` / `validateStatV2` on-chain against the `daily_scores_roots` PDA verifies the proof and produces a **validation transaction signature** — the per-event on-chain receipt.
 
-**Checkpoint:** README documents the real endpoint list and the exact shape of a completed-match response.
+ProofCast therefore treats **`{ fixtureId, seq, statKey }` + the day's `rootPda`** as the canonical, resolvable proof for any fact. This coordinate is computed once at brief-build time (§7.2) and carried unchanged all the way to the rendered "verify" link.
 
 ---
 
-## 4. Phase 2 — TxLINE access (target: 60–90 min) ⚠️ HIGHEST RISK
+## 6. Data ingestion and event derivation
 
-This phase is the most likely to eat the day. Timebox it. If blocked >90 min, ask for help in the TxODDS Telegram (`t.me/TxLINEChat`) immediately rather than grinding.
+`src/fetch.ts` transforms the live feed into a cache-able `RawMatch` bundle. Devnet reality diverges from the published OpenAPI schema in ways the implementation handles explicitly.
 
-**Devnet config (from quickstart):**
-- RPC: `https://api.devnet.solana.com`
-- Program ID: `6pW64gN1s2uqjHkn1unFeEjAwJkPGHoppGvS715wyP2J`
-- Guest auth: `https://txline-dev.txodds.com/auth/guest/start`
-- API base: `https://txline-dev.txodds.com/api/`
-- **Rule: RPC, program ID, guest JWT host and API host must ALL be devnet. Never mix.**
+### 6.1 Discovering completed matches
 
-**Service level (confirmed against docs — devnet):** `SERVICE_LEVEL_ID = 1` ("World Cup & Int Friendlies"; `samplingIntervalSec = 0` on devnet). `SELECTED_LEAGUES = []`. `DURATION_WEEKS` in multiples of 4 → use `4`. (Level `12`/real-time is mainnet-only; we are devnet-only.)
+The fixtures endpoint carries no score or status, so completion is inferred from the scores feed: `GET /api/fixtures/snapshot?competitionId=72&startEpochDay=…` lists fixtures; a match is *completed* only when its snapshot contains a `game_finalised` record and a `status` record whose `Stats` map holds the final score. Home/away orientation is resolved from each record's `Participant1IsHome` flag.
 
-**`scripts/01-auth.ts` steps:**
-1. Load devnet keypair; assert SOL balance > 0 (airdrop if not). SOL covers tx fees + account rent; no TxL token purchase needed.
-2. `subscribe(SERVICE_LEVEL_ID, DURATION_WEEKS)` on-chain via Anchor, `SELECTED_LEAGUES = []` for the standard free bundle. Capture `txSig`.
-3. `POST /auth/guest/start` → guest JWT (`TokenResponse`). **The JWT is valid for 30 days** — it is *not* short-lived, so no per-call refresh is needed (keep a single 401-retry only as a safety net).
-4. Sign the activation preimage. **Exact preimage:** `` `${txSig}:${SELECTED_LEAGUES.join(",")}:${jwt}` `` — with empty leagues this is `${txSig}::${jwt}` (two colons). Signature must be **base64 detached** (ed25519), signed by the SAME wallet that subscribed.
-5. `POST /api/token/activate` with `Authorization: Bearer <jwt>` and the JSON body below → API token returned as `text/plain` (e.g. `txoracle_api_…`).
-6. Persist token + subscription state to `cache/` so we never re-subscribe.
+### 6.2 Timeline reconstruction
 
-**Activation request body (`ActivationPayload`) — exact field names:**
-```jsonc
-{
-  "txSig": "<subscribe tx signature>",           // required
-  "walletSignature": "<base64 detached sig of the preimage>",  // required — field is `walletSignature`, not `signature`
-  "leagues": []                                   // int32[]; empty = standard free bundle
+`GET /scores/snapshot/{fixtureId}` returns only the *latest* record per action type — sufficient for the final scoreline but not for the ordered event timeline. The per-fixture updates endpoint is a live SSE stream, useless for finished games. The full ordered history is therefore reconstructed by scanning the **interval endpoint** `GET /scores/updates/{epochDay}/{hourOfDay}/{interval}?fixtureId=…` across the match window (4 hours × 12 intervals), deduplicating by `Seq`, and sorting ascending.
+
+### 6.3 Minute derivation (on-chain-anchored)
+
+The match minute is derived from the running match clock carried on the score record:
+
+```
+minute = floor(Clock.Seconds / 60) + 1     // football minutes are 1-indexed
+```
+
+This rides on the same record whose `Seq`/`Stats` are proven, so the minute inherits the same on-chain anchor. It reproduces officially-announced minutes exactly on verified matches (e.g. a 5591-second goal → 94', i.e. 90+4). If the feed ever carries an explicit `Data.Minutes`, that is preferred.
+
+### 6.4 Event extraction by monotonic counter walking
+
+Events are not read from a labelled "events" feed — they are **derived from the movement of proven stat counters**, which is what makes them verifiable. For each tracked `statKey` (goals, yellows, reds per side), the extractor walks the ordered timeline and watches its value:
+
+- **Counter increases** (`now > before`): push one tentative event per increment onto a per-key stack, recording `seq`, `ts`, `statKey`, `playerId` (if any), the derived `minute`, and `detail` (e.g. `GoalType`).
+- **Counter decreases** (`now < before`): the event was **revoked** (VAR-disallowed goal, correction) — pop the stack down to the new value so revoked events never survive.
+
+After the walk, surviving events are flattened, ordered by `seq`, and the running score is recomputed by replaying goals in order. By construction, each key's surviving event count equals its final stat value — so **the derived timeline is guaranteed consistent with the proven final score** (no phantom or missing goals).
+
+The output `RawMatch` retains the raw snapshot, the deduped stat-bearing timeline, and any odds, so downstream stages rebuild without re-fetching. Ingestion is idempotent: cached matches are never re-fetched unless forced.
+
+---
+
+## 7. The MatchBrief: an anti-hallucination contract
+
+`src/brief.ts` compiles a `RawMatch` into a **MatchBrief** — the tight, verified, schema-validated view that is the *only* thing the generation layer is ever shown. It is offline and pure: it computes proofs deterministically and never re-hits the API.
+
+### 7.1 The schema as a gate
+
+`src/types.ts` defines the brief as a Zod schema; a brief that does not validate is not written. Critically, **every factual element carries a `Proof`**:
+
+```ts
+Proof = {
+  fixtureId, seq, statKey,          // the canonical proof coordinate
+  timestamp,                        // ms, on-chain-anchored
+  epochDay,                         // days since epoch → PDA seed
+  rootPda,                          // daily_scores_roots PDA holding the Merkle root
+  explorerUrl,                      // Solana Explorer link to that on-chain account (devnet)
+  statValidationUrl,                // API endpoint returning the full Merkle proof
 }
 ```
 
-**Credential rules for the client (`src/txline.ts`):**
-- Data requests send BOTH: `Authorization: Bearer <jwt>` and `X-Api-Token: <apiToken>`.
-- On `401` → guest JWT invalid/expired → refresh JWT from the same host, retry once with the same API token. (Rare — JWT lasts 30 days.)
-- On `403` at activation → check preimage format, wallet identity, base64 signature encoding, network match.
+Each `BriefEvent` has a stable citation id (`ev_1`, `ev_2`, …), a chronological `order`, the running score after the event, an optional on-chain `minute`, an optional web2 `scorer`/`player` with its `nameSource`, and its `proof`. The brief also carries a `finalScoreProof`, aggregate `stats` (goals, cards, corners, with per-half splits when they reconcile), and machine-readable `dataNotes` (§7.3).
 
-**Checkpoint:** A script prints a live API token and successfully makes one authenticated data call.
+### 7.2 Deterministic proof construction
 
----
+For any `{ fixtureId, seq, statKey, ts }`, `makeProof` computes `epochDay = floor(ts / 86_400_000)`, derives the `daily_scores_roots` PDA from the u16-LE epochDay seed, and assembles the Explorer and stat-validation URLs. Because this is a pure function of on-chain-derived values, proof links are reproducible and cannot be forged after the fact.
 
-## 5. Phase 3 — Fetch a completed match (target: 45 min)
+### 7.3 Honest data notes
 
-`scripts/02-fetch-match.ts --match <id>`
+`buildDataNotes` emits per-match, machine-readable statements of *what the data does and does not contain* — e.g. "minutes are available, you may state them," or "scorer names are not available — refer to teams, not named players." These notes are injected verbatim into the generation prompt as hard constraints (§9.1), so the model is told plainly what it may and may not assert for *this specific match*.
 
-1. List fixtures via `GET /api/fixtures/snapshot`. The fixture object carries no score/status — infer **completed** matches from the scores feed (final `statusSoccerId` = `END`/`FET`, `scoreSoccer.*.Total` populated). Target World Cup / International Friendlies (free tier coverage).
-2. Pull for one match via `GET /api/scores/snapshot/{fixtureId}` → `Scores[]`, an ordered array of per-action records. Extract: final score (`scoreSoccer.Participant1/2.Total.Goals`), full event timeline (each record's `dataSoccer.Minutes`, `PlayerId`, and `Goal`/`Penalty`/`YellowCard`/`RedCard`/`VAR`/sub booleans), stats, and odds movement (`GET /api/odds/snapshot/{fixtureId}`).
-3. **Critically: capture the proof coordinates for each event.** ⚠️ There is **no per-event `txSig` in the payload** — verification is a Merkle-proof scheme. For every event record, capture its **`fixtureId` + `seq` + relevant `statKey`** (e.g. `1`/`2` = goals) and its `ts` (on-chain-anchored timestamp). Those three are what later fetch a Merkle proof from `GET /api/scores/stat-validation` and drive the on-chain `validateStatV2` call. Without `seq`, a moment cannot be proven later.
-4. Dump raw JSON to `cache/raw/<matchId>.json`. Never re-fetch if cached (unless `--force`).
+### 7.4 Consistency assertions
 
-**Checkpoint:** 3–5 completed matches cached as raw JSON, each event record carrying `fixtureId` + `seq` + `statKey` so it can be proven on-chain.
+Beyond the schema, `assertBriefConsistency` re-checks that the number of home/away goal events equals the final score and that event ids are unique — a redundant integrity gate on top of the extraction guarantee of §6.4.
 
-**Verification model (confirmed):** daily Merkle roots are published on-chain in program PDAs (`daily_scores_roots` + epochDay). `stat-validation` returns `mainTreeProof`/`subTreeProof`/`statProof`; submitting `validateStat`/`validateStatV2` on-chain produces the **validation tx signature** that is our per-event receipt. Copy `subscription_scores_*.ts` from the devnet examples. If a per-event proof ever fails, degrade to a per-match proof — but never ship without *something* verifiable.
+### 7.5 Half-time and per-period reconciliation
+
+Per-period stat keys are the whole-game base key offset by period (`first half = 1000 + base`, `second half = 3000 + base`). A half-time score or per-half corner split is emitted **only if the two halves sum exactly to the full-time total**; otherwise it is omitted. ProofCast never *infers* a half-time score.
 
 ---
 
-## 6. Phase 4 — Build the structured brief (target: 45 min)
+## 8. Web2 enrichment under integrity gates
 
-`scripts/03-build-brief.ts --match <id>`
+TxLINE proves *that* a goal happened, *for which team*, and *at what minute* — but not *who scored*. Player names are the one fact ProofCast sources from web2, and it does so under strict integrity gates (`src/scorers.ts`).
 
-This is the anti-hallucination layer. Raw feed → tight, clean `MatchBrief` JSON. Validate with `zod`.
+- Names come from a public match report authored once into a committed `cache/scorers/<matchId>.json`, carrying its `source` provenance (name + URL).
+- **Alignment is positional, not by minute.** The *k*-th verified goal for a team is credited to the *k*-th scorer the source lists for that team. The official minute is used *only* as a ±2-minute cross-check that raises a low-confidence warning — never as the alignment key — so a report that is a minute off can never misattribute a goal.
+- **Count mismatches throw.** If the source lists a different number of goals (or, per card type, cards) for a team than the chain verifies, composition *fails* rather than guessing. Card buckets must be fully listed or omitted entirely; a partial bucket is refused, which is what allows naming red cards while leaving yellows team-only.
+- The event stays on-chain-verified; only the *name* is web2-attributed, tagged with `nameSource`, and the UI labels it distinctly (§10.1).
 
-```ts
-type MatchBrief = {
-  matchId: string;
-  competition: string;
-  date: string;
-  homeTeam: string; awayTeam: string;
-  finalScore: { home: number; away: number };
-  events: Array<{
-    id: string;              // stable ID the LLM will cite
-    minute?: number;         // real match minute from the record Clock (floor(sec/60)+1); on-chain-anchored
-    type: "goal" | "own_goal" | "penalty" | "yellow" | "red" | "sub" | "var";
-    team: string;
-    scorer?: string;         // web2-attributed name (see Phase 4.5); NOT from the chain
-    nameSource?: string;     // provenance of `scorer`, e.g. "FIFA / ESPN"
-    detail?: string;
-    // Proof coordinates — there is NO per-event txSig in the feed. These fetch a
-    // Merkle proof (stat-validation) and drive validateStatV2; the resulting on-chain
-    // validation tx is the receipt. explorerUrl is filled in once we run that tx.
-    proof: { fixtureId: number; seq: number; statKey: number; timestamp?: number; validationTxSig?: string; explorerUrl?: string };
-  }>;
-  oddsTimeline: Array<{ minute: number; homeWin: number; draw: number; awayWin: number }>;
-  oddsHighlights: Array<{ minute: number; description: string; swing: number }>; // computed: biggest market moves
-  stats?: Record<string, { home: number | string; away: number | string }>;
-};
+---
+
+## 9. Grounded generation
+
+`src/recap.ts` and `src/styles.ts` turn a MatchBrief into a persona-styled recap that is grounded, cited, and validated before it is ever written to disk.
+
+### 9.1 Prompt construction
+
+The model is shown a **slimmed brief** — facts only, with proof URLs and PDAs stripped out (it does not need them). Each event carries a qualitative `whenRelative` pacing word derived from real inter-event timestamps ("moments later", "much later"), so the persona can pace the story honestly *without* being handed — or inventing — an absolute minute for events that lack one. The system prompt is the persona plus the non-negotiable **grounding rules**.
+
+### 9.2 Personas
+
+Three curated personas ship, each a persona voice atop the shared grounding rules:
+
+- **`hype`** — explosive, partisan hometown commentator.
+- **`analyst`** — dry, deadpan, numbers-obsessed tactician.
+- **`bedtime`** — gentle fairy-tale narrator.
+
+The grounding rules override the persona whenever they conflict: use only brief facts; obey `dataNotes` exactly; treat the `events` array as the complete list of what happened; cite every factual claim with its `[ev_N]` id and the final score with `[final]`; never invent venue, stage, kickoff, scorer, or minute; 300–400 words of flowing prose meant to be read aloud.
+
+### 9.3 Post-generation validation (fail-closed)
+
+Raw model output is validated by `finalizeRecap` *before* acceptance; any violation throws, and an ungrounded recap is never written:
+
+1. **Prose / leakage check** — reject chain-of-thought leakage, markdown fences, or instruction echoes; enforce the 300–400-word window.
+2. **Citation resolution** — every `[ev_N]` / `[final]` marker is mapped back to a real brief proof; a citation of a non-existent id throws.
+3. **Scoreline assertion** — the correct final score must appear in the prose (digit and word forms accepted); a wrong or missing scoreline throws.
+4. **Non-empty citations** — a recap with no citations is rejected.
+
+On failure the generator **rotates across candidate models** (handling a flaky free tier and quota errors), with a single same-model expansion pass reserved for the under-length case. The accepted recap stores its display text (citation tags stripped), the ordered citations with their proofs, the model used, and the word count.
+
+The output of this stage is the load-bearing claim of the whole protocol: *every cited sentence maps to a resolvable on-chain proof, and nothing else was allowed through.*
+
+---
+
+## 10. Delivery and verification
+
+### 10.1 Statistics composition
+
+`scripts/build-stats.mjs` builds the Google-style team-stats panel, distinguishing two provenance kinds:
+
+- **Verified aggregates** (corners, yellow, red) — read from the proven `Score.Total` slots at the final stat record's `seq`, each carrying a per-side Merkle proof.
+- **Derived on-chain figures** (shots, shots on target, possession) — *counted from N individual on-chain events*: shot records are deduplicated by `Id` (they are amended in place from unconfirmed → confirmed), goals are added back in (every goal is a shot, and on target), and possession share is the ratio of possession-tagged records. Each derived figure reports the number of on-chain events it was composed from.
+
+Every row therefore traces to TxLINE — either as a single Merkle-proven slot or as a count of proven events.
+
+### 10.2 The proof-resolution proxy
+
+The rendered "verify on-chain" links must resolve for a fan who has no wallet and no credentials. Because `stat-validation` requires both auth headers, a raw browser link would `401`. The web app exposes `GET /api/proof?fixtureId=…&seq=…&statKey=…` (`web/app/api/proof/route.ts`), which:
+
+- reads the long-lived API token from the deployment env (`TXLINE_API_TOKEN`) or the local auth cache,
+- fetches and in-memory-caches a guest JWT (10-minute TTL), refreshing once on a `401`,
+- validates that all three coordinates are numeric (rejecting malformed requests),
+- and returns the pretty-printed Merkle proof JSON.
+
+Keys never reach the browser. The fan clicks a link and sees the real proof material resolving against the on-chain root.
+
+### 10.3 The recap route
+
+`POST /api/recap { matchId, style, favouriteTeam? }` is cached-first: preset styles with no personalization are served straight from committed pipeline outputs (instant, zero API spend), while a favourite-team personalization runs the real generation pipeline live and server-side, so the model key never reaches the client. Pre-generated ElevenLabs audio is returned when a matching mp3 exists; personalized live output falls back to on-demand synthesis.
+
+### 10.4 Audio narration
+
+`src/tts.ts` renders accepted recaps to speech via ElevenLabs, one voice profile per persona (energetic / measured / soft). Audio is a quota-critical, cache-first artifact: generated once for curated recaps, committed, and served as static assets.
+
+---
+
+## 11. Provenance chain (summary)
+
+The end-to-end guarantee, stated as a single chain, is:
+
+```
+daily_scores_roots PDA (on-chain Merkle root)
+   └─ { fixtureId, seq, statKey }  ──stat-validation──▶  Merkle proof  ──validateStatV2──▶  validation tx
+        └─ BriefEvent.proof  (deterministic, schema-gated)
+             └─ [ev_N] citation in generated prose  (validated, fail-closed)
+                  └─ "verify on-chain" link in the UI  (resolved via keyless proxy)
 ```
 
-**Derive `oddsHighlights` ourselves** (largest deltas in win probability, and what event they coincide with). This gives the commentary its best material — "the market swung 22 points the second that red card landed" — and it comes from data, not invention.
-
-Keep the brief under ~1,500 tokens. Write to `cache/briefs/<matchId>.json` (committed to git — this is our demo fallback).
-
-**Checkpoint:** Briefs exist for all cached matches and read cleanly to a human.
+Any fan can walk this chain backwards from a sentence they heard to the on-chain root that anchors it. That is the entire protocol.
 
 ---
 
-## 6.5. Phase 4.5 — Player names & minutes (web2 enrichment, TxLINE-verified)
+## 12. Limitations and future work
 
-*Added after the first end-to-end pass revealed the recaps read flat — "France scored, France
-scored" — with no scorers and no minutes. The devnet World Cup fixtures turned out to be **real**
-2026 World Cup matches (verified: Norway 1–4 France, Portugal 5–0 Uzbekistan), so real match reports
-exist to draw names from. Implemented for Norway–France first.*
-
-**Two facts, two trust tiers — never blurred:**
-- **Minute, team, and that-a-goal-happened** are on-chain-verified. The minute is derived from the
-  score record's running match `Clock`: `minute = floor(Clock.Seconds/60)+1`. It rides on the same
-  record whose `Seq`/`Stats` we already prove, and reproduces the officially announced minute exactly.
-  (This restores the `minute` the original plan wanted — the feed does carry it, just in `Clock`, not
-  `Data.Minutes`.) Extracted in `src/fetch.ts`.
-- **The scorer's name** is *not* in the feed. It comes from a public match report (FIFA/ESPN),
-  authored once into a committed `cache/scorers/<matchId>.json`, and is tagged with its `nameSource`.
-
-**Composition (`src/scorers.ts`, run inside `03-build-brief`, offline — no API):** align each named
-goal to a verified goal event by **(team, goal order)** — the *k*-th verified goal for a team is
-credited to the *k*-th scorer listed for that team. The minute is a **±2 cross-check only**, never the
-alignment key, so a report that's a minute off can't misattribute a goal. `composeScorers` **throws**
-if the report's per-team goal count disagrees with the chain (a real integrity signal). Own goals /
-penalties carry a flag; card-taker names stay unavailable (refer to the team).
-
-**Grounding stays honest:** the brief's `dataNotes` now say, per match, that the LLM may state a
-minute / name a scorer **only** for an event that carries one — never invent. The website receipts
-label each goal *"🔒 goal, team & minute verified on-chain · scorer name via <source>."* A name is
-either sourced or absent; nothing is fabricated.
-
-**To enrich a match:** author `cache/scorers/<id>.json` → `npm run fetch -- --match <id> --force`
-→ `npm run brief -- --match <id>` → `npm run text -- --match <id> --all-styles --force` →
-(optional) `npm run audio -- --match <id> --style <s> --force --confirm` → `cd web && npm run sync`.
-
-**Checkpoint:** Norway–France recaps name Dembélé's 7'/20'/32' hat-trick, Aasgaard's 21', and Doué's
-90+4', each goal still resolving to its on-chain Merkle proof.
+- **Devnet scope.** The reference implementation is devnet-only by deliberate constraint. Service level 12 (real-time) and mainnet roots are the natural production upgrade; the proof coordinate and resolution paths are network-agnostic.
+- **Odds.** The brief schema models an odds timeline and computed "odds highlights" (largest win-probability swings and the events they coincide with), but devnet specimen data carries no odds, so these are empty in the current corpus. On a feed with odds, this becomes first-class narrative material — "the market swung 22 points the second that red card landed" — sourced from data, not invention.
+- **Name provenance.** Scorer/booking names remain web2-attributed until an on-chain name feed exists; the trust-tier labelling is designed so this can be upgraded transparently.
+- **Live matches.** The protocol targets completed matches; extending to in-play would require consuming the live SSE stream and proving stats incrementally as roots are published.
 
 ---
 
-## 7. Phase 5 — Generate commentary text (target: 60 min)
+## Appendix A — Protocol constants (devnet)
 
-`scripts/04-generate-text.ts --match <id> --style <style>`
+| Constant | Value |
+|---|---|
+| RPC | `https://api.devnet.solana.com` |
+| Program id | `6pW64gN1s2uqjHkn1unFeEjAwJkPGHoppGvS715wyP2J` |
+| Service token mint (Token-2022) | `4Zao8ocPhmMgq7PdsYWyxvqySMGx7xb9cMftPMkEokRG` |
+| API base | `https://txline-dev.txodds.com/api` |
+| Guest auth | `https://txline-dev.txodds.com/auth/guest/start` |
+| Activation | `…/api/token/activate` |
+| Service level | `1` ("World Cup & Int Friendlies") |
+| Duration | `4` weeks (multiples of 4) |
+| Selected leagues | `[]` (standard free bundle) |
+| Competition id | `72` (World Cup) |
 
-**Model selection (do this first, it takes 10 min and de-risks the demo):**
-- OpenRouter, OpenAI-compatible: `POST https://openrouter.ai/api/v1/chat/completions`, `Authorization: Bearer $OPENROUTER_API_KEY`.
-- **Pin ONE specific `:free` model ID. Do NOT use `openrouter/free`** — it randomly rotates models per call, so output style would vary between the pre-generated recaps and the live demo. That's unacceptable for a demo.
-- Check the live free-model list on openrouter.ai (filtered to free) **today** — the lineup rotates without notice. Shortlist 2–3 candidates, run the same brief + style through each, pick the best writer.
-- Free tier limits: 20 req/min, 50 req/day unfunded. Plenty. Handle `429` with a clear error, not a silent retry storm.
-- Hardcode a `FALLBACK_MODEL` constant in case the primary is delisted before the demo.
+## Appendix B — Stat-key map
 
-**Styles (`src/styles.ts`)** — ship at least 3, they're just system prompts:
-- `hype` — Hype Hometown Commentator: explosive, partisan, big goal reactions.
-- `analyst` — Deadpan Stats Nerd: dry, odds-and-numbers obsessed, understated.
-- `bedtime` — Bedtime Story: narrates the match as a gentle fairy tale.
-- *(stretch)* `rival` — cocky trash-talk from the opposing side.
+| statKey | Meaning | | statKey | Meaning |
+|---|---|---|---|---|
+| 1 / 2 | P1 / P2 goals | | 5 / 6 | P1 / P2 red cards |
+| 3 / 4 | P1 / P2 yellow cards | | 7 / 8 | P1 / P2 corners |
 
-**Prompt structure:**
-- **System:** the persona + hard rules: *Use ONLY facts present in the supplied JSON. Never invent players, minutes, or scores. Target 300–400 words. After each factual claim, cite the event id in square brackets like [ev_12].*
-- **User:** the `MatchBrief` JSON + target style + optional favourite team for personalization.
-- **Post-process:** parse out `[ev_xx]` citations → map to the event's proof link → store as structured `{ text, citations[] }`, so the website can render "verify" links inline. Strip the raw tags from the display text.
-- **Validate before accepting:** assert the final score stated in the text matches the brief; assert every cited event ID actually exists. Fail loudly if not — this check is what makes the "grounded, verifiable AI" claim honest rather than marketing.
+Per-period keys are the base key offset by period: `first half = 1000 + base`, `second half = 3000 + base`. Home/away is resolved from `Participant1IsHome`.
 
-Write to `cache/recaps/<matchId>-<style>.json` (committed).
+## Appendix C — Activation preimage
 
-**Checkpoint:** 3 matches × 3 styles of text recaps, all passing validation, all reading well. **Zero TTS calls made so far.**
+```
+preimage        = `${subscribeTxSig}:${SELECTED_LEAGUES.join(",")}:${jwt}`
+walletSignature = base64( ed25519_detached_sign(preimage, subscribingWallet) )
+POST /api/token/activate
+  headers: Authorization: Bearer <jwt>
+  body:    { txSig, walletSignature, leagues }
+```
 
----
+## Appendix D — Repository map
 
-## 8. Phase 6 — Generate audio (target: 30 min) ⚠️ QUOTA-CRITICAL
-
-`scripts/05-generate-audio.ts --match <id> --style <style>`
-
-**Before any call, the script MUST:**
-1. Print the character count and the estimated remaining monthly quota.
-2. Refuse to run without an explicit `--confirm` flag.
-3. Skip entirely if `cache/audio/<matchId>-<style>.mp3` already exists (unless `--force`).
-
-**Budget plan (10,000 chars total for the month):**
-- Reserve ~2,500 chars for the live demo recording (including one retake).
-- That leaves ~3 pre-generated demo recaps. **Pick the 3 best text recaps only.** Do not generate audio for all 9.
-- If more testing headroom is needed, use a second free account with a different email for *voice auditioning only* — never for demo assets.
-
-**Implementation:**
-- ElevenLabs TTS REST endpoint, stock voice library (no cloning on free tier). Pick a voice per persona: energetic for `hype`, measured for `analyst`, soft for `bedtime`. Audition voices in their web UI (not via API) to save quota.
-- Save MP3 to `cache/audio/`, commit them (demo fallback).
-- **Free tier requires ElevenLabs attribution and grants no commercial rights** — add a credit line to the README, the website footer, and the submission notes. Cheap to do, avoids a compliance question from judges.
-
-**Checkpoint:** 3 polished MP3s on disk. Quota spent is known and logged in README.
-
----
-
-## 9. Phase 7 — Website (target: 90 min) — LAST STEP
-
-Only start once Phases 2–6 are green.
-
-- **Frontend:** single page. Match picker (the 3 cached matches) → style picker → Generate → audio player + transcript with inline **"verify on-chain"** links next to each cited fact, linking to Solana Explorer (`?cluster=devnet`).
-- **Backend:** one serverless route `POST /api/recap { matchId, style }` → returns cached recap + audio URL if it exists, else runs the live pipeline. **Keys stay server-side.**
-- **Design:** clean and legible beats fancy. The "verified on-chain" badge and the proof links ARE the visual identity — make them prominent, not a footnote.
-- **Deploy to Vercel** so judges get a live URL. A localhost-only build risks the "functional build" bar.
-
-**Checkpoint:** Public URL loads, all 3 cached demo recaps play instantly, verify links resolve to real devnet transactions.
+| Path | Role |
+|---|---|
+| `src/txline.ts` | On-chain subscribe → activate handshake; dual-credential data client |
+| `src/fetch.ts` | Timeline reconstruction; decrement-aware event extraction; minute derivation |
+| `src/brief.ts` | RawMatch → schema-validated MatchBrief; deterministic proof construction |
+| `src/types.ts` | Zod schemas (the anti-hallucination contract) |
+| `src/scorers.ts` | Count-checked positional web2 name alignment |
+| `src/recap.ts` | Grounded generation + fail-closed validation |
+| `src/styles.ts` | Personas + non-negotiable grounding rules |
+| `src/tts.ts` | ElevenLabs narration |
+| `scripts/build-stats.mjs` | Verified-aggregate + derived on-chain stats panel |
+| `web/app/api/proof/route.ts` | Keyless proof-resolution proxy |
+| `web/app/api/recap/route.ts` | Cached-first / live recap route |
 
 ---
 
-## 10. Phase 8 — Demo video + submission (target: 60 min)
-
-**The live generation for the video:**
-- Use a 4th match, brief already cached, text NOT yet generated — so the LLM call is genuinely live on camera but the risky data-fetch step is already de-risked.
-- **Have a pre-generated backup recap + audio ready.** If the live call 429s or returns a weak take, you must not be stuck re-recording under deadline pressure.
-- Do a full dry run *before* recording.
-
-**Video beats (2–3 min):**
-1. The problem: AI sports content is untrustworthy slop; you can't tell what's real.
-2. Live demo: pick match → pick persona → generated recap plays.
-3. **The money shot:** click a "verify" link → real on-chain transaction proving that goal, at that minute, is genuine. *"Every sentence has a receipt."*
-4. Show a second persona on the same match — same facts, different voice.
-
-**Submission checklist:**
-- [ ] Live URL (Vercel)
-- [ ] Public GitHub repo with README (setup, architecture diagram, TxLINE integration explained)
-- [ ] Demo video link
-- [ ] TxLINE used as *primary data input* — state this explicitly, judges are checking for it
-- [ ] ElevenLabs attribution present
-- [ ] Submit on Superteam Earn **before the 19 July close** — submit a working version EARLY, polish after if time allows
-
----
-
-## 11. Ordered task list for Claude Code
-
-Work strictly top to bottom. Do not start a phase until the previous checkpoint passes.
-
-1. Scaffold repo, `.env.example`, `.gitignore`, install deps.
-2. Fetch and read TxLINE docs via `llms.txt`; record real endpoints in README.
-3. Devnet keypair + airdrop; verify balance.
-4. Implement `01-auth.ts`: subscribe → guest JWT → sign → activate → persist token. **Copy the official devnet examples.**
-5. Implement `src/txline.ts` client with 401-refresh handling.
-6. Implement `02-fetch-match.ts`; cache 3–5 completed matches raw, **with proof references**.
-7. Implement `03-build-brief.ts` + zod schema + `oddsHighlights` derivation; commit briefs.
-7b. **(Phase 4.5)** Extract minutes from the record `Clock`; author `cache/scorers/<id>.json` from a web2 report and compose scorer names onto verified goals via `src/scorers.ts`; re-fetch + rebuild brief. Norway–France done; roll out to the other real WC matches.
-8. Audition 2–3 pinned OpenRouter free models on one brief; pick and hardcode primary + fallback.
-9. Implement `src/styles.ts` (3 personas) and `04-generate-text.ts` with citation parsing + fact validation.
-10. Generate 3 matches × 3 styles; human reviews; commit the good ones.
-11. Implement `05-generate-audio.ts` with quota guard + `--confirm`; generate audio for the **3 best only**.
-12. Implement `06-run-all.ts` (single command, end-to-end, cache-aware).
-13. Build `/web` page + `/api/recap` route; wire cached assets; deploy to Vercel.
-14. Record demo video (live gen on a 4th match, backup ready).
-15. Write README, submit on Superteam Earn.
-
----
-
-## 12. Cut list (if time runs short, drop in this order)
-
-1. 3rd/4th persona → ship 2.
-2. Live generation on the website → serve cached only, and make the live gen a CLI-demoed feature.
-3. Fancy UI → plain page.
-4. **Never cut:** the on-chain verify links. That's the entire pitch.
+*ProofCast is built on TxLINE (TxODDS) verifiable on-chain sports data, anchored to Solana. Narration by ElevenLabs. The fun of a matchday recap, on a foundation of provable truth.*
