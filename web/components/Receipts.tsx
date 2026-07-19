@@ -66,7 +66,11 @@ export function Receipts({ recap, match }: { recap: Recap; match: CatalogMatch }
                 <a href={c.proof.explorerUrl} target="_blank" rel="noreferrer">
                   Explorer ↗
                 </a>
-                <a href={c.proof.statValidationUrl} target="_blank" rel="noreferrer">
+                <a
+                  href={`/api/proof?fixtureId=${c.proof.fixtureId}&seq=${c.proof.seq}&statKey=${c.proof.statKey}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Merkle proof ↗
                 </a>
               </span>
