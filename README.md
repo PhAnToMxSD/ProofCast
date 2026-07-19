@@ -2,7 +2,7 @@
 
 ### The World Cup match-centre where every number is verified on-chain — and every match tells you its story out loud.
 
-### 🔗 Live demo: **[proofcast-sol.vercel.app](https://proofcast-sol.vercel.app)**
+### 🔗 Live demo: **[proofcast-sol.vercel.app](https://proofcast-sol.vercel.app)** && **[proofcast.netlify.app](https://proofcast.netlify.app)**
 
 ProofCast is a fan platform for the 2026 FIFA World Cup that turns match data into an experience:
 open any fixture and get the complete stats sheet — possession, shots, shots on target, corners,
