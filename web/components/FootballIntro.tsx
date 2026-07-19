@@ -16,33 +16,29 @@ import { useEffect, useState } from "react";
  * first frame and never blocks the page it sits over. The landing UI is already
  * rendered underneath; this overlay simply flashes white and unmounts to reveal it.
  *
- * Plays once per tab session (sessionStorage gate, mirrored by a blocking script in
- * layout.tsx so there's no pre-hydration flash). Honours prefers-reduced-motion and
- * offers a Skip control. Focal point (ball + goal) stays centred on every viewport.
+ * Plays on every mount of the page it sits on — i.e. every load/reload of the
+ * landing page. It renders on the server too (initial show = true) so it covers
+ * the page from the very first paint, with no flash of the UI beforehand.
+ * Honours prefers-reduced-motion and offers a Skip control. Focal point
+ * (ball + goal) stays centred on every viewport.
  */
 export function FootballIntro() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
-    // The head-gate script in layout.tsx already stamped html.fi-skip when the intro
-    // has run this session; trust it so we never double-play or flash on route changes.
-    if (typeof window === "undefined") return;
-    if (document.documentElement.classList.contains("fi-done")) return;
-    if (sessionStorage.getItem("pc-intro") === "1") return;
-
-    sessionStorage.setItem("pc-intro", "1");
-    setShow(true);
     document.body.classList.add("fi-lock");
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const dur = reduce ? 900 : 5600;
     const t = window.setTimeout(dismiss, dur);
-    return () => window.clearTimeout(t);
+    return () => {
+      window.clearTimeout(t);
+      document.body.classList.remove("fi-lock");
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function dismiss() {
-    document.documentElement.classList.add("fi-done");
     document.body.classList.remove("fi-lock");
     setShow(false);
   }
@@ -239,6 +235,9 @@ function CometTrail() {
 function ImpactBurst() {
   const shards: React.ReactNode[] = [];
   const N = 12;
+  // Round to fixed precision: raw Math.sin/cos serialize with a last-digit
+  // difference between Node (SSR) and the browser, tripping hydration.
+  const r = (v: number) => Math.round(v * 1000) / 1000;
   for (let i = 0; i < N; i++) {
     const a = (i / N) * Math.PI * 2;
     const x = Math.cos(a);
@@ -246,10 +245,10 @@ function ImpactBurst() {
     shards.push(
       <line
         key={i}
-        x1={x * 14}
-        y1={y * 14}
-        x2={x * 64}
-        y2={y * 64}
+        x1={r(x * 14)}
+        y1={r(y * 14)}
+        x2={r(x * 64)}
+        y2={r(y * 64)}
         style={{ ["--i" as string]: i }}
       />
     );

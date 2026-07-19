@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getCatalog } from "@/lib/catalog";
 import { Flag } from "@/components/Flag";
+import { FootballIntro } from "@/components/FootballIntro";
 
 // Pull real proof coordinates out of a stat-validation URL for the ticket stamp.
 function proofStamp(url: string): string {
@@ -21,6 +22,8 @@ export default function Landing() {
 
   return (
     <main className="landing shell">
+      {/* Anime cold-open loading sequence — replays on every landing-page load. */}
+      <FootballIntro />
       {/* Flanking trophies — decorative, painted behind the centred content. */}
       <span className="landing-trophy-side left" aria-hidden="true">
         {/* eslint-disable-next-line @next/next/no-img-element */}
